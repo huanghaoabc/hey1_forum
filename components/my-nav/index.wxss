@@ -1,0 +1,33 @@
+/* components/my-nav/index.wxss */
+@import "/components/common.wxss";
+
+.nav-box{
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+  top: 0;
+}
+
+.nav-return image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 44rpx;
+  margin-left: 24rpx;
+}
+
+
+
+
+.page-title{
+  font-size: 36rpx;
+  width: 250rpx;
+  position: absolute;
+  left: 250rpx;
+  top:56rpx;
+  text-align: center;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,15 @@
+<!--pages/wallet/index.wxml-->
+<common-nav title='我的余额' share="{{false}}"></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <view class="flex-row flex-x-center coin">
+    <image src='/images/coin.png' mode='aspectFill'></image>
+  </view>
+  <view class="flex-row flex-x-center title">我的余额</view>
+  <view class="flex-row flex-x-center price">￥{{money}}</view>
+  <view class="flex-row flex-x-center" bindtap="towithd">
+    <view class="t-button">提现</view>
+  </view>
+  <view class="flex-row flex-x-center" bindtap="toOrder">
+    <view class="t-button order">账单</view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<!--components/server-menu/index.wxml-->
+<title-box title='服务中心'>
+  <view class='flex-row user-data flex-y-center flex-x-center'>
+    <view class='flex-grow-0  user-data-row ' bindtap="tofeedback">
+      <view class='flex-row flex-x-center  icod'>
+        <image  src="/components/images/feedback.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>问题反馈</view>
+    </view>
+    <view class='flex-grow-0  user-data-row ' bindtap="toNotice">
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/message.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>消息中心<view wx:if="{{noticeCount>0}}" class="notice-icode">{{noticeCount}}</view></view>
+    </view>
+    <button hover-class="none" open-type='contact' class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/service.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>在线客服</view>
+    </button>
+    <navigator hover-class="none" open-type="navigate" url="/pages/common/rich-text?id=about" class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/about.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>关于我们</view>  
+    </navigator>
+  </view>
+</title-box>

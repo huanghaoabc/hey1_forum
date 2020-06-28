@@ -1,0 +1,16 @@
+<!--pages/my-circles/index.wxml-->
+<!-- 导航 -->
+<common-nav title='我的圈子' />
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <!-- 圈子项 -->
+  <circle-row list='{{list}}' check="{{check}}"></circle-row>
+  
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

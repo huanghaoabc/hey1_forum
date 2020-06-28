@@ -1,0 +1,16 @@
+/* pages/group-circle/into-rule/index.wxss */
+@import "/components/common.wxss";
+
+
+.home-page{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.i-check{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  bottom: 50rpx;
+}

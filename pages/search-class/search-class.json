@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-collapse": "/vant-weapp/dist/collapse/index",
+    "van-collapse-item": "/vant-weapp/dist/collapse-item/index",
+    "van-button": "/vant-weapp/dist/button/index"
+  }
+}

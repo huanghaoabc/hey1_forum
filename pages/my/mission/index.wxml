@@ -1,0 +1,124 @@
+<!-- 导航 -->
+<common-nav back='{{navData.back}}' underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+<!-- <view class='header-img'>
+  <image src='https://w7.hey1.net/addons/hey1_demo/core/public/wxapp/mission-bg.png'></image>
+</view> -->
+<view class='content' style="background-image:url({{cententBg}})">
+  <view class='user card-shadow'>
+    <view class='user-header'>
+      <image src='{{user.avatar}}'></image>
+    </view>
+    <view class='flex-row flex-x-right'>
+      <navigator hover-class="none" open-type="navigate" url="/pages/common/rich-text?id=task_explain" class='flex-grow-0'>
+        <van-icon name="question-o" color='#80848f' size="28rpx" />
+      </navigator>
+    </view>
+    <view class='flex-row user-census'>
+      <view class='flex-grow-0 user-lv user-census-item flex-col flex-y-center'>
+        <view class='user-lv-num user-census-item-value'>
+          {{user.level}}
+        </view>
+        <view bind:tap="showExpLog" class='user-lv-title flex-row flex-y-center user-census-item-title'>
+          <view>Lv</view>
+          <view class='user-census-item-icon'>
+            <van-icon name="arrow" color='#80848f' size="28rpx" />
+          </view>
+        </view>
+      </view>
+      <view class='flex-grow-0 user-score user-census-item flex-col flex-y-center'>
+        <view class='user-score-num user-census-item-value'>
+          {{user.score}}
+        </view>
+        <view bind:tap="showScoreLog" class='user-score-title flex-row flex-y-center user-census-item-title'>
+          <view>积分</view>
+          <view class='user-census-item-icon'>
+            <van-icon name="arrow" color='#80848f' size="28rpx" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='user-lv-info flex-row flex-y-center'>
+      <view class='flex-grow-0 user-lv-now flex-x-center flex-y-center'>
+        Lv.{{user.level}}
+      </view>
+      <view class='flex-grow-1 user-lv-process'>
+        <view class='flex-grow-0 flex-x-center user-lv-experience'>
+          经验值 <text>{{user.exp}}/{{user.lastExp}}</text> 
+        </view>
+        <view class='flex-grow-0 user-lv-progress'>
+          <van-progress
+    percentage="{{user.percentage}}"
+    pivot-color="#7232dd"
+    show-pivot="{{false}}"
+    color="linear-gradient(to right, #f4abab, #f33535)"
+  />
+        </view>
+        <view class='flex-grow-0 user-lv-label flex-row flex-y-center flex-x-center'>
+          <text>下一等级</text> 
+          <view class='user-census-item-icon'>
+            <van-icon name="play" color='#bbbec4' size="22rpx" />
+          </view>
+          <view class='user-census-item-icon'>
+            <van-icon name="play" color='#bbbec4' size="22rpx" />
+          </view>
+        </view>
+      </view>
+      <view class='flex-grow-0 user-lv-next flex-x-center flex-y-center'>
+        Lv.{{user.lastLevel}}
+      </view>
+    </view>
+  </view>
+  <view class='task-item card-shadow' wx:for="{{task}}" wx:for-index="classify" wx:for-item="tasks">
+    <view class='task-h1 flex-row'>
+      {{classify==1?'每日任务':'进阶任务'}}
+    </view>
+    <view class='task-list flex-row flex-y-center' wx:for="{{tasks}}">
+      <view wx:if="{{item.icon}}" class='flex-grow-0 task-icon'>
+        <image src='{{item.icon}}'></image>
+      </view>
+      <view class='flex-grow-1 task-info flex-row flex-y-center {{index+1 == tasks.length ?"task-info-last":""}}'>
+        <view class='flex-grow-1'>
+          <view class='task-name'>
+            <text>{{item.name}}</text><block wx:if="{{classify==1}}">（{{item.use_num}}/{{item.num}}）</block>
+            <van-icon wx:if="{{item.explain}}" name="question" data-classify='{{classify}}' data-index='{{index}}' bind:click="showExplain" color='#80848f' size="30rpx" />
+          </view>
+          <view class='mask-reward'>
+            <block wx:if="{{item.exp > 0}}">经验 <text>+{{item.exp}}/次</text></block>
+            <block wx:if="{{item.score > 0}}">积分 <text>+{{item.score}}/次</text></block>
+          </view>
+        </view>
+        <view wx:if="{{item.use_num < item.num}}" data-classify="{{classify}}" data-index="{{index}}" bind:tap="toWorking" class='flex-grow-0 task-play flex-y-center'>
+          {{item.task_id == 1 ? '签到' : '做任务'}}
+        </view>
+        <!-- <view wx:if="{{item.task_id == 1}}" data-classify="{{classify}}" data-index="{{index}}" bind:tap="toWorking" class='flex-grow-0 task-play flex-y-center'>
+          做任务
+        </view> -->
+        <view wx:if="{{item.use_num >= item.num}}" class='flex-grow-0 task-play task-play-over flex-y-center'>
+          {{item.task_id == 1 ? '已签到' : '已完成'}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-dialog id="van-log-dialog" title="{{type==1?'经验明细':'积分明细'}}" use-slot show="{{logModelShow}}" zIndex="1000" overlay confirmButtonText="关闭">
+  <scroll-view scroll-y style="height: 400px;" bindscrolltolower="logModelOnbottom">
+    <view style='height:30rpx;'></view>
+    <view wx:for="{{list}}" class='flex-row log-item flex-y-center'>
+      <view class='flex-grow-1 '>
+        <view class='log-title'>
+          {{item.title}}
+        </view>
+        <view class='log-time'>
+          {{item.createtime_text}}
+        </view>
+      </view>
+      <view class='flex-grow-0 log-value'>
+        {{item.mode == 1 ? '+' : '-'}} {{type==1?item.exp:item.score}}
+      </view>
+    </view>
+  </scroll-view>
+</van-dialog>
+
+<sign-in show="{{signInShow}}" data="{{signData}}" bind:myevent="onMyEvent" />

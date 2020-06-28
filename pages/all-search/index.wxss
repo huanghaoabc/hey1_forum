@@ -1,0 +1,110 @@
+/* pages/all-search/index.wxss */
+@import "/components/common.wxss";
+
+.sea-type{
+  background-color: #fff;
+  padding: 24rpx;
+  font-size: 28rpx;
+}
+
+.sea-row{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.action{
+  font-size: 28rpx;
+  background-color: #f33535;
+  color: #fff;
+  padding:10rpx;
+  border-radius: 10rpx;
+}
+
+.host{
+  background-color: #fff;
+  margin-top: 24rpx;
+  padding: 24rpx;
+  font-size: 26rpx;
+}
+
+.host image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+
+.host-box{
+  margin-top: 10rpx;
+}
+
+.host-row{
+  display: inline-flex;
+  margin: 10rpx;
+  background-color: #fcf1f1;
+  color: #f33535;
+  padding:10rpx;
+  border-radius: 10rpx;
+}
+
+.history{
+  padding: 24rpx;
+  font-size: 26rpx;
+  color: #676767;
+}
+
+.his-del{
+  background-color: #fefefe;
+  height: 50rpx;
+  width: 80rpx;
+  border-radius: 30rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.his-box{
+  padding: 24rpx;
+  background-color: #fff;
+}
+
+.his-row{
+  display: inline-flex;
+  margin: 10rpx;
+  background-color: #f2f2f2;
+  color: #2a2a2a;
+  padding:10rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+}
+
+.result-box{
+  padding: 24rpx;
+  background-color: #fff;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  
+}
+
+.res-title{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10rpx;
+}
+
+.res-des{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 26rpx;
+  color: #b2b2b2
+}
+
+.result-box image{
+  height: 100rpx;
+  width: 100rpx;
+  margin-right: 14rpx;
+}

@@ -1,0 +1,166 @@
+/* flex 模型 */
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.flex-col{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-grow-0{
+    min-width: 0;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.flex-grow-1{
+    min-width: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+
+.flex-x-center{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.flex-x-right{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: flex-end;
+}
+.flex-y-center{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+}
+.flex-y-bottom{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+}
+.flex-s-bottom{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: space-between;
+}
+.user-level{
+  font-size: 24rpx;
+  background-color: #29252C;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 90rpx;
+}
+
+.circle-button{
+  height: 40rpx;
+  width: 104rpx;
+  background-color: #F33535;
+  color: #fff;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  border-radius: 50rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+/* 卡片边框阴影通用 */
+.card-shadow{
+  box-shadow:1rpx 6rpx 14rpx #dddee1;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.fixblock {width:100%; height:100rpx;}
+.fixButton {width:100%; height:100rpx; line-height:100rpx; font-size:34rpx; color:#fff; background:#f00;text-align:center; position:fixed; left:0; bottom:0; z-index:9;} 
+.popBox {width:100vw; height: 100vh; background:rgba(0,0,0,.5); position:fixed; left:0; top:0; z-index:10}
+.SelectBox {width:666rpx; margin:20rpx; background:#fff; border-radius:15rpx;  padding:20rpx; position:relative; border:2rpx solid #fff;}
+.SelectBox.Addborder {border:2rpx solid #eee;}
+.SelectBox .selectIcons {display:inline-block;width:17rpx; height: 24rpx; vertical-align: middle; margin-left:10rpx}
+.SelectBox .selectTxt {display:inline-block;vertical-align: middle;font-size: 24rpx;text-align:right}
+.SelectBox .tabButtons {font-size:24rpx; padding:0 24rpx; border-bottom:4rpx solid #fff; line-height:2}
+.SelectBox .tabButtons.curr {color:#F33535; border-color: #F33535;}
+.ShowSelectBox {width:626rpx; padding:20rpx;  background:rgba(255,255,255,.9); }
+.ShowSelectBox .ShowSelectBoxItem {width:100%; line-height:50rpx; height:50rpx;}
+.ShowSelectBox .ShowSelectBoxItem .isYes {height:32rpx; width:32rpx;margin:9rpx;}
+.shouShaixuan {width:100vw; height:100vh; background:rgba(0,0,0,.5); position:fixed; left:0; top:0; z-index:2;}
+.popBoxShaixuan {width:680rpx; height:85vh; position:fixed; z-index:3; right:0; bottom:0; background:#fff; border-radius:15rpx 0 0 0; border:2rpx solid #eee}
+.popBoxShaixuan .LeftTab {width:200rpx; border-bottom:2rpx solid #eee; border-right:2rpx solid #eee; text-align:center; padding:20rpx 0; font-size:30rpx;}
+.popBoxShaixuan .LeftTab.curr {border-right: 2rpx solid #fff; font-weight:bold;}
+.selectItemBoxs {height:63vh;}
+.selectItemsTabBox {padding:15rpx; height:calc(63vh - 30rpx); overflow-y:auto}
+.selectItemsTabBoxTag {display:inline-block; padding:0 25rpx; line-height:48rpx; font-size:27rpx; border:2rpx solid #e5e5e5; background:#e5e5e5; border-radius:24rpx; margin:23rpx;}
+.selectItemsTabBoxTag.curr {background:#fcedea; color:#fa2f2f; border:2rpx solid #fa2f2f;}
+.yixuanText,.yixuanTextItem {font-size:26rpx; height:48rpx;line-height:48rpx; display:inline-block; margin:10rpx; padding:0 10rpx;border:2rpx solid #fff; border-radius:24rpx}
+.yixuanTextItem {background:#fcedea; color:#fa2f2f; border:2rpx solid #fa2f2f;margin:5rpx 10rpx;padding:0 10rpx; font-size:24rpx}
+.yixuanTextImg {width:26rpx; height:26rpx; margin:11rpx 0 0 10rpx; display:inline-block; vertical-align: top;}
+.popSelectButton1,.popSelectButton2 {width:250rpx; height:60rpx; border: 2px solid #ccc; text-align:center; line-height:60rpx; font-size:26rpx; border-radius:10rpx;}
+.popSelectButton2 {background:#fa2f2f; color:#fff;border: 2px solid #fa2f2f;}
+.ListImageMin {width:90rpx; height:140rpx; margin:30rpx 10rpx 0 0rpx;}
+.scrollBox {width:670rpx; background:#fff; border-radius: 15rpx; height:50rpx; line-height:50rpx; font-size:26rpx; margin:0 auto; overflow-x:auto; padding:20rpx;}
+.scrollBoxItem { display:inline-block; border-bottom:4rpx solid #fff; margin:0 10rpx; width:80rpx; text-align:center}
+.scrollBoxItem.curr {color:#fa2f2f; border-bottom:4rpx solid #fa2f2f}
+/* ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  } */
+  

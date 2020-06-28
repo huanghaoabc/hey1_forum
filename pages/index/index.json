@@ -1,0 +1,19 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "home-nav": "/components/home-nav/index",
+    "title-box": "/components/title-box/index",
+    "group-circle": "/components/group-circle/index",
+    "host-topic": "/components/host-topic/index",
+    "classify-nav": "/components/classify-nav/index",
+    "van-notice-bar": "/vant-weapp/dist/notice-bar/index",
+    "display-window": "/components/display-window/index",
+    "margin-100": "/components/margin-100/index",
+    "article-list": "/components/article-list/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "nofind": "/components/nofind/index",
+    "sub-buttom": "/components/sub-buttom/index"
+  }
+}

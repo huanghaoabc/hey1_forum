@@ -1,0 +1,35 @@
+/* components/share-box/index.wxss */
+@import "/components/common.wxss";
+.mask-box {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 99;
+  opacity: 0.2;
+}
+
+.input-box{
+  position: fixed;
+  height: 250rpx;
+  width: 100%;
+  background-color:#fff;
+  bottom: 0;
+  z-index: 99999;
+  font-size: 28rpx;
+  padding: 24rpx;
+}
+
+.input-box image{
+  height: 80rpx;
+  width: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.icod-row{
+  margin-left: 44rpx;
+  margin-right: 44rpx;
+  font-size: 28rpx;
+}

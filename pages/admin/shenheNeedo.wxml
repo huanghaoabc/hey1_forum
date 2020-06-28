@@ -1,0 +1,135 @@
+<!--pages/release/release.wxml-->
+<!--pages/group-circle/index/index.wxml-->
+
+<!-- 导航 -->
+<common-nav title='发布其它需求'></common-nav>
+<form bindsubmit="formSubmit" report-submit>
+	<view class='home-page' style='margin-top:{{height}}rpx'>
+		<view class="flex-row mun-box flex-y-center redbao" wx:if="{{markCheck==1}}">
+			<view class="flex-col mun-row " bindtap="showRedSet">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/redbao.png' mode='aspectFill'></image>红包帖
+				</view>
+			</view>
+		</view>
+		<!-- <view class="draft">
+    <image src='/images/draft.png' mode='aspectFill'></image>
+  </view> -->
+
+		<van-field placeholder="请输入标题（6-30个字）" value="{{title}}" border="{{ true }}" bind:change="inputTitle" clearable maxlength="30" />
+
+		<!-- 			   -->
+		<view class="content">
+		<view  class="flex-row">
+				<view  class="flex-grow-0 flex-row mr0_10 borderBottom w50p" >
+					<view class="flex-grow-0 checkedTit" style="width:140rpx; text-align:left;">需求数量:</view>
+					<view class="flex-grow-1"><input bindinput="needCount" type="text" class="InputSize" value="{{fandsNumber}}" /></view>
+				</view>
+				<view class="flex-grow-0 flex-row flex-row mr0_10  w50p">
+						<view class="flex-grow-0 checkedTit" style="width:140rpx; text-align:left;">需求平台:</view>
+						<view class="flex-grow-0">
+							<picker bindchange="platformFn" value="{{platformArrIndex}}" range="{{platformArr}}">
+								<view class="picker SelectItemIconBtn {{platformArrIndex == 0 ? 'defaultStyle':''}}" style="font-size:24rpx;">
+									{{platformArr[platformArrIndex]}}
+								</view>
+							</picker>
+						</view>
+				</view>
+			</view>
+			
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 flex-row flex-row mr0_10 ">
+						<view class="flex-grow-0 checkedTit" style="width:140rpx; text-align:left;">需求类型:</view>
+						<view class="flex-grow-0">
+							<picker bindchange="needType" value="{{needTypeArrIndex}}" range="{{needTypeArr}}">
+								<view class="picker SelectItemIconBtn {{needTypeArrIndex == 0 ? 'defaultStyle':''}}" style="font-size:24rpx;">
+									{{needTypeArr[needTypeArrIndex]}}
+								</view>
+							</picker>
+						</view>
+				</view>
+			</view>
+			
+			<view class="hr10"></view>
+			
+		</view>
+		<!-- 			   -->
+		
+
+<view wx:for="{{data}}">
+			<!-- 文本框 -->
+			<view class="content" wx:if="{{item.type==1&&subType==12}}">
+			<!-- ChanneTitle -->
+				<view class="flex-row borderBottom">
+					<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">需求描述</view>
+					<view class="flex-grow-1"></view>
+				</view>
+				<view class="hr10"></view>
+				<!-- ChanneTitle END -->
+				<view class="flex-row">
+					<view class="flex-grow-1">
+						<textarea wx:if="{{!show}}" style="width:620rpx;height:100rpx;padding:10rpx; line-height:1.5; font-size:30rpx; border:1px solid #eee; border-radius:10rpx; " auto-height="{{!is_sort}}" maxlength="200" value="{{item.value}}" data-index="{{index}}" bindinput="inputContent" placeholder="请输入需求描述" placeholder-style="font-size:14px">
+        </textarea>
+					</view>
+				</view>
+			</view>
+</view>
+
+<!-- 图片框 -->
+		<!-- 视频框 -->
+		<view class="content" wx:if="{{video_url!=''}}">
+			<video src="{{video_url}}" controls show-center-play-btn="{{true}}" title="{{title}}"></video>
+		</view>
+		<view class="flex-row mun-box flex-y-center flex-x-center" wx:if="{{subType==3}}">
+			<!-- <view class="flex-col mun-row " bindtap="addText">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/font.png' mode='aspectFill'></image>插入文本
+				</view>
+			</view> -->
+			<!-- <view class="flex-col mun-row" bindtap="chooseImg">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/image.png' mode='aspectFill'></image>插入图片
+				</view>
+			</view>
+			<view class="flex-col mun-row" bindtap="switchSort">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/sort.png' mode='aspectFill'></image>
+					<view class="{{is_sort?'sort-buut':''}}">{{is_sort?'完成排序':'排序'}}</view>
+				</view>
+			</view> 
+			<view class="flex-col mun-row " bindtap="addVideo">
+				<view class="flex-row flex-y-center">
+					<image src='/images/videotape.png' mode='aspectFill'></image>选择视频
+				</view>
+			</view>
+			-->
+		</view>
+
+
+		<van-dialog use-slot title="红包帖设置" show="{{ show }}" bind:confirm="confResSet">
+			<van-cell-group>
+				<view class="flex-row flex-y-center" style="margin-top:24rpx;">
+					<view class="flex-col red-colo">是否开启</view>
+					<view class="flex-col">
+						<van-switch checked="{{ redSet.status }}" size="24px" bind:change="changeRedStatus" />
+					</view>
+				</view>
+				<van-field value="{{ redMoney }}" type="number" clearable label="红包金额" data-type="1" placeholder="请输入红包金额" bind:input="bindRedData" />
+
+				<van-field value="{{ redNumber }}" type="number" clearable label="红包个数" icon="question-o" data-type="2" bind:input="bindRedData" placeholder="请输入红包个数" border="{{ false }}" bind:click-icon="showRedNumMsg" />
+			</van-cell-group>
+		</van-dialog>
+		<van-toast id="van-toast" zIndex="9999" />
+	</view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="FixButton">
+		<button form-type="submit" bindtap="subBefore">
+			<view class="FixButton_fabiaoBtn">确认提交</view>
+		</button>
+	</view>
+</form>

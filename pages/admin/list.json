@@ -1,0 +1,16 @@
+{
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "circle-top": "/components/circle-top/index",
+    "circle-admin-list": "/components/circle-admin-list/index",
+    "classify-nav": "/components/classify-nav/index",
+    "display-window": "/components/display-window/index",
+    "article-list": "/components/article-list/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "nofind": "/components/nofind/index",
+    "sub-buttom": "/components/sub-buttom/index"
+  }
+}

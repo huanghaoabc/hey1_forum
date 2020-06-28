@@ -1,0 +1,153 @@
+/* pages/my/mission/index.wxss */
+@import "/components/common.wxss";
+.content{
+  padding: 0 24rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-top: 240rpx;
+  padding-bottom: 30rpx;
+}
+.user{
+  border-radius: 10rpx;
+  background-color: #fff;
+  position: relative;
+  padding: 0 24rpx;
+}
+.user-header{
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  top: -60rpx;
+  left: 50%;
+  margin-left: -60rpx;
+  border-radius: 50%;
+  border: 2rpx solid #dddee1;
+  overflow: hidden;
+}
+.user-header image{
+  height: 120rpx;
+  width: 120rpx;
+}
+.user-census{
+  justify-content:space-around;
+}
+.user-census-item{
+  margin: 30rpx 0;
+}
+.user-census-item-value{
+  color: #1c2438;
+  font-weight: 500;
+  font-size: 48rpx;
+}
+.user-census-item-title{
+  font-size: 28rpx;
+  color: #80848f;
+  align-items:flex-end;
+}
+.user-census-item-icon{
+  line-height: 1;
+}
+.user-lv-info{
+  padding: 0 30rpx 24rpx 30rpx;
+}
+.user-lv-process{
+  margin: 0 24rpx;
+}
+.user-lv-experience{
+  font-size: 28rpx;
+  color: #1c2438;
+  margin-bottom: 30rpx;
+}
+.user-lv-experience text{
+  color: #f33535;
+  font-weight: 500;
+  margin-left: 10rpx;
+}
+.user-lv-label{
+  color: #bbbec4;
+  font-size: 20rpx;
+  margin-top: 24rpx;
+}
+.user-lv-label text{
+  margin-right: 14rpx;
+}
+.user-lv-now ,.user-lv-next {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 140rpx;
+  width: 140rpx;
+  color: #1c2438;
+  font-size: 38rpx;
+  font-weight: 500;
+}
+
+.task-item{
+  margin-top: 24rpx;
+  padding: 24rpx;
+}
+.task-h1{
+  font-size: 34rpx;
+  color: #1c2438;
+  font-weight: 500;
+  padding: 14rpx 0;
+}
+.task-icon, .task-icon image{
+  height: 80rpx;
+  width: 80rpx;
+}
+.task-icon{
+  margin-right: 24rpx;
+}
+.task-name{
+  color: #80848f;
+  font-size: 30rpx;
+}
+.task-info{
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #e9eaec;
+}
+.task-info-last{
+  border-bottom: none;
+}
+.task-name text{
+  color: #1c2438;
+  /* font-weight: 500; */
+}
+.mask-reward{
+  font-size: 24rpx;
+  color: #495060;
+  margin-top: 10rpx;
+}
+.mask-reward text{
+  color: #f33535;
+}
+.task-play{
+  background-color: #f33535;
+  font-size: 24rpx;
+  color:#fff;
+  padding: 0 30rpx;
+  border-radius: 48rpx;
+  font-weight: 500;
+  height: 52rpx;
+}
+.task-play-over{
+  background-color: #c5c8ce;
+  color: #808695;
+}
+.log-item{
+  border-top: 1rpx solid #e9eaec;
+  margin: 0 24rpx;
+  padding: 24rpx 0;
+}
+.log-title{
+  color: #1c2438;
+  font-size: 28rpx;
+}
+.log-time{
+  color: #80848f;
+  font-size: 24rpx;
+}
+.log-value{
+  font-size: 32rpx;
+  color: #f33535;
+}

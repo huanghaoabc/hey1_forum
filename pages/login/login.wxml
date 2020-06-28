@@ -1,0 +1,17 @@
+<!--pages/login/login.wxml-->
+<van-notify id="custom-selector" />
+<view class='flex-row flex-y-center  nav-box' style='height: {{height}}rpx;background-color:#fff;'>
+  <view class='flex-grow-0  nav-return' wx:if="{{!share}}" >
+    <image src="/components/images/return{{color=='#fff'?'-white':''}}.png" mode='aspectFill' bindtap='_back'></image>
+  </view>
+  <view class='page-title flex-grow-0' style="color:{{color}};">授权登陆</view>
+</view>
+<view class='empty_tip'>
+  <view class='flex-row flex-x-center'>平台将申请获得以下权限：</view>
+  <view class='flex-row flex-x-center des'>获得您的公开信息（昵称、头像、性别等）</view>
+  <view class='flex-row flex-x-center t-button'>
+    <button class='flex-col t-return' bindtap='_back'>再逛逛</button>
+    <button open-type='getUserInfo'  bindgetuserinfo="wxlogin" class='flex-col t-return t-fill'>登陆</button>
+  </view>
+</view>
+

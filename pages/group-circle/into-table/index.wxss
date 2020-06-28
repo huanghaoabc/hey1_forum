@@ -1,0 +1,58 @@
+/* pages/group-circle/into-table/index.wxss */
+@import "/components/common.wxss";
+
+
+.go-now{
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f33535;
+    color: #fff;
+    height: 100rpx;
+    font-size: 30rpx;
+}
+
+.row{
+    margin-top: 10rpx;
+}
+.selector-row{
+    height: 100rpx;
+    background-color: #fff;
+    padding: 0 30rpx;
+    color:#333;
+    font-size:14px;
+
+}
+.selector-row-value{
+    color: #999999;
+}
+.selector-row-value picker{
+    width: 100%;
+}
+
+.upload-image{
+  width: 100%;
+  background-color:  #fff;
+  margin-top: 10rpx;
+  padding-bottom: 24rpx;
+}
+
+.upload-image image{
+  height: 180rpx;
+  width: 180rpx;
+  margin-left: 44rpx;
+  margin-top: 24rpx;
+}
+
+.image-des{
+  margin-left: 64rpx;
+  color:#333;
+  font-size:14px;
+}
+
+.i-des{
+  color: #999999;
+  margin-top: 24rpx;
+  font-size:10px;
+}

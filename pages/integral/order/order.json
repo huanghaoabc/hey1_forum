@@ -1,0 +1,13 @@
+{
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-tab": "/vant-weapp/dist/tab/index",
+    "van-tabs": "/vant-weapp/dist/tabs/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "van-dialog": "/vant-weapp/dist/dialog/index",
+    "van-toast": "/vant-weapp/dist/toast/index"
+  }
+}

@@ -1,0 +1,10 @@
+<!--pages/limit-msg/index.wxml-->
+<view class="flex-row flex-x-center c-icon">
+  <icon type="warn" size="70"></icon>
+</view>
+
+<view class="flex-row flex-x-center c-warn">您因{{msg.limit_msg}}已限制访问该小程序</view>
+
+<view class="flex-row flex-x-center c-msg">很抱歉，您已被限制访问，限制时间截止{{msg.limit_endtime}}，请自觉遵守社区规范，营造良好网络环境！</view>
+
+<button open-type="contact" class="y-bottom">联系在线客服</button>

@@ -1,0 +1,22 @@
+<!--components/article-user/index.wxml-->
+<view class='user-box flex-row flex-y-center'>
+  <view class='flex-grow-0 avatar flex-y-center'  bindtap="tocenter">
+    <image src='{{data.avatar}}'  mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-1 uesr-msg ' bindtap="tocenter">
+    <view class='flex-row flex-y-center'>
+      <view class='flex-grow-0 flex-y-center'>{{data.nickname}}
+        <image 
+          wx:if="{{data.is_admin==1}}" 
+          style='height:40rpx;width:40rpx' 
+          src='/components/images/official.png'
+          mode='aspectFill'>
+        </image>
+      </view>
+      <!-- <view class='flex-grow-0 user-level'>LV{{data.level}}</view> -->
+    </view>
+    <view class='flex-row sub-time'>发布于 . {{ctime}}</view>
+  </view>
+  <view class='flex-grow-0 follow' wx:if="{{followed==0}}" bindtap="follow">关注</view>
+  <view class='flex-grow-0 follow del-follow' wx:if="{{followed==1}}" bindtap="follow">已关注</view>
+</view>

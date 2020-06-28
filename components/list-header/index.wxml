@@ -1,0 +1,21 @@
+<!--components/list-header/index.wxml-->
+<view class='list-box'>
+  <view class='flex-row flex-y-center search-box' bindtap="toSeach">
+    <view class='flex-grow-0 search-icod'>
+      <image src='/components/images/search.png' mode='aspectFill'></image>
+    </view>
+    <view class='flex-grow-0 search-title'>
+      {{keyTitle}}
+    </view>
+  </view>
+  <view class='flex-row flex-y-center  c-option'>
+    <view 
+      class="flex-grow-0 c-row {{checkIndex==index?'active':''}}"
+      wx:for='{{navTitle}}'
+      data-index='{{index}}'
+      data-iden='{{item.iden}}'
+      bind:tap="onClickNav"
+      >{{item.title}}
+    </view>
+  </view>
+</view>

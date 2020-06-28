@@ -1,0 +1,69 @@
+/* components/common-nav/index.wxss */
+@import "/components/common.wxss";
+
+.nav-box{
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+  top: 0;
+}
+
+.nav-return image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 40rpx;
+  margin-left: 24rpx;
+}
+
+
+.down-line{
+  margin-top: 28rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  font-size: 28rpx;
+  color: #AAAAAA
+}
+
+.nav-botton{
+  font-size: 18rpx;
+  margin-top: 36rpx;
+}
+
+.nav-botton image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.page-title{
+  font-size: 36rpx;
+  width: 250rpx;
+  position: absolute;
+  left: 250rpx;
+  top:56rpx;
+  text-align: center;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.common-nav-button::after {
+  border: none;
+}
+
+.common-nav-button {
+  /* font-size: 28rpx; */
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+  border-radius: 0;
+}
+
+/* input {
+  outline: none;
+  border: none;
+  list-style: none;
+} */

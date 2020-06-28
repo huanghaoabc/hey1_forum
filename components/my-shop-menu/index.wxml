@@ -1,0 +1,39 @@
+<!--components/my-shop-menu/index.wxml-->
+<title-box title='积分商城' url='/pages/integral/index/index'>
+  <view class='flex-row user-data flex-y-center flex-x-center'>
+    <navigator open-type='navigate' hover-class='none' url='/pages/my/mission/index' class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center  icod'>
+        <image  src="/components/images/menu.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>任务中心</view>
+    </navigator>
+    <navigator open-type='navigate' hover-class='none' url='/pages/my/mission/index' class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/integral.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>我的积分</view>
+    </navigator>
+    <navigator open-type='navigate' hover-class='none' url='/pages/integral/index/index' class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/shop.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>前往商城</view>
+    </navigator>
+    <navigator open-type='navigate' hover-class='none' url='/pages/integral/order/order'  class='flex-grow-0  user-data-row '>
+      <view class='flex-row flex-x-center icod'>
+        <image  src="/components/images/order.png" mode='aspectFill'></image>
+      </view>
+      <view class='flex-row flex-x-center'>订单记录</view>  
+    </navigator>
+  </view>
+  <view class='flex-row menu-title'>热门商品兑换，不定时更新</view>
+  <view class='flex-row shop flex-x-center'>
+    <view class='flex-col shop-row'  wx:for="{{data}}" data-id="{{item.id}}" bindtap="toShop">
+      <view class='flex-row shop-image'>
+        <image src='{{item.smallimage}}'  mode='aspectFill'></image>
+      </view>
+      <view class='flex-row shop-title'>{{item.name}}</view>
+      <view class='flex-row shop-price'>{{item.integral}}积分</view>
+    </view>
+  </view>
+</title-box>

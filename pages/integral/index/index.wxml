@@ -1,0 +1,42 @@
+<!--pages/integral/index/index.wxml-->
+<!-- 导航 -->
+<common-nav underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+<!-- 搜索 -->
+<van-search background="#F2F2F2" value="{{ value }}" shape="round" placeholder="请输入搜索关键词" bind:focus="onSearch">
+</van-search>
+<!-- 轮播图 -->
+<display-window heiget="280rpx" bgColor="#F2F2F2" shape="corner" sticky="true" position="5"/>
+<!-- 积分商品 -->
+<van-tabs bindchange="classifyClick" active="{{ active }}" offsetTop="{{height/2}}" animated swipeable sticky z-index='999'>
+  <van-tab wx:for="{{classify}}" title="{{item.name}}">
+      <view class='product'>
+        <view class='product-title flex-row flex-x-center flex-y-center'>
+          <view class='product-title-line'></view>
+          <view class='product-title-name flex-grow-0'>{{item.name}}</view>
+          <view class='product-title-line'></view>
+        </view>
+        <view class='product-list flex-row flex-wrap'>
+          <navigator wx:for="{{product}}" url='/pages/integral/details/details?id={{item.id}}' hover-class='none'  class='product-item card-shadow'>
+              <view class='product-img'>
+                <image lazy-load src='{{item.smallimage}}' mode='aspectFill'></image>
+                <view wx:if="{{item.stock <= 0}}" class='empty'>
+                  卖光啦
+                </view>
+              </view>
+              <view class='product-name'>
+                {{item.name}}
+              </view>
+              <view class='product-money'>
+                <text>{{item.integral}}</text>积分
+              </view>
+          </navigator>
+        </view>
+      </view>
+  </van-tab>
+</van-tabs>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && product.length > 0}}'></hey-empty>

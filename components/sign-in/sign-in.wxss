@@ -1,0 +1,61 @@
+/* components/sign-in/sign-in.wxss */
+@import "/components/common.wxss";
+.mask{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 99999;
+  top: 0;left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* filter:blur(5px); */
+  overflow: hidden;
+}
+.mask::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: blur(200px);
+    filter: blur(200px);
+    z-index:-1;
+    background-color: #fff;
+}
+.sign{
+  height: 835rpx;
+  width: 655rpx;
+  background-size: 100%;
+  position: relative;
+}
+.score{
+  color: #e93431;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.score text{
+  font-size: 48rpx;
+  margin-left: 10rpx;
+}
+.exp{
+  margin-left: 24rpx;
+}
+.content{
+  position: absolute;
+  top: 590rpx;
+  width: 460rpx;
+  left: 100rpx;
+}
+.tip{
+  font-size: 24rpx;
+  color: #80848f;
+  padding: 10rpx 0;
+}
+.close{
+  margin: 0 130rpx;
+  border-radius: 30rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #e8332f;
+}

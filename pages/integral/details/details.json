@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "title-box": "/components/title-box/index",
+    "van-goods-action": "/vant-weapp/dist/goods-action/index",
+    "van-goods-action-icon": "/vant-weapp/dist/goods-action-icon/index",
+    "van-goods-action-button": "/vant-weapp/dist/goods-action-button/index"
+  }
+}

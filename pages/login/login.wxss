@@ -1,0 +1,71 @@
+/* pages/login/login.wxss */
+@import "/components/common.wxss";
+
+.nav-box{
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+  top: 0;
+}
+
+.nav-return image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 40rpx;
+  margin-left: 24rpx;
+}
+
+
+
+.page-title{
+  font-size: 36rpx;
+  width: 250rpx;
+  position: absolute;
+  left: 250rpx;
+  top:56rpx;
+  text-align: center;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.empty_tip{
+  position: fixed;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  font-size: 32rpx;
+}
+
+.des{
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #aaa;
+}
+
+.t-button{
+  margin-top: 180rpx;
+}
+
+.t-return{
+  height: 60rpx;
+  width: 230rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border:1rpx solid #f33535;
+  border-radius: 50rpx;
+  color: #f33535;
+  font-size: 32rpx;margin-right: 24rpx;
+}
+
+.t-fill{
+  background-color: #f33535;
+  color: #fff;
+  margin-left: 24rpx;
+}

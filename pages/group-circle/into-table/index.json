@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-field": "/vant-weapp/dist/field/index",
+    "van-datetime-picker": "/vant-weapp/dist/datetime-picker/index",
+    "van-toast": "/vant-weapp/dist/toast/index"
+  }
+}

@@ -1,0 +1,42 @@
+/* pages/article/details/index.wxss */
+
+.home-page{
+  padding-bottom: 120rpx;
+}
+
+.delArt{
+  color: #f33535
+}
+
+.admin-but{
+  position: fixed;
+  bottom: 290rpx;
+  right: 24rpx;
+  font-size: 26rpx;
+  height: 80rpx;
+  width: 80rpx;
+  background-color: #33425b;
+  line-height: 80rpx;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+
+}
+
+.red-box{
+  position: fixed;
+  bottom: 180rpx;
+  right: 24rpx;
+  text-align: center;
+}
+
+.red-b-image image{
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.red-b-time{
+  font-size: 24rpx;
+  color: #f33535;
+}
+.IndexItemTipsImages {width:24rpx}

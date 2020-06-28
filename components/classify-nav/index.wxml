@@ -1,0 +1,11 @@
+<!--components/classify-nav/index.wxml-->
+<scroll-view scroll-x class="scroll-header">
+    <view 
+      class="scroll-box {{checkIndex==index?'action':'no-action'}}" 
+      wx:for="{{navTitle}}"
+      data-index='{{index}}'
+      data-iden='{{item.iden}}'
+      bind:tap="onClickNav">
+      {{item.title}}
+    </view>
+  </scroll-view>

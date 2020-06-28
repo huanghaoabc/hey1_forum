@@ -1,0 +1,58 @@
+/* components/topic-row/index.wxss */
+@import "/components/common.wxss";
+
+.list-row{
+  width: 720rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin: 15rpx auto;
+  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #AAAAAA; */
+  padding-bottom: 24rpx;
+  padding-top: 24rpx;
+}
+
+.row-icod{
+  margin-left: 24rpx;
+}
+
+.row-icod image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 15rpx;
+}
+
+.row-msg{
+  margin-left: 24rpx;
+}
+
+.row-title{
+  font-size: 32rpx;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.row-des{
+  margin-bottom: 10rpx;
+  margin-top: 5rpx;
+  font-size: 24rpx;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.entry{
+  margin-right: 24rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.entry image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 5rpx;
+}

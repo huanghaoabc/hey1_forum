@@ -1,0 +1,46 @@
+/* components/server-menu/index.wxss */
+@import "/components/common.wxss";
+
+.user-data{
+  width: 100%;
+  height: 148rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  background-color: #fff;
+  padding-bottom: 10rpx;
+}
+
+.user-data-row{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.icod image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-bottom: 10rpx;
+}
+
+.notice-icode{
+  background-color: #f33535;
+  color: #fff;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 100%;
+  line-height: 30rpx;
+  text-align: center;
+
+}
+button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  border-radius: 0;
+  background-color: #fff;
+  font-size: 24rpx;
+  color: #333333;
+}
+button::after{
+  content: none;
+}

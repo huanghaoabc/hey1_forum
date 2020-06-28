@@ -1,0 +1,45 @@
+<!--components/article-des/index.wxml-->
+<view class='content'>
+  <view class='flex-row flex-y-center circle' wx:if="{{data.circle_id!=0}}" data-url="/pages/group-circle/details/index?id={{data.circle_id}}" bindtap="jumpToDes">
+    <view class='flex-grow-0'>所属小圈：</view>
+    <view class='flex-grow-0 circle-title'>{{data.circle.title}}</view>
+  </view>
+  <view class='flex-row flex-y-center circle'  wx:if="{{data.category_id!=0}}">
+    <view class='flex-grow-0'>来自精选分类：</view>
+    <view class='flex-grow-0 circle-title'>{{data.category.title}}</view>
+  </view>
+  <view class='content-title'><text wx:if="{{data.topic_id!=0}}" data-url="/pages/topic/details/index?id={{data.topic_id}}" bindtap="jumpToDes">#{{data.topic.title}}#</text>{{data.title}}</view>
+
+  <view wx:if="{{data.type==1}}" class="rich-content">
+    <rich-text wx:if="{{data.sub_type==1}}" nodes="{{data.content}}"></rich-text>
+    <view class="video-box flex-row flex-x-center" wx:if="{{data.sub_type==2}}">
+      <video title="{{data.title}}" src="{{data.video_url}}"></video>
+    </view>
+  </view>
+
+  <view wx:if="{{data.type==2}}">
+    <view class="video-box flex-row flex-x-center" wx:if="{{data.sub_type==2}}">
+      <video title="{{data.title}}" src="{{data.video_url}}"></video>
+    </view>
+
+    <view wx:if="{{data.sub_type==1}}" wx:for="{{data.content}}">
+      <view class='content-des' wx:if="{{item.type==1}}"><text>{{item.value}}</text></view>
+
+      <view class='content-image'  wx:if="{{item.type==2}}" >
+        <image src='{{item.value}}' mode='widthFix'></image>
+        <view class='image-aside' wx:if="{{item.is_aside==1}}">{{item.aside}}</view>
+      </view>
+    </view>
+    
+  </view>
+  <view class='flex-row flex-y-center sare'>
+    <view class='flex-grow-0'>分享至：</view>
+    <button open-type="share" class='flex-grow-0'>
+      <image src='/components/images/icon-share-friend.png' mode='aspectFill'></image>
+    </button>
+    <!-- <view class='flex-grow-0' bindtap="poster">
+      <image src='/components/images/icon-share-qrcode.png' mode='aspectFill'></image>
+    </view> -->
+  </view>
+</view>
+

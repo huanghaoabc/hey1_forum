@@ -1,0 +1,29 @@
+<!-- 导航 -->
+<common-nav back='{{navData.back}}' underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+<view class='address-top-line'></view>
+<van-cell-group>
+  <van-cell wx:if="{{!address}}" title="请选择收货地址" icon="location-o" is-link bind:click="selectAddress" />
+  <van-cell wx:if="{{address}}" title="{{address.userName}}" value="{{address.telNumber}}" label="收货地址:{{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}" border="{{ false }}" bind:click="selectAddress" />
+</van-cell-group>
+
+<view class='product'>
+  <view class='product-title flex-row'>
+    订单商品
+  </view>
+  <view class='product-info'>
+    <van-card num="1" currency="积分" desc="" price="{{product.integral}}" title="{{product.name}}" thumb="{{ product.smallimage }}" />
+  </view>
+  <view class='remakes'>
+    <van-field value="{{ value }}" placeholder="有什么想对商家说的可以写在这里" border="{{ false }}" bind:change="setRemakes" label="备注:" />
+  </view>
+</view>
+
+<van-submit-bar
+  disabled="{{address?false:true}}"
+  currency="积分"
+  price="{{ product.integral*100 }}"
+  button-text="提交订单"
+  decimal-length='0'
+  tip="{{address?'':'您还没有选择收货地址哦'}}"
+  bind:submit="onSubmit"
+/>

@@ -1,0 +1,3 @@
+/* pages/topic/details/index.wxss */
+@import "/components/common.wxss";
+.title {text-align:center;}

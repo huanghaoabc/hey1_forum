@@ -1,0 +1,161 @@
+<!--pages/article/details/index.wxml-->
+<!-- 导航 -->
+<common-nav title='快手' wx:if='{{!userShow}}'></common-nav>
+
+<!-- 用户头部 -->
+<!-- <user-nav  
+  wx:if='{{userShow}}' 
+  data="{{data.user}}"
+  followed="{{data.followed}}"
+  bind:click-follow="follow"
+  >
+</user-nav> -->
+
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+	<!-- <article-user data="{{data.user}}" ctime="{{data.createtime}}" followed="{{data.followed}}" bind:click-follow="follow">
+	</article-user>
+
+	文章内容 -->
+	<!-- <article-des 
+    data="{{data}}" 
+    bind:click-poster="poster"
+    /> -->
+		<view class="content">
+			<view class="flex-row ">
+				<view class="flex-grow-1 flex-x-center">{{data.title}}</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row ">
+				<view class="flex-grow-1 flex-x-center"><text class="jiageColor fs50">{{!isNaN(detailInfo.jiage)? '价格：￥'+detailInfo.jiage:'面议'}}</text></view>
+			</view>
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号详细</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="flex-col fs24 lh3">
+			<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">粉丝数量：</view>
+						<view class="flex-grow-1  ">{{ks.fands_count}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row" style="width:40%">
+						<view class="flex-grow-0  ">播放数量：</view>
+						<view class="flex-grow-1  ">{{ks.play_count}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row" style="width:20%">
+						<view class="flex-grow-0  ">是否违规：</view>
+						<view class="flex-grow-1  ">{{ks.is_punish}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">账号类型：</view>
+						<view class="flex-grow-1  ">{{ks.is_star}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">粉丝偏向：</view>
+						<view class="flex-grow-1  ">{{ks.is_Gender}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:20%">
+						<view class="flex-grow-0  ">是否实名：</view>
+						<view class="flex-grow-1  ">{{ks.is_realName}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row" style="width:40%">
+						<view class="flex-grow-0  ">是否蓝V：</view>
+						<view class="flex-grow-1  ">{{ks.is_blueV}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">开通小店：</view>
+						<view class="flex-grow-1  ">{{ks.is_store}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:20%">
+						<view class="flex-grow-0  ">橱窗开通：</view>
+						<view class="flex-grow-1  ">{{ks.is_shopwindow}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+			</view>
+
+			<view class="hr10"></view>
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号数据图</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+			<block wx:for="{{imagesArr}}">
+				<view class="TabImages {{index == imagesArrIndex ? 'curr':''}}" data-index="{{index}}" bindtap="tabImageFn">{{item}}</view>
+			</block>
+			<view class="hr10"></view>
+			<view class="flex-row flex-x-center">
+				<block wx:for="{{data.images}}">
+						<image src="{{item}}" style="width:80%; margin:0 auto" mode="widthFix" wx:if="{{index == imagesArrIndex}}" bindtap="previewImg" data-index="{{index}}"></image>
+				</block>
+			</view>
+			<view class="hr10"></view>
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号描述</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+			<view class="lh2 fs30 pd0_10">{{data.excerpt}}</view>
+
+			<view class="hr10"></view>
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">交易流程</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+    </view>
+	
+
+  
+	<view class="hr101"></view>
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="4"></display-window> -->
+
+	<!-- 评论列表 -->
+	<comment-list list="{{list}}"></comment-list>
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+	<!-- 操作框 -->
+	<comment-box commentNumber="{{data.reply_count}}" goodsNumber="{{data.good_count}}" showAdmin="{{data.isAdmin}}" goods="{{data.goods}}" stored="{{data.stored}}" artid="{{data.id}}" bind:click-input="clickInput" bind:click-good="clickGood" bind:click-icod="clickInput" bind:click-store="clickStore" bind:click-more="more" />
+	<!-- 评论输入框 -->
+	<comment-input isShow="{{isShow}}" post-id="{{data.id}}" bind:click-put="putComment" />
+
+	<!-- 分享框 -->
+	<share-box isShow="{{moreShow}}" />
+
+	<van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelect" />
+
+	<!-- <canvas style="width: 300px; height:600px;" canvas-id="mycanvas"/> -->
+
+	<!-- 红包按钮浮框 -->
+	<view class="red-box" bindtap="getRed" wx:if="{{data.red_status==1  && markCheck==1}}">
+		<view class="red-b-image">
+			<image src='/components/images/redbao.png' mode='aspectFill'></image>
+		</view>
+		<view class="red-b-time" wx:if="{{time>0}}">{{time}}s后领取</view>
+		<view class="red-b-time" wx:if="{{time==0}}">点击领取</view>
+	</view>
+
+</view>

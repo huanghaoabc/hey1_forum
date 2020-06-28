@@ -1,0 +1,373 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.2",
+	"appid": "wx0aa72319b1c96bcf",
+	"projectname": "巨湖传媒",
+	"cloudfunctionTemplateRoot": "",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "圈子列表",
+					"pathName": "pages/group-circle/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "圈子详情",
+					"pathName": "pages/group-circle/details/index",
+					"query": "id=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "话题列表",
+					"pathName": "pages/topic/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "话题详情",
+					"pathName": "pages/topic/details/index",
+					"query": "id=14&title=test",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "文章详情",
+					"pathName": "pages/article/details/index",
+					"query": "id=78",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/my/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登陆中心",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "公共富文本界面",
+					"pathName": "pages/common/rich-text",
+					"query": "id=task_explain",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "入圈规则",
+					"pathName": "pages/group-circle/into-rule/index",
+					"query": "id=14",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "圈主申请表单",
+					"pathName": "pages/group-circle/into-table/index",
+					"query": "id=14",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布帖子",
+					"pathName": "pages/release/release",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类搜索",
+					"pathName": "pages/search-class/search-class",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "用户中心",
+					"pathName": "pages/user-center/index",
+					"query": "user_id=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户收藏/评论等",
+					"pathName": "pages/user-colle/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "粉丝关注",
+					"pathName": "pages/follow/index",
+					"query": "user_id=16",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的圈子",
+					"pathName": "pages/my-circles/index",
+					"query": "user_id=16",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑用户信息",
+					"pathName": "pages/my-edit/index",
+					"query": "id=18",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "评论详情",
+					"pathName": "pages/article/comment/index",
+					"query": "id=24",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "举报",
+					"pathName": "pages/report/index",
+					"query": "user_id=16&to_user_id=17&type=1&to_id=17",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "外链",
+					"pathName": "pages/web-view/index",
+					"query": "src= https://mp.weixin.qq.com/",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发现",
+					"pathName": "pages/finds/find",
+					"query": "user_id=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息通知",
+					"pathName": "pages/notice/index",
+					"query": "user_id=16",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/all-search/index",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "任务中心",
+					"pathName": "pages/my/mission/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "问题反馈",
+					"pathName": "pages/feedback/index",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的钱包",
+					"pathName": "pages/wallet/index",
+					"query": "id=19",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "pages/wallet/withd/index",
+					"query": "id=19",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "账单",
+					"pathName": "pages/wallet/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "红包界面",
+					"pathName": "pages/red-view/index",
+					"query": "id=189",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提示页",
+					"pathName": "pages/limit-msg/index",
+					"query": "id=189",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快手号",
+					"pathName": "pages/release/fabu",
+					"query": "subType=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布需求",
+					"pathName": "pages/release/otherneed",
+					"query": "subType=12&id=101",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家内容页",
+					"pathName": "pages/article/details/shangjia",
+					"query": "id=109",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收号列表",
+					"pathName": "pages/group-circle/details/shouhao",
+					"query": "id=25",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户中心2",
+					"pathName": "pages/my/myindex/index",
+					"query": "user_id=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin",
+					"pathName": "pages/admin/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin/add/1",
+					"pathName": "pages/admin/add",
+					"query": "subtype=21",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin/add/2",
+					"pathName": "pages/admin/add",
+					"query": "subtype=22",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin/add/3",
+					"pathName": "pages/admin/add",
+					"query": "subtype=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin/add/4",
+					"pathName": "pages/admin/add",
+					"query": "subtype=24",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin/add/5",
+					"pathName": "pages/admin/add",
+					"query": "subtype=25",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "catalog",
+					"pathName": "pages/group-circle/details/catalog",
+					"query": "subtype=25",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的出售",
+					"pathName": "pages/my/myindex/myshop",
+					"query": "user_id=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布抖音",
+					"pathName": "pages/release/sell",
+					"query": "subtype=3",
+					"scene": null
+				}
+			]
+		}
+	}
+}

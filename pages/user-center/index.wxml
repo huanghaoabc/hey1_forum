@@ -1,0 +1,46 @@
+<!--pages/user-center/index.wxml-->
+<!-- 导航 -->
+<common-nav title='{{user.user.nickname}}'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <view class="user-main">
+    <view class="flex-row flex-y-center">
+      <view class="flex-col user-avatar">
+        <image src='{{user.user.avatar}}'  mode='aspectFill'></image>
+      </view>
+      <view class="flex-grow-1 user-msg">
+        <view class="flex-row">{{user.user.nickname}}</view>
+        <view class="flex-row level flex-x-center">LV{{user.user.level}}</view>
+      </view>
+      <view class="flex-grow-0 user-number">
+        <view class="flex-row flex-x-center">{{user.dynamic}}</view>
+        <view class="flex-row number-des">动态</view>
+      </view>
+      
+      <view class="flex-col user-number"  data-iden="0" bindtap="toFollow"> 
+        <view class="flex-row flex-x-center">{{user.follow}}</view>
+        <view class="flex-row number-des">关注</view>
+      </view>
+      <view class="flex-col user-number"  data-iden="1" bindtap="toFollow">
+        <view class="flex-row flex-x-center">{{user.fans}}</view>
+        <view class="flex-row number-des">粉丝</view>
+      </view>
+      
+    </view>
+    <view class="flex-row flex-y-center">
+        <view class="flex-grow-1 bri-info">简介：{{user.user.bio==""?"未设置":user.user.bio}}</view>
+        <view class="flex-grow-0 follow-but " wx:if="{{user.followed==0}}" bindtap="followed">关注</view>
+        <view class="flex-grow-0 follow-but unfollow" wx:if="{{user.followed==1}}" bindtap="followed">已关注</view>
+        <view class="flex-grow-0 jubao" bindtap="toJubao">举报</view>
+      </view>
+  </view>
+  <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
+  <article-list list="{{list}}" />
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

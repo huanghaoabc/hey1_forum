@@ -1,0 +1,74 @@
+<!--pages/user-colle/index.wxml-->
+<!-- 导航 -->
+<common-nav title='历史浏览'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+
+<!-- 菜单 -->
+<!-- <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+<!-- <article-list wx:if="{{iden!=1}}" list="{{list}}" /> -->
+<view wx:for='{{list}}'>
+	<!-- unit start -->
+	<view class="flex_row IndexItems" >
+		
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center"><text class="IndexItemTitle fs34 TextDian" bindtap="clicktitle" data-cid="{{item.circle_id}}" data-aid="{{item.id}}">{{item.title}}</text></view>
+		</view>
+		<view class="flex_grow_0 flex_y_center FontF00 fs40"></view>
+		<view class="flex_grow_0 flex_y_center fs34 pd0_20 Font999">
+			<text bindtap="clear" data-aid="{{item.id}}" data-uid="{{uid}}">清除记录</text></view>
+	</view>
+	<view class="IndexItemTips flex_row">
+		<view class="flex_grow_0">{{item.circle.title}}</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+</view>
+<!-- 评论类型 -->
+<view class='list-box'  wx:if="{{iden==1}}" wx:for="{{list}}" bindtap="toArtDes">
+  <view class='flex-row list-top'>
+    <view class='avatar-image flex-grow-0'>
+      <image src='{{item.user.avatar}}'  mode='aspectFill'></image>
+    </view>
+    <view class='user-msg flex-grow-1'>
+      <view class='user-name flex-row'>{{item.user.nickname}}
+        <image 
+          wx:if="{{item.user.is_admin==1}}" 
+          style='height:40rpx;width:40rpx' 
+          src='/components/images/official.png'
+          mode='aspectFill'>
+        </image>
+      </view>
+      <view class='flex-row'>
+        <view class="flex-col user-level">LV{{item.user.level}}</view>
+      </view>
+    </view>
+    <view class='put-time flex-grow-0'>{{item.createtime}}</view>
+  </view>
+  <view class='list-content'>
+    <view class='title' style="display:inline;" data-id='{{item.id}}'
+      bind:tap="clickTitle">评论：{{item.content}}</view>
+      <view class="art-title" data-id="{{item.article.id}}" wx:if="{{item.article.title}}" bindtap="toDes">{{item.article.title}}
+      </view>
+      <view class="art-del" data-id="{{item.article.id}}" wx:if="{{!item.article.title}}" >[原文已删除]
+      </view>
+  </view>
+</view>
+
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+</view>

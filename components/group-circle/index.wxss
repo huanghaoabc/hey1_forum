@@ -1,0 +1,106 @@
+/* components/group-circle/index.wxss */
+@import "/components/common.wxss";
+
+.scroll-header{ 
+  display: flex; 
+  white-space: nowrap;
+} 
+.scroll-header .scroll-box{
+  height:280rpx; 
+  width: 500rpx; 
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+  border-radius: 15rpx;
+  box-shadow: 0rpx 4rpx 20rpx 0rpx #AAAAAA;
+  display: inline-block;
+  margin-bottom: 34rpx;
+  margin-top: 24rpx;
+}
+
+
+button {
+  font-size: 28rpx;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  border-radius: 30rpx;
+  /* height: 100%; */
+}
+
+button::after{
+border:none;
+}
+
+input{
+outline:none;
+border:none;
+list-style: none;
+}
+
+.c-title{
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+  font-size: 32rpx;
+  width: 250rpx;
+  height: 50rpx;
+  white-space: normal;
+
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.c-level{
+  margin-top: 24rpx;
+  margin-left: 10rpx;
+  border-radius: 60rpx;
+  background-color: #F33535;
+  color: #fff;
+  font-size: 18rpx;
+  height: 40rpx;
+  width: 100rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.c-number{
+  font-size: 24rpx;
+  margin-right: 24rpx;
+  margin-top: 24rpx;
+}
+
+.c-img-des image{
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 30rpx;
+  margin-left: 24rpx;
+  margin-top: 10rpx;
+}
+
+.c-des{
+  margin-left: 10rpx;
+  margin-right: 24rp;
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: #9C9A9A;
+  height: 68rpx;
+  white-space: normal;
+
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.user-avatar image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 100%;
+  margin-left: 5rpx;
+  margin-top: 10rpx;
+}

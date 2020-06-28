@@ -1,0 +1,9 @@
+<!--components/title-box/index.wxml-->
+<view class='title-box'>
+  <view class='flex-row flex-y-center title'>
+      <view wx:if="{{line}}" class='flex-grow-0 title-line'></view>
+      <view class='flex-grow-1 title-font'>{{title}}</view>
+      <image wx:if="{{url!=''}}" class='flex-grow-0' src='/components/images/more.png' bindtap='_jump'></image>
+  </view>
+  <slot />
+</view>

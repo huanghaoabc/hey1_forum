@@ -1,0 +1,30 @@
+<!--pages/topic/index/index.wxml-->
+<!-- 导航 -->
+<common-nav title='短视频服务'></common-nav>
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <!-- 搜索/筛选栏目 -->
+  <!-- <list-header to-type="3" check="{{check}}" key-title="搜索一个话题..."   nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></list-header> -->
+
+  <!-- 广告橱窗 -->
+  <!-- <display-window position="8"></display-window> -->
+
+  <!-- 话题列表 -->
+  <!-- <topic-row list="{{list}}" check="{{check}}"></topic-row> -->
+  <view class="content">
+    <block class="" wx:for="{{list}}">
+      <view class="topicitem" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="todes">
+          <image src="{{item.image}}" class="image" mode="widthFix"></image>
+          <text class="text fs24 line1">{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

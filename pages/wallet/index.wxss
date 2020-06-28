@@ -1,0 +1,40 @@
+/* pages/wallet/index.wxss */
+@import "/components/common.wxss";
+page{
+  background-color: #fff;
+}
+
+.coin image{
+  height: 150rpx;
+  width: 150rpx;
+  margin-top: 200rpx;
+}
+
+.title{
+  margin-top: 24rpx;
+  font-size: 32rpx;
+}
+
+.price{
+  margin-top: 24rpx;
+  font-size: 68rpx;
+  font-weight: bold;
+}
+
+.t-button{
+  margin-top: 180rpx;
+  height: 80rpx;
+  width: 300rpx;
+  background-color: #f33535;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.order{
+  margin-top: 34rpx;
+  color:#f33535;
+  background-color: #fcf1f1
+}

@@ -1,0 +1,13 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "list-header": "/components/list-header/index",
+    "display-window": "/components/display-window/index",
+    "topic-row": "/components/topic-row/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "nofind": "/components/nofind/index"
+  }
+}

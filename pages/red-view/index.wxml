@@ -1,0 +1,30 @@
+<!--pages/red-view/index.wxml-->
+<!-- 导航 -->
+<common-nav title='' share="{{false}}" color="#fff" bgcolor=""></common-nav>
+<view class='home-page' style=''>
+  <view class="bg-image">
+    <image src='/images/red-bg.png' mode='aspectFill'></image>
+  </view>
+  <view class="user-title">
+    <!-- <image src='/images/coin.png' mode='aspectFill'></image> -->
+    <!-- <view class="user-name">大树.的红包</view> -->
+  </view>
+  <view class="red-price">
+      {{data.showMsg}}
+  </view>
+  <view class="red-dde" bindtap="toMoney">已存入余额，可申请提现 ></view>
+  <button class="but-sare" open-type="share"></button>
+
+  <view class="flex-row red-tishi">已领取{{data.sur_red}}/{{data.all_red}}个，共{{data.sur_price}}/{{data.all_price}}元</view>
+
+  <view class="flex-row users" wx:for="{{data.list}}">
+    <view class="flex-col">
+      <image src='{{item.user.avatar}}' mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-1 uss">
+      <view class="flex-row us-name">{{item.user.nickname}}</view>
+      <view class="flex-row us-time">{{item.createtime}}</view>
+    </view>
+    <view class="flex-grow-0 us-price">{{item.price}}元</view>
+  </view>
+</view>

@@ -1,0 +1,66 @@
+<!--pages/integral/order/order.wxml-->
+<!-- 导航 -->
+<common-nav back='{{navData.back}}' underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+
+<van-tabs sticky  offsetTop="{{height/2}}" z-index="999" active="{{ active }}" bind:change="chooseTabs">
+  <van-tab title="全部"></van-tab>
+  <van-tab title="待发货"></van-tab>
+  <van-tab title="待收货"></van-tab>
+  <van-tab title="已完成"></van-tab>
+</van-tabs>
+
+<view class='list'>
+  <view class='goods-box card-shadow' wx:for="{{list}}">
+    <view class='flex-row flex-y-center  goods-shop'>
+      <view class='flex-grow-1'>
+        <view class='order-no flex-row flex-y-center'>
+        {{item.order_no}}
+        </view>
+      </view>
+      <view class='flex-grow-0 order-status'>
+        {{item.status_text}}
+      </view>
+    </view>
+
+    <view class='flex-row goods-des-box'>
+      <view class='flex-grow-0 flex-col'>
+        <image src='{{item.product.smallimage}}'></image>
+      </view>
+      <view class='flex-grow-1 flex-col'>
+        <view class='flex-row goods-des-title'>{{item.product.name}}</view>
+        <!-- <view class='flex-row goods-des-des'>{{item.product}}</view> -->
+      </view>
+      <view class='flex-grow-0 flex-col'>
+        <view class='flex-row goods-des-title money'>￥{{item.product.original_price}}</view>
+        <view class='flex-row goods-des-des flex-x-right'>X{{1}}</view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-x-right goods-statis flex-y-center'>
+      <view class='goods-des-title'>共{{1}}件商品 应付积分：</view>
+      <view class='goods-statis-price'>{{item.score}}</view>
+    </view>
+
+    <view class='flex-row flex-x-right order-des-act'>
+      <view class='flex-col order-des-button' wx:if="{{item.status==1}}" bindtap='cancelOrder' data-id='{{item.id}}'>取消订单</view>
+      <view class='flex-col order-des-button' wx:if="{{item.status==2}}" bindtap='confirmReceip' data-id='{{item.id}}'>确认收货
+      </view>
+      <view class='flex-col order-des-button' bindtap='details' data-id='{{item.id}}'>订单详情</view>
+
+      <!-- <view class='flex-col order-des-button' wx:if="{{item.status==3}}" bindtap='delOrder' data-id='{{item.id}}'>删除订单
+      </view> -->
+    </view>
+  </view>
+
+</view>
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+  <view wx:if="{{list.length <= 0}}" class='flex-row flex-x-center empty-list'>
+    暂无数据~
+  </view>

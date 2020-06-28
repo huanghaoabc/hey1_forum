@@ -1,0 +1,12 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "display-window": "/components/display-window/index",
+    "van-search": "/vant-weapp/dist/search/index",
+    "van-tab": "/vant-weapp/dist/tab/index",
+    "van-tabs": "/vant-weapp/dist/tabs/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index"
+  }
+}

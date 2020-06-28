@@ -1,0 +1,27 @@
+/* components/classify-nav/index.wxss */
+@import "/components/common.wxss";
+
+.scroll-header{ 
+  display: flex; 
+  white-space: nowrap; 
+  height: 78rpx;
+  background-color: #fff;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-radius: 30rpx;
+  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #AAAAAA; */
+} 
+.scroll-header .scroll-box{
+  margin-left: 24rpx;
+  line-height: 78rpx;
+  display: inline-block;
+}
+
+.no-action{
+  font-size: 30rpx;
+}
+
+.action{
+  font-weight: bold;
+  font-size: 34rpx;
+}

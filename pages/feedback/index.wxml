@@ -1,0 +1,37 @@
+<!--pages/feedback/index.wxml-->
+<!-- 导航 -->
+<common-nav title='问题反馈'></common-nav>
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <van-checkbox-group value="{{ result }}" bind:change="onChange">
+    <van-cell-group >
+      <van-cell
+        wx:for="{{ list }}"
+        wx:key="index"
+        title="{{ item }}"
+        value-class="value-class"
+        clickable
+        data-index="{{ index }}"
+        bind:click="toggle"
+      >
+        <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item }}" />
+      </van-cell>
+    </van-cell-group>
+    <view class="flex-row" style="height:24rpx;"></view>
+  </van-checkbox-group>
+    <van-cell-group>
+    <van-field
+      value="{{ message }}"
+      label="其他"
+      type="textarea"
+      placeholder="我有话说"
+      autosize
+      border="{{ false }}"
+      bind:input="inputMes"
+    />
+  </van-cell-group>
+  <view class="flex-row flex-x-center" bindtap="save">
+    <view class="save-but">提交</view>
+  </view>
+</view>
+

@@ -1,0 +1,2 @@
+<!--components/hey-empty/index.wxml-->
+<view class='flex-row flex-y-center flex-x-center h-empty'>- 已经触碰到底线了哦 - </view>

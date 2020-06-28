@@ -1,0 +1,26 @@
+<!--components/circle-top/index.wxml-->
+<div class="drag" style="height:130rpx; background:#fff"></div>
+<view class='main-box'  style='padding-top: 160rpx; height:50px;'>
+  <!-- <view class='two-box flex-row'>
+    <view class='flex-grow-1'>{{circles.title}}</view>
+    <view 
+      class='flex-grow-0 c-enter' 
+      bind:tap="inCircle"
+      wx:if='{{circles.followed==0}}'
+      >
+      加入这个圈
+    </view>
+    <view 
+      class='flex-grow-0 c-enter' 
+      bind:tap="inCircle"
+      wx:if='{{circles.followed==1}}'
+      style='background-color:#acacac'
+      >
+      退出这个圈
+    </view>
+  </view>
+  <view class='two-box flex-row'>
+    <view class='flex-grow-1 c-des'>{{circles.excerpt}}</view>
+    <view class='flex-grow-0 c-sub' bind:tap="adminRule">{{circles.admin==1?'审核帖子':'申请圈主'}}</view>
+  </view> -->
+</view>

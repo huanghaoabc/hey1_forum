@@ -1,0 +1,60 @@
+/* components/circle-top/index.wxss */
+@import "/components/common.wxss";
+.main-box{
+  width: 100%;
+  height: 400rpx;
+  background-image: url(http://we7.hey1.net/addons/hey1_demo/core/public/uploads/20190601/946bc8253e5b5c4bc0e4b6a44e0a0391.png);
+  background-repeat:no-repeat;
+  background-size: 100%;
+  box-sizing:border-box;
+}
+
+.drag{
+  position: absolute;
+  width:100%;
+  height:400rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:11;
+}
+
+.two-box{
+  position: relative;
+  color: #fff;
+  z-index: 12;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
+  
+}
+
+.c-enter{
+  font-size: 24rpx;
+  background-color: #33425B;
+  border-radius: 100rpx;
+  height: 60rpx;
+  width: 180rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.c-sub{
+  font-size: 24rpx;
+  border-radius: 100rpx;
+  border:1rpx solid #fff;
+  height: 60rpx;
+  width: 150rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.c-des{
+  font-size: 28rpx;
+  margin-right: 24rpx;
+  color: #9C9A9A;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

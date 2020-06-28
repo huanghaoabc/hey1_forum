@@ -1,0 +1,54 @@
+<!--components/comment-list/index.wxml-->
+<!-- <view class="com-main">
+  <view class="flex-row flex-y-center">
+    <view class="flex-col com-icod">
+      <image src='/images/all-comment.png' mode='aspectFill'></image>
+    </view>
+    <view class="flex-col">评论</view>
+  </view>
+  <view wx:if="{{list.length <= 0}}" class="no-comment">
+    快来抢沙发~
+  </view>
+  <view class="com-row" wx:for="{{list}}">
+  <view class="flex-row flex-y-center user-msg">
+    <view class="flex-grow-0 user-avatar"  data-id="{{item.user_id}}" bindtap="toUserDes">
+      <image  src='{{item.user.avatar}}' mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-1">
+      <view class="flex-row flex-y-center"  data-id="{{item.user_id}}" bindtap="toUserDes">
+        <view class="flex-col user-nickname">{{item.user.nickname}}</view>
+        <view class="flex-col user-level">LV{{item.user.level}}</view>
+      </view>
+      <view class="flex-row com-time">评论于.{{item.createtime}} <text wx:if="{{item.isDelete==1||item.adminDel==1}}" class="del-comm" bindtap="delComm" data-id="{{item.id}}" data-admindel="{{item.adminDel}}" data-index="{{index}}">删除</text></view>
+    </view>
+    <view class="flex-grow-0 floor-nub">{{index+1}}楼</view>
+  </view>
+  <view class="com-msg" data-id="{{item.id}}" bindtap="toDes">{{item.content}}</view>
+  <view class="com-images" wx:if="{{item.images.length > 0}}" data-id="{{item.id}}" bindtap="toDes">
+    <image 
+      wx:for="{{item.images}}" 
+      wx:for-item="vvo"
+      src="{{vvo}}"  mode='aspectFill'></image>
+  </view>
+  <view class="com-son-box" wx:if="{{item.son_count > 0}}" data-id="{{item.id}}" bindtap="toDes">
+    <view 
+      class="com-son" 
+      wx:for="{{item.son_comment}}"
+      wx:for-item="sonitem"
+      
+      >
+      <view class="son-user">{{sonitem.user.nickname}} : </view>
+      <view class="son-des">{{sonitem.content}}</view>
+    </view>
+    <view class="flex-row all-com" wx:if="{{item.son_count > 7}}">查看全部{{item.son_count}}条评论</view>
+  </view>
+
+  <view class="flex-row flex-x-right flex-y-center com-action">
+    <image src="/components/images/comment.png" mode='aspectFill' data-id="{{item.id}}" bindtap="toDes"></image>
+    <view style="margin-right:24rpx" data-id="{{item.id}}" bindtap="toDes">{{item.com_number}}</view>
+    <image src="/components/images/good{{item.goods==1?'-active':''}}.png" mode='aspectFill' data-index="{{index}}" data-id="{{item.id}}" bindtap="goods"></image>
+    <view data-index="{{index}}" data-id="{{item.id}}" bindtap="goods">{{item.good_number}}</view>
+  </view>
+
+  </view>
+</view> -->

@@ -1,0 +1,4 @@
+/* pages/topic/index/index.wxss */
+.topicitem {display:inline-block; width:23%; padding:1%; text-align:center;}
+.topicitem .image {display:inline-block;width:60%; }
+.topicitem .text {height:50rpx; width:100%; line-height: 50rpx;}

@@ -1,0 +1,51 @@
+<!--pages/follow/index.wxml-->
+<!-- 导航 -->
+<common-nav title='关注/粉丝' />
+<view class='home-page' style='margin-top:{{height}}rpx'>
+ <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
+
+ <!-- 列表 -->
+ <view class='flex-row flex-y-center list-row' wx:for="{{list}}">
+  <view class='flex-grow-0 flex-y-center row-icod' bindtap="tocenter" data-id="{{item.id}}">
+    <image src='{{item.avatar}}' mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-1 row-msg' bindtap="tocenter" data-id="{{item.id}}">
+    <view class='flex-row row-title'>{{item.nickname}}</view>
+    <view class='flex-row row-des'>{{item.bio}}</view>
+  </view>
+
+  <view 
+    class='flex-grow-0 entry flex-x-center'
+    wx:if="{{item.followed==0}}"
+    bindtap="followed"
+    data-id="{{item.id}}"
+    data-index="{{index}}"
+  >
+    <view class='flex-row flex-y-center'>
+      <view>关注</view>
+    </view>
+  </view>
+
+  <view 
+    class='flex-grow-0 unentry flex-x-center'
+    wx:if="{{item.followed==1}}"
+    bindtap="followed"
+    data-id="{{item.id}}"
+    data-index="{{index}}"
+  >
+    <view class='flex-row flex-y-center'>
+      <view>已关注</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

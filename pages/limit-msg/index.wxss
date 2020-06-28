@@ -1,0 +1,46 @@
+/* pages/limit-msg/index.wxss */
+@import "/components/common.wxss";
+page{
+  background: #fff;
+}
+
+.c-icon{
+  margin-top: 200rpx;
+}
+
+.c-warn{
+  margin-left: 68rpx;
+  margin-right: 68rpx;
+  margin-top: 48rpx;
+  font-size: 32rpx;
+}
+
+.c-msg{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  font-size: 26rpx;
+  margin-top: 24rpx;
+  text-align: center;
+  color: #888888;
+}
+
+button {
+  font-size: 25rpx;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  margin-top: 600rpx;
+  color: #61749b
+}
+
+input {
+  outline: none;
+  border: none;
+  list-style: none;
+}
+
+button::after {
+  border: none;
+}

@@ -1,0 +1,3 @@
+/**index.wxss**/
+@import "/components/common.wxss";
+page {background:#f6f4f4}

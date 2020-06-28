@@ -1,0 +1,30 @@
+<!--components/comment-input/index.wxml-->
+<!-- <form bindsubmit="formSubmit" report-submit>
+<view class='mask-box' wx:if="{{isShow}}" bindtap="downShow"  catchtouchmove="ture"></view>
+<view class="input-box" wx:if="{{isShow}}" >
+  <view class="flex-row nav">
+    <view class="flex-grow-1 cancel" bindtap="downShow" >取消</view>
+    <button form-type="submit"  bindtap="putComments">
+    <view class="flex-grow-0 release">发表</view>
+    </button>
+  </view>
+  <view class="fill-in">
+    <textarea
+      placeholder="说点什么~"
+      placeholder-style="font-size:14px"
+      fixed
+      bindinput="input"
+      value="{{value}}"
+     />
+  </view>
+  <view class="flex-row com-images">
+    <view class="image-row" wx:for="{{images}}">
+      <image src="{{item}}"  mode='aspectFill'></image>
+      <view class="del" bindtap="delImage" data-index="{{index}}">
+        <image  src='/components/images/close.png' style="width:40rpx;height:40rpx" mode='aspectFill'></image>
+      </view>
+    </view>
+    <image wx:if="{{images.length < 3}}" bindtap="chooseImg" src="/images/upload-image.png"  mode='aspectFill'></image>
+  </view>
+</view>
+</form> -->

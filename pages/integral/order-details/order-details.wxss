@@ -1,0 +1,73 @@
+/* pages/integral/order-details/order-details.wxss */
+@import "/components/common.wxss";
+.container{
+  padding-top: 14rpx;
+  padding-bottom: 120rpx;
+}
+.order-status{
+  margin: 0 24rpx;
+  padding: 24rpx;
+}
+
+.goods-shop{
+  font-size: 24rpx;
+  margin: 24rpx;
+  background-color: #fff;
+  padding: 24rpx;
+  margin-top: 0;
+}
+.goods-shop image{
+  height: 40rpx;
+  width: 40rpx;
+}
+.shop-name{
+  margin-left: 20rpx;
+}
+.goods-shop image{
+  height: 180rpx;
+  width: 180rpx;
+  border-radius: 15rpx;
+}
+.goods-des-title{
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.goods-des-title.money{
+  text-decoration: line-through;
+  color: #c5c8ce;
+  font-size: 26rpx;
+  margin-right: 24rpx;
+}
+.product-score text{
+  color: #f33535;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.goods-des-des{
+  font-size: 22rpx;
+  color: #ccc;
+  margin-left: 10rpx;
+}
+.info{
+  padding: 24rpx;
+  margin: 0 24rpx;
+}
+.footer{
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;bottom: 0;
+  width: 100%;
+  border-top: 1rpx solid #dcdee2;
+}
+
+.order-des-button{
+  font-size: 26rpx;
+  border: 1rpx solid #f33535;
+  text-align: center;
+  color: #f33535;
+  border-radius: 10rpx;
+  margin-right: 24rpx;
+  padding: 10rpx 30rpx;
+  margin-left: 24rpx;
+}

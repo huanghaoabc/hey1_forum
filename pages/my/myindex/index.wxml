@@ -1,0 +1,144 @@
+<!--pages/user-center/index.wxml-->
+<!-- 导航 -->
+<common-nav title='{{user.user.nickname}}'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+	<view class="user-main borderBottom">
+		<view class="flex-col ">
+      <view class="flex-grow-1 flex-x-center user-avatar">
+        <image src='{{user.user.avatar}}' mode='aspectFill' style="margin:0;"></image>
+      </view>
+      <view class="flex-grow-1 flex-y-center flex-row">
+        <view class="flex-grow-0" style="width:200rpx; text-align:center">12132</view>
+        <text class="fs30 flex-grow-1 line1" style="text-align:center;">{{user.user.nickname}}</text>
+        <view class="flex-grow-0 " style="width:200rpx; text-align:right" >
+          <!-- <view class="follow-but unfollow" style="width:150rpx; margin:0; display:inline-block">已关注</view> -->
+        
+        </view>
+      </view>
+			<!--<view class=" user-avatar ">
+				<view class="flex-x-center flex-grow-1">
+					<image src='{{user.user.avatar}}' mode='aspectFill' style="margin:0 auto;"></image>
+					<view class="hr10"></view>
+				</view>
+				<view class=" flex-x-center flex-grow-1" style="text-align:center; ">
+					<text class="fs30">{{user.user.nickname}}</text>
+				</view>
+			</view>
+
+			 <view class="flex-grow-1 user-msg">
+        <view class="flex-row">{{user.user.nickname}}</view>
+        <view class="flex-row level flex-x-center">LV{{user.user.level}}</view>
+      </view>
+      <view class="flex-grow-0 user-number">
+        <view class="flex-row flex-x-center">{{user.dynamic}}</view>
+        <view class="flex-row number-des">动态</view>
+      </view>
+      
+      <view class="flex-col user-number"  data-iden="0" bindtap="toFollow"> 
+        <view class="flex-row flex-x-center">{{user.follow}}</view>
+        <view class="flex-row number-des">关注</view>
+      </view>
+      <view class="flex-col user-number"  data-iden="1" bindtap="toFollow">
+        <view class="flex-row flex-x-center">{{user.fans}}</view>
+        <view class="flex-row number-des">粉丝</view>
+      </view> -->
+
+		</view>
+		<!-- <view class="flex-row flex-y-center">
+			<view class="flex-grow-1 bri-info">简介：{{user.user.bio==""?"未设置":user.user.bio}}</view>
+			<view class="flex-grow-0 follow-but " wx:if="{{user.followed==0}}" bindtap="followed">关注</view>
+			<view class="flex-grow-0 follow-but unfollow" wx:if="{{user.followed==1}}" bindtap="followed">已关注</view>
+			<view class="flex-grow-0 jubao" bindtap="toJubao">举报</view>
+		</view> -->
+	</view>
+	<!-- <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
+	<article-list list="{{list}}" /> -->
+	<!-- 没有内容 -->
+	<!-- <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind> -->
+<view class="">
+  <view class="findTabBtns flex-row">
+			<view class="flex-grow-1"></view>
+				<view class="flex-grow-0 flex-x-center tabItem {{myindexTab == 0 ? 'curr':''}}" bindtap="TabFn" data-index="0">发布的信息({{totalNum}}条)</view>
+        <view class="flex-grow-0 flex-x-center tabItem {{myindexTab == 1 ? 'curr':''}}" bindtap="TabFn" data-index="1">我的需求({{needtotalNum}}条)</view>
+			<view class="flex-grow-1 "></view>
+		</view>
+    <view class="hr10"></view>
+    
+</view>
+<block wx:if="{{myindexTab == 0}}">
+<view wx:for='{{list}}'>
+	<!-- unit start -->
+	<view class="flex_row IndexItems" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+		<view class="flex_grow_0 tc">
+			<image class="IndexHeader" src="{{item.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{item.user.nickname}}</text><text class="IndexHeaderTime Font999 fs30">{{item.createtime}}</text>
+		</view>
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
+			<view class="flex_grow_1 flex_row Font999 ">
+
+				<view class="flex_grow_0 fs24 w50x"><test class="TitleWidth">播放量：</test>{{item.playNum}}</view>
+				<view class="flex_grow_1 fs24 w50x"><test  class="TitleWidth">橱窗否：</test>{{item.Chuchuang}}</view>
+				
+			</view>
+			<view class="flex_grow_1 flex_row Font999 ">
+
+				<view class="flex_grow_0 fs24 w50x"><test  class="TitleWidth">粉丝量：</test>{{item.fandsNum}}</view>
+				<view class="flex_grow_1 fs24 w50x"><test class="TitleWidth">实名否：</test>{{item.Realname}}</view>
+
+			</view>
+			<view class="flex_grow_1 flex_row Font999 ">
+
+				<view class="flex_grow_0 fs24 w50x"><test class="TitleWidth">粉丝属性：</test>{{item.Gender}}</view>
+				<view class="flex_grow_1 fs24 w50x"><test class="TitleWidth">账号类型：</test>{{item.AccountType}}</view>
+
+			</view>
+		</view>
+		<view class="flex_grow_0 flex_y_center FontF00 fs40">{{!isNaN(item.jiage) && item.jiage != '' ? '￥'+item.jiage:'面议'}}</view>
+	</view>
+	<view class="IndexItemTips flex_row">
+		<view class="flex_grow_1">{{item.circle.title}}</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+</view>
+</block>
+
+
+<block wx:if="{{myindexTab == 1}}">
+	<view class="flex-col">
+<block wx:for="{{need}}">
+		<view class="flex_grow_1 flex_row IndexItems" >
+			<view class="flex_grow_1 flex-col">
+				<view class=" lh2 line1 flex_grow_1">{{item.title}}</view>
+				<view class="flex_grow_1 fs30"><text style="font-weight:bold;">需求：</text>{{item.douyininfo.need_type}} <text class=""pd0_10></text> 数量：{{item.need_count}}</view>
+			</view>
+			<view class="flex_grow_0 fs30 flex_y_center FontF00">{{item.status == 0 ? '已完成':'进行中'}}</view>
+		</view>
+		<view class="IndexItemTips flex_grow_1 flex_row">
+		<view class="flex_grow_1">{{item.createtime}}</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+	</view>
+</block>
+	</view>
+</block>
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

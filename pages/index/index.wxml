@@ -1,0 +1,179 @@
+<!--index.wxml-->
+<!-- 首页标题栏 -->
+<home-nav font-color='{{fontColor}}' back-color='{{backColor}}' title='{{title}}' />
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="flex_row">
+		<view class="flex_grow_1">
+			<image src="/images/douyin.png" class="IndexNavIcon" bindtap="toCircle" data-id="22"></image><text class="IndexNavText">抖音</text>
+		</view>
+		<view class="flex_grow_1">
+			<image src="/images/kuaishou.png" class="IndexNavIcon" bindtap="toCircle" data-id="23"></image><text class="IndexNavText">快手</text>
+		</view>
+		<view class="flex_grow_1">
+			<image src="/images/shouhao.png" class="IndexNavIcon" bindtap="shouhaoFn" data-id="25"></image><text class="IndexNavText">收号</text>
+		</view>
+		<view class="flex_grow_1">
+			<image src="/images/shangjia.png" class="IndexNavIcon" bindtap="toShangjia" data-id="24"></image><text class="IndexNavText">商家</text>
+		</view>
+	</view>
+	<view class="hr10"></view>
+	<view class="flex_row">
+		<view class="flex_grow_1" bindtap="gotoCatalog" data-type='chuchuanghao'>
+			<image src="/images/chuchuanghao.png" class="IndexNavIcon"></image><text class="IndexNavText">橱窗号</text>
+		</view>
+		<view class="flex_grow_1" bindtap="gotoCatalog" data-type='qianfenhao'>
+			<image src="/images/qianfenhao.png" class="IndexNavIcon"></image><text class="IndexNavText">千粉号</text>
+		</view>
+		<view class="flex_grow_1" bindtap="gotoCatalog" data-type='wanfenhao'>
+			<image src="/images/wanfenhao.png" class="IndexNavIcon"></image><text class="IndexNavText">万粉号</text>
+		</view>
+
+		<view class="flex_grow_1" bindtap="gotoCatalog" data-type='topic'>
+			<image src="/images/duanshipinfuwu.png" class="IndexNavIcon"></image><text class="IndexNavText">短视频服务</text>
+		</view>
+	</view>
+	<view class="hr10"></view>
+	<view class="flex_row IndexGongGaoBox">
+		<view class="flex_grow_0 flex_y_center">
+			<image class="IndexGongGaoIcon" src="/images/gonggao.png"></image>
+		</view>
+		<view class="flex_grow_1 flex_y_center">
+			<view class="FontFFF pd0_10 fs30"> 公告内容</view>
+		</view>
+	</view>
+	<view class="hr10"></view>
+
+	<!-- <view class="officialAccountView">  <official-account bindload="officialAccountLoadFuc" binderror="officialAccountErrorFuc"></official-account>  </view> -->
+	<!-- 首页圈子 -->
+	<!-- <group-circle host-circles='{{hostCircles}}'></group-circle> -->
+
+	<!-- 热门话题 -->
+	<!-- <host-topic list="{{hostTopics}}" bind:click-nav='onClickTopics' ></host-topic> -->
+
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="1"></display-window> -->
+
+	<!-- 精选分类 -->
+	<!-- <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+
+
+	<!-- 没有内容 -->
+
+
+	<!-- 加载动画 -->
+
+
+	<!-- 底线 -->
+
+</view>
+
+<!-- 发帖 -->
+
+<!-- <sub-buttom /> -->
+<view class="flex_row">
+	<view class="flex_grow_1 tc rightBorder">
+		<view class="IndexNumberBox fs40 lh">{{counts.douyin}}个</view>
+		<view class="IndexNumberBoxInfo  Font999 fs24">最新抖音号</view>
+	</view>
+	<view class="flex_grow_1 tc rightBorder">
+		<view class="IndexNumberBox fs40 lh">{{counts.kuaishou}}个</view>
+		<view class="IndexNumberBoxInfo  Font999 fs24">最新快手号</view>
+	</view>
+	<view class="flex_grow_1 tc rightBorder">
+		<view class="IndexNumberBox fs40 lh">{{counts.xuqiu}}个</view>
+		<view class="IndexNumberBoxInfo  Font999 fs24">新需求</view>
+	</view>
+	<view class="flex_grow_1 tc">
+		<view class="IndexNumberBox fs40 lh">{{counts.shangjia}}个</view>
+		<view class="IndexNumberBoxInfo  Font999 fs24">新商家</view>
+	</view>
+</view>
+<view class="hr"></view>
+<!-- 文章列表 -->
+<!--components/article-list/index.wxml-->
+<view wx:for='{{list}}' class="ItemRow">
+	<!-- unit start -->
+	<block wx:if="{{item.circle_id == 23 || item.circle_id==22}}">
+	<view class="flex_row IndexItems">
+		<view class="flex_grow_1 pd0_10 flex_col" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+			<view class="flex_grow_1 flex_y_center lh2 flex_row">
+				<view class="IndexItemTitle  TextDian flex_grow_0 line2" style="width:540rpx">{{item.title}}<text class="fs24 Font999 pd0_10">查看数据地图</text></view>
+			</view>
+			<view class="flex_grow_1 flex_row FontBlok lh2">
+				<view class="flex-grow-0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row " style="width:120rpx; display:block; ">
+						<test class="flex-grow-1">粉 丝 量：</test>
+					</view>
+					<view class="flex-grow-1">{{item.fandsNum}}</view>
+				</view>
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+						<test class="flex-grow-1">粉 丝 属 性：</test>
+					</view>
+					<view class="flex-grow-1">{{item.Gender%2 == 0 ? '男':'女'}}性</view>
+				</view>
+			</view>
+			<view class="flex_grow_1 flex_row FontBlok lh2">
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:120rpx; display:block;">
+						<test class="flex-grow-1">播 放 量：</test>
+					</view>
+					<view class="flex-grow-1">{{item.playNum}}</view>
+				</view>
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+						<test class="flex-grow-1">账 号 类 型：</test>
+					</view>
+					<view class="flex-grow-1">{{item.AccountType}}</view>
+				</view>
+			</view>
+			<view class="flex_grow_1 flex_row FontBlok lh2">
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:120rpx; display:block">
+						<test class="flex-grow-1">橱 <text class="FontFFF">橱</text> 窗：</test>
+						<test class="flex-grow-1"></test>
+					</view>
+					<view class="flex-grow-1">{{item.Chuchuang == 2 ? '是':'否'}}</view>
+				</view>
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block">
+						<test class="flex-grow-1">是 否 实 名：</test>
+					</view>
+					<view class="flex-grow-1">{{item.Realname == 2 ? '是':'否'}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="flex_grow_0   flex-col">
+			<view class="flex-grow-0 fs24 Font999 lh2 flex_x_center">{{item.createtime}}</view>
+			<view class="flex-grow-1 FontF00 fs40 flex_y_center">{{!isNaN(item.jiage) && item.jiage != '' ? '￥'+item.jiage:'面议'}}</view>
+		</view>
+	</view>
+	<navigator class="IndexItemTips flex_row" url="/pages/my/myindex/index?user_id={{item.user_id}}">
+		<view class="flex_grow_1 flex_row">
+			<view class="flex_grow_0">
+				<image src="{{item.user.avatar}}" class="IndexItemUserImg"></image>
+			</view>
+			<view class="flex_grow_1">{{item.user.nickname}}</view>
+		</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+	</navigator>
+	<view class="hr10"></view>
+	</block>
+	<!-- unit End -->
+</view>
+
+<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+<nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+<hey-loading wx:if='{{showLoading}}' />

@@ -1,0 +1,62 @@
+<!--pages/user-center/index.wxml-->
+<!-- 导航 -->
+<common-nav title='我的出售'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+	<view class="user-main borderBottom">
+		
+		<!-- <view class="flex-row flex-y-center">
+			<view class="flex-grow-1 bri-info">简介：{{user.user.bio==""?"未设置":user.user.bio}}</view>
+			<view class="flex-grow-0 follow-but " wx:if="{{user.followed==0}}" bindtap="followed">关注</view>
+			<view class="flex-grow-0 follow-but unfollow" wx:if="{{user.followed==1}}" bindtap="followed">已关注</view>
+			<view class="flex-grow-0 jubao" bindtap="toJubao">举报</view>
+		</view> -->
+	</view>
+	<!-- <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
+	<article-list list="{{list}}" /> -->
+	<!-- 没有内容 -->
+	<!-- <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind> -->
+
+
+<view wx:for='{{list}}'>
+	<!-- unit start -->
+	<view class="flex_row IndexItems" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+		
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
+		</view>
+		<view class="flex_grow_0 flex_y_center FontF00 fs40">{{!isNaN(item.jiage) && item.jiage != '' ? '￥'+item.jiage:'面议'}}</view>
+		<view class="flex_grow_0 flex_y_center fs34 pd0_20 Font999">
+			<text wx:if="{{item.circles_status==1}}">上架中</text>
+			<text wx:if="{{item.circles_status==0}}">已下架</text></view>
+	</view>
+	<view class="IndexItemTips flex_row">
+		<view class="flex_grow_0">{{item.circle.title}}</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+		<view class="flex_grow_1 flex_row">
+			<view class="flex_grow_1 pd0_10" style="text-align:right;">
+				<text class="pd0_10" wx:if="{{item.circles_status == 0}}" bindtap="shangjia" data-id="{{item.id}}">上架</text>
+				<text class="pd0_10" wx:if="{{item.circles_status == 1}}" bindtap="xiajia" data-id="{{item.id}}">下架</text>
+			</view>
+			<view class="flex_grow_0"><navigator url="/pages/admin/shenheshop?id={{item.id}}&cid={{item.circle_id}}&userid={{item.user_id}}&subtype={{item.sub_type}}"> 编辑</navigator></view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+</view>
+
+
+
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>

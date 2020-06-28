@@ -1,0 +1,12 @@
+<!--components/circle-row/index.wxml-->
+<view class='flex-row flex-y-center list-row' wx:for='{{list}}'  data-id="{{item.id}}" data-title="{{item.title}}" bindtap="todes">
+  <view class='flex-grow-0 flex-y-center row-icod'>
+    <image src='{{item.image}}' mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-1 row-msg'>
+    <view class='flex-row row-title'>{{item.title}}</view>
+    <view class='flex-row row-des'>{{item.excerpt}}</view>
+    <view class='flex-row row-number'>{{item.join_count}}入圈  {{item.sub_count}}发帖</view>
+  </view>
+  <view wx:if="{{!check}}" class='flex-grow-0 entry'>进个圈</view>
+</view>

@@ -1,0 +1,9 @@
+/* components/hey-empty/index.wxss */
+@import "/components/common.wxss";
+
+.h-empty{
+  font-size: 28rpx;
+  color: #aaa;
+  padding-bottom: 24rpx;
+  padding-top: 24rpx;
+}

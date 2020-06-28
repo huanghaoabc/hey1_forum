@@ -1,0 +1,23 @@
+/* components/circle-admin-list/index.wxss */
+@import "/components/common.wxss";
+.scroll-box image{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 100%;
+  margin-top: 10rpx;
+}
+
+.scroll-header{ 
+  display: flex; 
+  white-space: nowrap; 
+} 
+.scroll-header .scroll-box{
+  margin-left: 44rpx;
+  display: inline-block;
+  margin-bottom: 24rpx;
+}
+
+.circle-title{
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}

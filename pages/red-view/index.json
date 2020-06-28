@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index"
+  }
+}

@@ -1,0 +1,37 @@
+@import "/components/common.wxss";
+
+.nav-box{
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+  top: 0;
+}
+
+.nav-calendar image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 40rpx;
+  margin-left: 24rpx;
+}
+
+.nav-search{
+  height: 60rpx;
+  width: 500rpx;
+  background-color: #f2f2f2;
+  margin-top: 30rpx;
+  margin-left: 24rpx;
+  border-radius: 50rpx;
+
+}
+
+.nav-search image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-left: 20rpx;
+}
+
+.nav-key{
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  color: #b0b0b0;
+}

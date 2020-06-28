@@ -1,0 +1,17 @@
+<!--components/host-topic/index.wxml-->
+<!--components/group-circle/index.wxml-->
+<form bindsubmit="formSubmit" report-submit>
+<title-box title='热门话题' url='/pages/topic/index/index' wx:if="{{list.length>0}}"> 
+  <view class='topic-box' wx:for="{{list}}">
+    <view class='topic-row flex-row flex-y-center' data-id="{{item.id}}" bind:tap="onClickNav">
+      <view class='topic-icod'>
+        <image src='/components/images/topic.png' mode='aspectFill'></image>
+      </view>
+      <button form-type="submit">
+      <view class='topic-title'>#{{item.title}}#</view>
+      </button>
+    </view>
+  </view>
+</title-box>
+</form>
+

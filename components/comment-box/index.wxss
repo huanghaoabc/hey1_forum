@@ -1,0 +1,49 @@
+/* components/comment-box/index.wxss */
+@import "/components/common.wxss";
+
+.comment-box{
+  position: fixed;
+  z-index: 100;
+  left: 0rpx;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.c-input{
+  margin-left: 24rpx;
+  height: 60rpx;
+  width: 400rpx;
+  background-color: #F0F0F0; 
+  border-radius: 100rpx;
+}
+
+.c-title{
+  font-size: 24rpx;
+  color: #9C9A9A;
+  margin-left: 24rpx;
+}
+
+.action-box image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 24rpx;
+
+}
+
+.a-title{
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.delArt{
+  color: #f33535
+}
+
+button{
+  border-radius: 30rpx;
+}
+
+

@@ -1,0 +1,17 @@
+<!--components/topic-row/index.wxml-->
+<view class='flex-row flex-y-center list-row' wx:for='{{list}}' data-id="{{item.id}}" data-title="{{item.title}}" bindtap="todes">
+  <view class='flex-grow-0 flex-y-center row-icod'>
+    <image src='{{item.image}}' mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-1 row-msg'>
+    <view class='flex-row row-title'>#{{item.title}}#</view>
+    <view class='flex-row row-des'>{{item.excerpt}}</view>
+  </view>
+  <view class='flex-grow-0 entry'>
+    <view class='flex-row flex-y-center'>
+      <view class='flex-grow-0  flex-y-center'><image  src='/components/images/host.png' mode='aspectFill'></image></view>
+      <view class='flex-grow-0'>{{item.view_count+item.sub_count}}</view>
+    </view>
+  </view>
+</view>
+

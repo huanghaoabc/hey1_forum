@@ -1,0 +1,9 @@
+<!--pages/group-circle/into-rule/index.wxml-->
+<common-nav title='申请圈主规则' wx:if='{{!userShow}}'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <rich-text nodes="{{html}}" bindtap="tap"></rich-text>
+
+  <view class='flex-row flex-x-center i-check'>
+    <van-button round type="danger" bind:click='into'>同意条款</van-button>
+  </view>
+</view>

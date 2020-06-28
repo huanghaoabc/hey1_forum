@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "title-box": "/components/title-box/index",
+    "van-button": "/vant-weapp/dist/button/index"
+  }
+}

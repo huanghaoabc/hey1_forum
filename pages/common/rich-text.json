@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-button": "/vant-weapp/dist/button/index"
+  }
+}

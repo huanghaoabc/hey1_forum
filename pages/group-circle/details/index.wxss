@@ -1,0 +1,4 @@
+/* pages/group-circle/details/index.wxss */
+@import "/components/common.wxss";
+@import "/app.wxss";
+page {background:#f6f4f4}

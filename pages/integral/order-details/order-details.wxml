@@ -1,0 +1,67 @@
+<common-nav back='{{navData.back}}' underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+<view class='container'>
+
+  <van-transition name="fade-up">
+  <view class='order-status card-shadow'>
+    <van-steps
+      steps="{{ steps }}"
+      active="{{ active }}"
+    />
+  </view>
+  </van-transition>
+
+  <van-transition name="fade-up" duration="{{400}}">
+    <van-cell-group border="{{false}}" title="收货信息">
+      <view class='info card-shadow'>
+        <van-cell title="收货人" value="{{details.username}}" />
+        <van-cell title="收货电话" value="{{details.tel}}" />
+        <van-cell border="{{false}}" title="收货地址" value="{{details.address}}" />
+      </view>
+    </van-cell-group>
+  </van-transition>
+
+  <van-transition name="fade-up" duration="{{500}}">
+  <van-cell-group border="{{false}}" title="商品信息">
+    <view class='flex-row goods-shop card-shadow'>
+        <view class='flex-grow-0 flex-col'>
+          <image src='{{details.product.smallimage}}'></image>
+        </view>
+        <view class='flex-grow-1 flex-col'>
+          <view class='flex-grow-1 goods-des-title'>{{details.product.name}}</view>
+          <view class='flex-grow-0 flex-row flex-y-center'>
+            <view class='goods-des-title money'>原价￥{{details.product.original_price}}</view>
+            <view class='product-score'>
+              积分: <text>{{details.product.integral}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='flex-grow-0 goods-des-des flex-y-center'>X{{1}}</view>
+    </view>
+  </van-cell-group>
+  </van-transition>
+
+  <van-transition name="fade-up"  duration="{{600}}">
+  <van-cell-group border="{{false}}" title="订单信息">
+    <view class='info card-shadow'>
+      <van-cell title="订单号" value="{{details.order_no}}" />
+      <van-cell title="下单时间" value="{{details.createtime_text}}" />
+      <van-cell title="消费积分" value="{{details.score}}" />
+      <van-cell title="数量" value="{{details.num}}" />
+      <van-cell wx:if="{{details.status=='2' || details.status=='3'}}" title="快递名称" value="{{details.delivery_company}}" />
+      <van-cell wx:if="{{details.status=='2' || details.status=='3'}}" title="快递单号" value="{{details.express_number}}" />
+      <van-cell wx:if="{{details.status=='2' || details.status=='3'}}" title="发货时间" value="{{details.delivertime_text}}" />
+      <van-cell border="{{false}}" title="订单备注" value="{{details.remakes?details.remakes:'订单无备注'}}" />
+    </view>
+  </van-cell-group>
+  </van-transition>
+</view>
+
+<view wx:if="{{details.status != '0' && details.status != '3'}}" class='flex-row footer flex-y-center flex-x-right'>
+  <view class='flex-grow-0 order-des-button' wx:if="{{details.status==1}}" bindtap='cancelOrder' data-id='{{details.id}}'>
+    取消订单
+  </view>
+      <view class='flex-grow-0 order-des-button' wx:if="{{details.status==2}}" bindtap='confirmReceip' data-id='{{details.id}}'>确认收货
+      </view>
+</view>
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />

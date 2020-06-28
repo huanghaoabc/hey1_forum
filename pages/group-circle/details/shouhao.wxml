@@ -1,0 +1,43 @@
+<!--pages/group-circle/details/index.wxml-->
+
+<!-- 导航 -->
+<!-- <common-nav title='{{navData.title}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav> -->
+<common-nav title='收号需求'></common-nav>
+
+<!-- 圈子详情头部 -->
+<!-- <circle-top circles='{{circles}}' bind:in-circle='inCircle' bind:admin-rule='adminRule'></circle-top> -->
+
+<!-- 圈主列表 -->
+<!-- <circle-admin-list admin-list='{{admins}}'></circle-admin-list> -->
+
+<!-- 广告橱窗 -->
+<!-- <display-window position="7"></display-window> -->
+
+ <!-- 精选分类 -->
+<!-- <classify-nav  nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+<!-- 文章列表 -->
+<!-- <article-list list="{{list}}" /> -->
+
+<view class="SelectBox"  style='margin-top:{{height+10}}rpx'>
+  <view class="flex_row">
+		<view class="flex_grow_1"></view>
+		<block wx:for="{{navTitle}}">
+			<view class="flex_grow_0 tabButtons {{index == checkIndex ? 'curr':''}}" bindtap="onClickNav" data-index="{{index}}" data-iden="{{item.iden}}">{{item.title}}</view>
+		</block>
+		<view class="flex_grow_1"></view>
+	</view>
+</view>
+<!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+  
+	<article-list list="{{list}}" />
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+  <!-- 发帖 -->
+
+<sub-buttom params="{{cir}}"/>

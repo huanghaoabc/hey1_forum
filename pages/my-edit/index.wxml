@@ -1,0 +1,60 @@
+<!--pages/my-edit/index.wxml-->
+<!-- 导航 -->
+<common-nav title='编辑资料' />
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <view class="flex-row flex-y-center line" bindtap="chooseImg"  style="padding:0">
+    <view class="flex-grow-1 title">头像：</view>
+    <view class="flex-grow-0 content">
+      <image src='{{user.avatar}}'  mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-0 more">
+      <image src='/components/images/more-t.png'  mode='aspectFill'></image>
+    </view>
+  </view>
+
+  <view class="flex-row flex-y-center line" style="padding:0">
+    <view class="flex-grow-0 title">昵称：</view>
+    <view class="flex-grow-1 content">
+      <input maxlength="8" value="{{user.nickname}}" bindinput="inputNickname"></input>
+    </view>
+  </view>
+
+  <view class="flex-row flex-y-center line"  style="padding:0">
+    <view class="flex-grow-1 title">性别：</view>
+    <view class="flex-grow-0 content">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="flex-grow-0 more flex-y-center">
+      <image src='/components/images/more-t.png'  mode='aspectFill'></image>
+    </view>
+  </view>
+
+  <view class="flex-row flex-y-center line" style="padding:0">
+    <view class="flex-grow-0 title">微信号：</view>
+    <view class="flex-grow-1 content">
+      <input style="height:50px;width:280px;" value="{{user.weixinhao}}" bindinput="inputweixinhao" />
+    </view>
+  </view>
+
+  <view class="flex-row flex-y-center line" style="padding:0">
+    <view class="flex-grow-1 title">标签：</view>
+    <view class="flex-grow-0 content">
+      <picker bindchange="bindTagChange" value="{{tagArrIndex}}" range="{{tagArr}}">
+        <view class="picker">
+          {{tagArr[tagArrIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="flex-grow-0 more flex-y-center">
+      <image src='/components/images/more-t.png'  mode='aspectFill'></image>
+    </view>
+  </view>
+
+  <view class="flex-row flex-x-center" bindtap="save">
+    <view class="save-but">保存</view>
+  </view>
+</view>

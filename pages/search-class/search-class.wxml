@@ -1,0 +1,14 @@
+<!--pages/search-class/search-class.wxml-->
+<!-- 导航 -->
+<common-nav title='精选分类'></common-nav>
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+    <van-collapse-item wx:for="{{navTitle}}" title="{{item.title}}" name="{{item.id}}" >
+      <rich-text nodes="{{item.excerpt}}"></rich-text>
+      <view class="flex-row flex-x-center">
+        <van-button round type="danger" size="normal" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="agree">我知道了</van-button>
+      </view>
+    </van-collapse-item>
+  </van-collapse>
+</view>

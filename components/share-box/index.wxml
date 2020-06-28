@@ -1,0 +1,28 @@
+<!--components/share-box/index.wxml-->
+<view class='mask-box' wx:if="{{isShow}}" bindtap="downShow"  catchtouchmove="ture"></view>
+<view class="input-box" wx:if="{{isShow}}" >
+  <view class="flex-row" bindtap="downShow">
+    <image  src='/components/images/close.png' style="width:40rpx;height:40rpx" mode='aspectFill'></image>
+  </view>
+  <view class="flex-row  flex-x-center">
+    <button open-type="share" class="flex-col icod-row">
+      <view class="flex-row flex-x-center">
+        <image src='/components/images/icon-share-friend.png' mode='aspectFill'></image>
+      </view>
+      <view class="flex-row">微信</view>
+    </button>
+    <button class="flex-col icod-row">
+      <view class="flex-row flex-x-center">
+        <image src='/components/images/icon-share-qrcode.png' mode='aspectFill'></image>
+      </view>
+      <view class="flex-row">朋友圈</view>
+    </button>
+    <button class="flex-col icod-row flex-x-center">
+      <view class="flex-row ">
+        <image src='/components/images/report.png' mode='aspectFill'></image>
+      </view>
+      <view class="flex-row" style="margin-left:14rpx">举报</view>
+    </button>
+  </view>
+  
+</view>

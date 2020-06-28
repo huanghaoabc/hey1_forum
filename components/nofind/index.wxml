@@ -1,0 +1,7 @@
+<!--components/nofind/index.wxml-->
+<view class='nofind '>
+  <view class='flex-row flex-x-center icod'>
+    <image  src="/components/images/empty.png" mode='aspectFill'></image>
+  </view>
+  <view class='flex-row flex-x-center'>没有更多内容~</view>
+</view>

@@ -1,0 +1,49 @@
+/* pages/integral/details/details.wxss */
+@import "/components/common.wxss";
+
+.product-img{
+  width: 100%;
+}
+.product-img image{
+  width: 100%;
+}
+.product-info{
+  background-color: #fff;
+  padding: 24rpx;
+}
+.product-name{
+  font-size: 32rpx;
+  color: #1c2438;
+}
+.product-integral{
+  font-size: 26rpx;
+  color: #f33535;
+}
+.product-integral text{
+  font-size: 38rpx;
+  margin-right: 10rpx;
+  font-weight: 500;
+}
+.product-old-price{
+  font-size: 26rpx;
+  text-decoration: line-through;
+  color: #bbbec4;
+  margin-left: 24rpx;
+}
+.product-label{
+  font-size: 24rpx;
+  color: #80848f;
+}
+.product-stock{
+  margin-right: 24rpx;
+}
+.details{
+  padding-bottom: 100rpx;
+  width: 100%;
+  overflow-x: hidden;
+}
+.product-level{
+  font-size: 26rpx;
+  color: #f33535;
+  padding: 10rpx 0;
+}

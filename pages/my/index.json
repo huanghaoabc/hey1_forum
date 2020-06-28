@@ -1,0 +1,13 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "my-user-msg": "/components/my-user-msg/index",
+    "my-nav": "/components/my-nav/index",
+    "display-window": "/components/display-window/index",
+    "server-menu": "/components/server-menu/index",
+    "my-record": "/components/my-record/index",
+    "my-shop-menu": "/components/my-shop-menu/index",
+    "sign-in": "/components/sign-in/sign-in",
+    "my-wallet": "/components/my-wallet/index"
+  }
+}

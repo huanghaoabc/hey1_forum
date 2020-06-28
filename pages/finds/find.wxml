@@ -1,0 +1,122 @@
+<!--pages/finds/index.wxml-->
+<common-nav title='发现' back="{{false}}"></common-nav>
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+	<!-- 广告橱窗 -->
+
+	<view class="content">
+		<view class="findTabBtns flex-row">
+			<view class="flex-grow-1"></view>
+			<block wx:for="{{topTab}}">
+				<view class="flex-grow-0 flex-x-center tabItem {{index == topTabIndex ? 'curr':''}}" bindtap="topTabFn" data-index="{{index}}">{{item}}</view>
+			</block>
+			<view class="flex-grow-1 "></view>
+		</view>
+		<view class="hr10"></view>
+		<view class="listItems flex-col line-height:2">
+			<block wx:if="{{topTabIndex == 0}}">
+				<block wx:for="{{douyinDt}}">
+					<view class="flex-grow-1 flex-row borderBottom" bindtap="gotoFn" data-id="{{item.id}}">
+						<view class="flex-grow-1 line1" style="font-size:32rpx; width:400rpx; line-height:60rpx;">{{item.title}}</view>
+						<view class="flex-grow-0 flex-y-center" style="font-size:24rpx; color:#999; padding-left:20rpx;">{{item.createtime}}</view>
+					</view>
+				</block>
+			</block>
+
+			<!-- unit tab -->
+			<block wx:if="{{topTabIndex == 1}}">
+				<block wx:for="{{kusishouDT}}">
+					<view class="flex-grow-1 flex-row borderBottom" bindtap="gotoFn" data-id="{{item.id}}">
+						<view class="flex-grow-1 line1" style="font-size:32rpx; width:400rpx; line-height:60rpx;">{{item.title}}</view>
+						<view class="flex-grow-0 flex-y-center" style="font-size:24rpx; color:#999; padding-left:20rpx;">{{item.createtime}}</view>
+					</view>
+				</block>
+			</block>
+			<!-- unit tab end -->
+		</view>
+	</view>
+
+	<view class="content">
+		<view class="findTabBtns flex-row">
+			<view class="flex-grow-1"></view>
+			<block wx:for="{{cenTab}}">
+				<view class="flex-grow-0 flex-x-center tabItem {{index == cenTabIndex ? 'curr':''}}" bindtap="cenTabFn" data-index="{{index}}">{{item}}</view>
+			</block>
+			<view class="flex-grow-1 "></view>
+		</view>
+		<block wx:if="{{cenTabIndex == 0}}">
+		<view class="hr10"></view>
+			<view class="flex-col">
+			<block wx:for="{{wanfa}}">
+				<view class="flex-row">
+					<view class="flex-grow-0">
+						<image src="{{item.images[0]}}" style="width:200rpx; height:200rpx; margin-right:20rpx;"></image>
+					</view>
+					<view class="flex-grow-1 flex-col">
+							<view class="flex-grow-0 line1 lh" >{{item.title}}</view>
+							<view class="flex-grow-1"><text style="padding:0 10px; font-size:24rpx; border:1px solid #f00; background:#f60; color:#fff; border-radius:5rpx;">{{item.douyininfo.pingtai}}</text></view>
+							<view class="flex-grow-0 line2 fs30">{{item.content[0].value}}</view>
+					</view>
+				</view>
+				<view class="hr10"></view>
+			</block>
+			</view>
+		<view class="hr10"></view>
+		</block>
+	</view>
+	<view class="" wx:if="{{cenTabIndex == 1}}">
+	<block wx:for="{{jjdy}}">
+	<!-- unit start -->
+	<view class="flex_row IndexItems" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+		<view class="flex_grow_0 tc">
+			<image class="IndexHeader" src="{{item.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{item.user.nickname}}</text>
+		</view>
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center pd5_0"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">播放量：</test>{{item.playNum}}</view>
+				<view class="flex_grow_1 fs24"><test  class="TitleWidth">橱窗否：</test>{{item.Chuchuang}}</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test  class="TitleWidth">粉丝量：</test>{{item.fandsNum}}</view>
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">实名否：</test>{{item.Realname}}</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">粉丝属性：</test>{{item.Gender}}</view>
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">账号类型：</test>{{item.AccountType}}</view>
+			</view>
+			<view class="hr10"></view>
+      <view class="flex_grow_1 flex_row Font999 flex_y_center">
+				<block  wx:for="{{item.images}}" wx:if="{{item.images !='https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0' && index >3}}" wx:for-item="itemName"  wx:for-index="idx">
+					<view class="flex_grow_1" wx:if="{{idx<=2}}"><image class="ItemImages" src="{{itemName}}" width="20%" mode="widthFix"></image></view>
+				</block>
+        <!-- <block wx:if="{{item.video_url !='https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0' && index>3}}">
+					<video src="{{item.video_url}}" auto-pause-if-navigate   controls  show-center-play-btn="{{false}}" title="{{item.title}}"></video>
+				</block> -->
+      </view>
+		</view>
+		<view class="flex_grow_0 flex_col">
+			<view class="flex_grow_0 Font999 fs24 flex_x_center">{{item.createtime}}</view>
+			<view class="flex_grow_1 flex_y_center  FontF00 fs40 flex_x_center"><view class="tc">{{item.jiage}}</view></view>
+			<view class="flex_grow_0 flex_row ListItemImage">
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image><text style="font-size:20rpx">{{item.reply_count}}</text>
+			</view>
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image><text style="font-size:20rpx">{{item.view_count}}</text>
+			</view>
+		</view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+  </block>
+	</view>
+	<!-- 没有内容 -->
+	<nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+
+</view>

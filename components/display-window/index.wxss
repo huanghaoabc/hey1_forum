@@ -1,0 +1,28 @@
+/* components/display-window/index.wxss */
+@import "/components/common.wxss";
+
+.dis-box{
+  /* background-color: #fff; */
+  width: 100%;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.banner{
+  width: 700rpx;
+  /* height: 150rpx; */
+  text-align: center;
+  /* border-radius: 20rpx; */
+}
+.banner swiper,swiper-item image{
+  width: 700rpx;
+  /* height: 150rpx; */
+}
+.banner swiper,swiper-item image.round{
+  border-radius: 100rpx;
+}
+.banner swiper,swiper-item image.corner{
+  border-radius: 10rpx;
+}

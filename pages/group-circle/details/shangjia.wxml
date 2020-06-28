@@ -1,0 +1,69 @@
+<!--pages/group-circle/details/index.wxml-->
+
+<!-- 导航 -->
+<!-- <common-nav title='{{navData.title}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav> -->
+<common-nav title='{{navData.title}}'></common-nav>
+
+<!-- 圈子详情头部 -->
+<!-- <circle-top circles='{{circles}}' bind:in-circle='inCircle' bind:admin-rule='adminRule'></circle-top> -->
+
+<!-- 圈主列表 -->
+<!-- <circle-admin-list admin-list='{{admins}}'></circle-admin-list> -->
+
+<!-- 广告橱窗 -->
+<!-- <display-window position="7"></display-window> -->
+
+ <!-- 精选分类 -->
+<!-- <classify-nav  nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+<!-- 文章列表 -->
+<!-- <article-list list="{{list}}" /> -->
+<view class="scrollBox"   style='margin-top:{{height+10}}rpx'>
+  <scroll-view scroll-x="true" style="width:{{commodity.length * 101}}rpx">
+    
+      <view wx:for="{{commodity}}" class="scrollBoxItem {{commodityIndex == item.index ? 'curr':''}}" data-index="{{item.index}}" bindtap="itemNameClick">{{item.name}}</view>
+    
+  </scroll-view>
+</view>
+<view class="SelectBox {{ShowSelectBox == true  ? 'Addborder':''}}">
+  <view class="flex_row">
+    
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="xiaoliangSelect" data-xiaoliangtype="{{xiaoliangtype}}" >销量</view>
+      <view class="flex_grow_1 flex_y_center">
+        <image src="{{xiaoliangtype == 0 ? '/images/IconArrow_hover.png':xiaoliangtype == 1 ? '/images/IconArrow_asc.png':xiaoliangtype == 2 ? '/images/IconArrow_desc.png':'/images/IconArrow_hover.png'}}" class="selectIcons"></image>
+      </view>
+    </view>
+
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="yongjinSelect" data-yongjintype="{{yongjintype}}" >佣金</view>
+      <view class="flex_grow_1 flex_y_center">
+        <image src="{{yongjintype == 0 ? '/images/IconArrow_hover.png':yongjintype == 1 ? '/images/IconArrow_asc.png':yongjintype == 2 ? '/images/IconArrow_desc.png':'/images/IconArrow_hover.png'}}" class="selectIcons"></image>
+      </view>
+    </view>
+
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="jiageSelect" data-jiagetype="{{jiagetype}}" >价格</view>
+      <view class="flex_grow_1 flex_y_center">
+        <image src="{{jiagetype == 0 ? '/images/IconArrow_hover.png':jiagetype == 1 ? '/images/IconArrow_asc.png':jiagetype == 2 ? '/images/IconArrow_desc.png':'/images/IconArrow_hover.png'}}" class="selectIcons"></image>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+   
+	<!--unit-->
+  <article-list list="{{list}}" />
+  <!--unit End-->
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+  <!-- 发帖 -->
+
+<sub-buttom params="{{cir}}"/>

@@ -1,0 +1,14 @@
+<!--components/topic-admin-list/index.wxml-->
+<title-box title='题主'  >
+  <view class='flex-row flex-y-center topic-box'>
+    <view class='flex-grow-0 avatar'  bindtap="tocenter">
+      <image src='{{data.avatar}}'  mode='aspectFill'></image>
+    </view>
+    <view class='flex-grow-1 user-msg' bindtap="tocenter">
+      <view class='flex-row user-name'>{{data.nickname}}</view>
+      <view class='flex-row flex-x-center level'>LV{{data.level}}</view>
+    </view>
+    <view class='flex-grow-0 follow' bindtap="followed" wx:if="{{followed==0}}">关注</view>
+    <view class='flex-grow-0 follow unfollow' bindtap="followed" wx:if="{{followed==1}}">已关注</view>
+  </view>
+</title-box>

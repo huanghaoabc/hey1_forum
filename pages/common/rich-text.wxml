@@ -1,0 +1,6 @@
+<!--pages/common/rich-text.wxml-->
+<!-- 导航 -->
+<common-nav title='{{title}}'></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <rich-text nodes="{{html}}"></rich-text>
+</view>

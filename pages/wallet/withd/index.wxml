@@ -1,0 +1,87 @@
+<!--pages/wallet/withd/index.wxml-->
+<common-nav title='提现' share="{{false}}"></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <view class="withd-box">
+    <view class="w-type">
+      <view class="flex-row flex-y-center">
+        <view class="flex-col">提现方式</view>
+        <view wx:if="{{data.wit_type==1 || data.wit_type==3}}" class="flex-col w-t-image" bindtap="changeType" data-type="1">
+          <image src="/images/wei{{type==1?'2':'1'}}.png" mode='aspectFill'></image>
+        </view>
+        <view wx:if="{{data.wit_type==2 || data.wit_type==3}}" class="flex-col w-t-image"  bindtap="changeType" data-type="2">
+          <image src="/images/zhi{{type==2?'2':'1'}}.png" mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+    <van-field
+      wx:if="{{type==2}}"
+      value="{{ zhiName }}"
+      required
+      clearable
+      label="支付宝收款人"
+      placeholder="请输入支付宝收款人姓名"
+      data-type='name'
+      bind:change="inputZhi"
+    />
+
+    <van-field
+      wx:if="{{type==2}}"
+      value="{{ zhiAcc }}"
+      required
+      clearable
+      label="支付宝账号"
+      placeholder="请输入支付宝账号"
+      border="{{ false }}"
+      data-type='acc'
+      bind:change="inputZhi"
+    />
+
+    <view class="price-box">
+      <view class="flex-row p-b-price">提现金额</view>
+      <van-field
+        value="{{money}}"
+        placeholder=""
+        clearable
+        left-icon="gold-coin"
+        type="digit"
+        custom-style="height:130rpx;font-size:60rpx;font-weight: bold"
+        bind:change="onChange"
+      />
+      <view class="flex-row">
+        <view class="c-shenyu" style="color:#f33535" wx:if="{{msg!=''}}">{{msg}}</view>
+      </view>
+      <view class="flex-row">
+        <view class="c-shenyu">余额剩余￥{{data.money}}</view>
+        <view class="c-shenyu" style="color:#5d6c93" bindtap="allPrice">全部提现</view>
+      </view>
+      <view class="flex-row">
+        <view class="c-shenyu">提现手续费</view>
+        <view class="c-shenyu" style="color:#5d6c93">{{data.charge}}%</view>
+      </view>
+      <view class="flex-row">
+        <view class="c-shenyu">实际到账</view>
+        <view class="c-shenyu" style="color:#5d6c93">￥{{trueMoney}}</view>
+      </view>
+      <view class="flex-row flex-x-center " bindtap="toWith">
+        <view class="tixian-button">提现</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-dialog
+  use-slot
+  title="核对订单"
+  show="{{ show }}"
+  show-cancel-button
+  bind:confirm="postOrder"
+>
+  <van-cell-group>
+    <van-cell title="提现方式" value="{{type==1?'微信零钱':'支付宝'}}" />
+    <van-cell wx:if="{{type==2}}" title="支付宝收款人" value="{{zhiName}}" />
+    <van-cell wx:if="{{type==2}}" title="支付宝账号" value="{{zhiAcc}}" />
+    <van-cell title="提现金额" value="￥{{money}}" />
+    <van-cell title="手续费" value="{{data.charge}}%" />
+    <van-cell title="实际到账" value="￥{{trueMoney}}" />
+  </van-cell-group>
+</van-dialog>

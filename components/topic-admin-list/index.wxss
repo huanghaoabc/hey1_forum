@@ -1,0 +1,45 @@
+/* components/topic-admin-list/index.wxss */
+@import "/components/common.wxss";
+
+.topic-box{
+  margin-left: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+
+.topic-box image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+}
+
+.level{
+  font-size: 24rpx;
+  background-color: #29252C;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 90rpx;
+  margin-top: 10rpx;
+}
+
+.user-name{
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.follow{
+  margin-right: 24rpx;
+  font-size: 28rpx;
+  background-color: #F33535;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 120rpx;
+
+}
+
+.unfollow{
+  color: #F33535;
+  background-color: #fcf1f1;
+}

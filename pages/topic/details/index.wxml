@@ -1,0 +1,54 @@
+<!--pages/topic/details/index.wxml-->
+<!-- 导航 -->
+<import src="../../../wxParse/wxParse.wxml"/>
+                       
+<common-nav title='{{navData.title}}' ></common-nav>
+
+<!-- 话题详情头部 -->
+<!-- <topic-top data="{{topicsDet}}"></topic-top> -->
+
+<!-- 题主 -->
+<!-- <circle-admin-list></circle-admin-list> -->
+<!-- <topic-admin-list data="{{topicsDet.user}}" followed="{{topicsDet.followed}}"></topic-admin-list> -->
+
+<!-- 广告橱窗 -->
+<!-- <display-window position="9"></display-window> -->
+
+ <!-- 精选分类 -->
+<!-- <classify-nav  nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+<!-- 文章列表 -->
+<!-- <article-list list="{{list}}" /> -->
+<view class="content" style='margin-top:{{height}}rpx'>
+<view class="title bottomBorder line1 lh2 fs40">{{topicsDet.excerpt}}</view>
+<view class="hr10"></view>
+   <template is="wxParse" data="{{wxParseData:detail.nodes}}"/>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+</view>
+  <!-- 没有内容 -->
+   <!-- <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind> -->
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <!-- <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty> -->
+
+   <!-- 发帖 -->
+	<view class="FixButton ">
+  <view class="flex-row">
+  <view class="flex-grow-1 w50x">
+		
+			<view class="FixButton_fabiaoBtn ">咨询客服</view>
+		
+</view>
+  <view class="flex-grow-1 w50x">
+	
+			<view class="FixButton_fabiaoBtn " style="background:#f60">立刻办理</view>
+	
+</view>
+</view>
+	</view>
+<!-- <sub-buttom params="{{topic}}"/> -->

@@ -1,0 +1,84 @@
+<!--pages/group-circle/details/index.wxml-->
+
+<!-- 导航 -->
+<!-- <common-nav title='{{navData.title}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav> -->
+<common-nav title='{{tit}}'></common-nav>
+
+<!-- 圈子详情头部 -->
+<!-- <circle-top circles='{{circles}}' bind:in-circle='inCircle' bind:admin-rule='adminRule'></circle-top> -->
+
+<!-- 圈主列表 -->
+<!-- <circle-admin-list admin-list='{{admins}}'></circle-admin-list> -->
+
+<!-- 广告橱窗 -->
+<!-- <display-window position="7"></display-window> -->
+
+ <!-- 精选分类 -->
+<!-- <classify-nav  nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+<!-- 文章列表 -->
+<!-- <article-list list="{{list}}" /> -->
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+   <block wx:for="{{list}}">
+	<!-- unit start -->
+	<view class="flex_row IndexItems" bindtap="clickTitle" data-cid="{{item.circle_id}}" data-id="{{item.id}}" data-userid="{{item.user_id}}" data-subtype="{{item.sub_type}}">
+		<view class="flex_grow_0 tc">
+			<image class="IndexHeader" src="{{item.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{item.user.nickname}}</text>
+		</view>
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center pd5_0"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">播放量：</test>{{item.playNum}}</view>
+				<view class="flex_grow_1 fs24"><test  class="TitleWidth">橱窗否：</test>{{item.Chuchuang}}</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test  class="TitleWidth">粉丝量：</test>{{item.fandsNum}}</view>
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">实名否：</test>{{item.Realname}}</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">粉丝属性：</test>{{item.Gender}}</view>
+				<view class="flex_grow_1 fs24"><test class="TitleWidth">账号类型：</test>{{item.AccountType}}</view>
+			</view>
+			<view class="hr10"></view>
+      <view class="flex_grow_1 flex_row Font999 flex_y_center">
+				<block  wx:for="{{item.images}}" wx:if="{{item.images !='https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0' && index >3}}" wx:for-item="itemName"  wx:for-index="idx">
+					<view class="flex_grow_1" wx:if="{{idx<=2}}"><image class="ItemImages" src="{{itemName}}" width="20%" mode="widthFix"></image></view>
+				</block>
+        <!-- <block wx:if="{{item.video_url !='https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0' && index>3}}">
+					<video src="{{item.video_url}}" auto-pause-if-navigate   controls  show-center-play-btn="{{false}}" title="{{item.title}}"></video>
+				</block> -->
+      </view>
+		</view>
+		<view class="flex_grow_0 flex_col">
+			<view class="flex_grow_0 Font999 fs24 flex_x_center">{{item.createtime}}</view>
+			<view class="flex_grow_1 flex_y_center  FontF00 fs40 flex_x_center"><view class="tc">{{item.jiage}}</view></view>
+			<view class="flex_grow_0 flex_row ListItemImage">
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image><text style="font-size:20rpx">{{item.reply_count}}</text>
+			</view>
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image><text style="font-size:20rpx">{{item.view_count}}</text>
+			</view>
+		</view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+  </block>
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+  <!-- 发帖 -->
+
+<sub-buttom params="{{cir}}"/>

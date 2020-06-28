@@ -1,0 +1,55 @@
+<!--pages/integral/details/details.wxml-->
+<!-- 导航 -->
+<common-nav back='{{navData.back}}' underfill='{{navData.underfill}}' title='{{navData.title}}' share='{{navData.share}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav>
+
+<view class='product-img'>
+  <image src='{{details.smallimage}}' mode="widthFix"></image>
+</view>
+<view class='product-info'>
+  <view class='product-name'>
+    {{details.name}}
+  </view>
+  <view class='product-price flex-row flex-y-center'>
+    <view class='product-integral flex-grow-0 flex-y-center'>
+      <text>{{details.integral}}</text>积分
+    </view>
+    <view class='product-old-price flex-grow-0 flex-y-center'>
+      ￥{{details.original_price}}
+    </view>
+  </view>
+  <view class='product-label flex-row flex-y-center'>
+    <view class='product-stock'>
+      库存：{{details.stock}}
+    </view>
+    <view class='product-freight'>
+      运费：包邮
+    </view>
+  </view>
+  <view class='product-level flex-row' wx:if="{{details.level > 1}}">
+    {{details.level}}级以上用户专享
+  </view>
+</view>
+<title-box title="详情说明" line />
+<view class='details'>
+  <rich-text nodes="{{details.content}}" bindtap="tap"></rich-text>
+</view>
+
+<view style='height:100rpx'></view>
+<van-goods-action>
+  <van-goods-action-icon
+    icon="chat-o"
+    text="客服"
+    open-type="contact"
+  />
+  <van-goods-action-icon 
+    icon="shop-o" 
+    text="商城首页"
+    url="/pages/integral/index/index"
+    link-type="redirectTo"
+   />
+  <van-goods-action-button
+    text="立即兑换"
+    bind:click="onIntegral"
+    disabled="{{details.stock > 0?false:true}}"
+  />
+</van-goods-action>

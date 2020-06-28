@@ -1,0 +1,19 @@
+<!--components/sign-in/sign-in.wxml-->
+<van-transition show="{{ show }}" duration="400">
+  <view wx:if="{{show}}" class="mask flex-x-center flex-y-center" catchtouchmove="true">
+    <view class="sign" style="background-image:url({{signInImg}})">
+      <view class="content">
+        <view class="score flex-row flex-x-center">
+          <view wx:if="{{data.score > 0}}">积分<text>+{{data.score}}</text></view>
+          <view wx:if="{{data.exp > 0}}" class="exp">经验<text>+{{data.exp}}</text></view>
+        </view>
+        <view class="tip flex-row flex-x-center">
+          明天继续签到获得<text wx:if="{{data.lastScore > 0}}">{{data.lastScore}}积分</text><text wx:if="{{data.lastExp > 0}}"> + </text><text wx:if="{{data.lastExp > 0}}">{{data.lastScore}}经验</text>
+        </view>
+        <view bindtap="_close" class="close flex-row flex-x-center flex-y-center">
+            知道了
+        </view>
+      </view>
+    </view>
+  </view>
+</van-transition>

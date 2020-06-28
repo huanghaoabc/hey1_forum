@@ -1,0 +1,182 @@
+<!--pages/group-circle/details/index.wxml-->
+
+<!-- 导航 -->
+<!-- <common-nav title='{{navData.title}}' bgcolor='{{navData.bgcolor}}' color='{{navData.color}}'></common-nav> -->
+<common-nav title='{{navData.title}}'></common-nav>
+
+<!-- 圈子详情头部 -->
+<!-- <circle-top circles='{{circles}}' bind:in-circle='inCircle' bind:admin-rule='adminRule'></circle-top> -->
+
+<!-- 圈主列表 -->
+<!-- <circle-admin-list admin-list='{{admins}}'></circle-admin-list> -->
+
+<!-- 广告橱窗 -->
+<!-- <display-window position="7"></display-window> -->
+
+<!-- 精选分类 -->
+<!-- <classify-nav  nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav> -->
+
+<!-- 文章列表 -->
+<view class="SelectBox {{ShowSelectBox == true  ? 'Addborder':''}}" style='margin-top:{{height+10}}rpx'>
+  <view class="flex_row">
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="ShowSelectBoxFn">{{selectType}}</view>
+      <view class="flex_grow_1 flex_y_center"><image src="/images/iconArrowDown.png" class="selectIcons"></image></view>
+    </view>
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="timeSelect" data-timetype="{{timetype}}" >时间</view>
+      <!-- <view class="flex_grow_1 flex_y_center"><image src="/images/IconArrow_hover.png" class="selectIcons"></image></view> -->
+      <view class="flex_grow_1 flex_y_center">
+        <image src="{{timetype == 0 ? '/images/IconArrow_hover.png':timetype == 1 ? '/images/IconArrow_asc.png':timetype == 2 ? '/images/IconArrow_desc.png':'/images/IconArrow_hover.png'}}" class="selectIcons"></image>
+      </view>
+    </view>
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="jiageSelect" data-jiagetype="{{jiagetype}}" >价格</view>
+      <view class="flex_grow_1 flex_y_center">
+        <image src="{{jiagetype == 0 ? '/images/IconArrow_hover.png':jiagetype == 1 ? '/images/IconArrow_asc.png':jiagetype == 2 ? '/images/IconArrow_desc.png':'/images/IconArrow_hover.png'}}" class="selectIcons"></image>
+      </view>
+    </view>
+    <view class="flex_grow_1 flex_x_center flex_row">
+      <view class="selectTxt flex_grow_1 flex_y_center" bindtap="shouShaixuanFn" >筛选</view>
+      <view class="flex_grow_1 flex_y_center"><image src="/images/IconLoudou.png" style="width:16rpx; height:30rpx;"  class="selectIcons"></image></view>
+    </view>
+  </view>
+
+  <view class="ShowSelectBox" wx:if="{{ShowSelectBox}}">
+      <view class="flex_col fs24">
+        <view class="flex_grow_1 flex_row ShowSelectBoxItem" bindtap="clickAccount" data-atype="1">
+            <view class="flex_grow_1 {{atype == 1 ? 'FontF00':''}}">千粉号</view>
+            <view class="flex_grow_0"><image src="/images/Icon_yes.png" class="isYes" wx:if="{{atype == 1}}"></image></view>
+        </view>
+        <view class="flex_grow_1 flex_row ShowSelectBoxItem" bindtap="clickAccount" data-atype="2">
+            <view class="flex_grow_1 {{atype == 2 ? 'FontF00':''}}">万粉号</view>
+            <view class="flex_grow_0"><image src="/images/Icon_yes.png" class="isYes" wx:if="{{atype == 2}}"></image></view>
+        </view>
+        <view class="flex_grow_1 flex_row ShowSelectBoxItem"  bindtap="clickAccount" data-atype="3">
+            <view class="flex_grow_1 {{atype == 3 ? 'FontF00':''}}">橱窗号</view>
+            <view class="flex_grow_0"><image src="/images/Icon_yes.png" class="isYes" wx:if="{{atype == 3}}"></image></view>
+        </view>
+        <view class="flex_grow_1 flex_row ShowSelectBoxItem" bindtap="clickAccount" data-atype="4">
+            <view class="flex_grow_1 {{atype == 4 ? 'FontF00':''}}">蓝V号</view>
+            <view class="flex_grow_0"><image src="/images/Icon_yes.png" class="isYes" wx:if="{{atype == 4}}"></image></view>
+        </view>
+      </view>
+  </view>
+</view>
+<article-list list="{{list}}" />
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<view class="hr10"></view>
+<!-- 没有内容 -->
+<nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+<!-- 加载动画 -->
+<hey-loading wx:if='{{showLoading}}' />
+
+<!-- 底线 -->
+<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+<!-- 发帖 -->
+
+<sub-buttom params="{{cir}}" />
+
+
+<view class="popBoxShaixuan" wx:if="{{shouShaixuan}}">
+  <view class="flex_row">
+  <!-- 左边tab Action-->
+    <view class="flex_grow_0 flex_col">
+      <block wx:for="{{leftTabSelect}}">    
+      <view class="LeftTab flex_x_center flex_grow_0 {{leftTabSelectIndex == index ? 'curr':''}}" bindtap="LeftTabClick" data-index="{{index}}">{{item}}</view>
+      </block>
+        <view class="LeftTab flex_x_center flex_grow_1"></view>
+    </view>
+    <!-- 左边tab END-->
+    <!-- 右边tabBox start-->
+    <view class="flex_grow_1">
+      <view class="selectItemBoxs">
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 0}}"> <!--账号类型-->
+            <block wx:for="{{AccountArr}}">
+              <view class="selectItemsTabBoxTag {{AccounttypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="AccountTagClick" data-index="{{index}}" data-selectid="{{leftTabSelectIndex}}">{{item.name}}</view>
+            </block>
+        </view>
+
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 1}}"><!--播放量-->
+            <block wx:for="{{Playtype}}">
+              <view class="selectItemsTabBoxTag {{PlaytypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="PlaytypeClick" data-index="{{index}}" data-number="{{item.number}}">{{item.name}}</view>
+            </block>
+        </view>
+<!-- 
+  Accounttype:['','明星','影视','娱乐'],
+    Playtype:['','十万+','五十万+','百万+','五百万+','千万+'],
+    FandsNumer:['','千粉','万粉','十万粉','百万粉','千万粉以以上'],
+    FandsType:['','女','男'],
+    ChuchungType:['','否','是'],
+    RealnameType:['','否','是'],
+    BlueVType:['','否','是'],
+ -->
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 2}}"><!--粉丝量-->
+            <block wx:for="{{FandsNumer}}">
+              <view class="selectItemsTabBoxTag {{FandsNumerIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="FandsNumerClick" data-index="{{index}}" data-number="{{item.number}}" >{{item.name}}</view>
+            </block>
+        </view>
+
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 3}}"><!--粉丝属性-->
+            <block wx:for="{{FandsType}}">
+              <view class="selectItemsTabBoxTag {{FandsTypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" style="padding:0 20rpx" bindtap="FandsTypeClick" data-index="{{item.index}}" data-selectid="{{leftTabSelectIndex}}">
+              {{item.name}}
+              
+              </view>
+              
+            </block>
+        </view>
+
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 4}}"><!--橱窗-->
+            <block wx:for="{{ChuchungType}}">
+              <view class="selectItemsTabBoxTag {{ChuchungTypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="ChuchungTypeClick" data-index="{{item.index}}" data-selectid="{{leftTabSelectIndex}}">
+              {{item.name}}
+              </view>
+            </block>
+        </view>
+
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 5}}"><!--实名-->
+            <block wx:for="{{RealnameType}}">
+              <view class="selectItemsTabBoxTag {{RealnameTypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="RealnameTypeClick" data-index="{{item.index}}" data-selectid="{{leftTabSelectIndex}}">{{item.name}}</view>
+            </block>
+        </view>
+
+        <view class="selectItemsTabBox" wx:if="{{leftTabSelectIndex == 6}}"><!--蓝V-->
+            <block wx:for="{{BlueVType}}">
+              <view class="selectItemsTabBoxTag {{BlueVTypeIndex == index ? 'curr':''}}" wx:if="{{index !=0}}" bindtap="BlueVTypeClick" data-index="{{item.index}}" data-selectid="{{leftTabSelectIndex}}">
+              {{item.name}}</view>
+            </block>
+        </view>
+
+      </view>
+    </view>
+     <!-- 右边tabBox END-->
+  </view>
+  <view class="hr10"></view>
+  <view class="yixuanBox">
+    <view class="yixuanText">已选：</view>
+    
+    <view class="yixuanTextItem" wx:if="{{where.Account != 0  }}" >{{AccountArr[AccounttypeIndex].name}}</view>
+    <view class="yixuanTextItem" wx:if="{{where.Playtype != 0 }}">播放量:{{Playtype[PlaytypeIndex].name}}</view>
+    <view class="yixuanTextItem" wx:if="{{BlueVTypeIndex==2}}">蓝V</view>
+    <view class="yixuanTextItem" wx:if="{{where.FandsNumer != 0 }}">粉丝量:{{FandsNumer[FandsNumerIndex].name}}</view>
+    <view class="yixuanTextItem" wx:if="{{where.FandsType != 0 }}">{{FandsType[FandsTypeIndex].name}}</view>
+    <view class="yixuanTextItem" wx:if="{{ChuchungTypeIndex==2}}">橱窗</view>
+    <view class="yixuanTextItem" wx:if="{{RealnameTypeIndex==2}}">实名</view>
+    
+    
+  </view>
+  <view class="hr10"></view>
+  <view class="hr10"></view>
+  <view class="flex_row">
+    <view class="flex_grow_1 flex_x_center"><view class="popSelectButton1 " bindtap="chongzhiFn">重置</view></view>
+    <view class="flex_grow_1 flex_x_center"><view class="popSelectButton2 " bindtap="tijiao">提交</view></view>
+  </view>
+</view>
+<view class="shouShaixuan" wx:if="{{shouShaixuan}}" bindtap="closeShaixuanFn"></view>

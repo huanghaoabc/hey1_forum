@@ -1,0 +1,233 @@
+<!--pages/release/release.wxml-->
+<!--pages/group-circle/index/index.wxml-->
+
+<!-- 导航 -->
+<common-nav title='发帖'></common-nav>
+<form bindsubmit="formSubmit" report-submit>
+	<view class='home-page' style='margin-top:{{height}}rpx'>
+		<view class="flex-row mun-box flex-y-center redbao" wx:if="{{markCheck==1}}">
+			<view class="flex-col mun-row " bindtap="showRedSet">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/redbao.png' mode='aspectFill'></image>红包帖
+				</view>
+			</view>
+		</view>
+		<!-- <view class="draft">
+    <image src='/images/draft.png' mode='aspectFill'></image>
+  </view> -->
+
+		<van-field placeholder="请输入标题（6-30个字）" border="{{ true }}" bind:change="inputTitle" clearable maxlength="30" />
+
+		<view class="flex-row mun-box flex-y-center flex-x-center">
+			<view class="flex-col mun-row" bindtap="chooseCri">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/quanzi.png' mode='aspectFill' class="pd0_10"></image>选择平台
+				</view>
+			</view>
+			<!-- <view class="flex-col mun-row" bindtap="chooseTopic">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/topic.png' mode='aspectFill'></image>话题
+				</view>
+			</view>
+			<view class="flex-col mun-row" bindtap="chooseClases">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/sel-good.png' mode='aspectFill'></image>精选分类
+				</view>
+			</view> -->
+			<view class="flex-col">
+				<view class="cla-box" wx:if="{{cir.id!=0}}">
+					<view style="display: inline-block">{{cir.title}}</view>
+					<view style="display: inline-block;margin-left:18rpx;color:#f33535;font-size:36rpx" bindtap="delCir">x</view>
+				</view>
+			</view>
+		</view>
+
+
+
+		<view class="cla-box" wx:if="{{clases.id!=0}}">
+			<view style="display: inline-block">{{clases.title}}</view>
+			<view style="display: inline-block;margin-left:18rpx;color:#f33535;font-size:36rpx" bindtap="delClases">x</view>
+		</view>
+
+		<view class="cla-box" wx:if="{{topic.id!=0}}">
+			<view style="display: inline-block">{{topic.title}}</view>
+			<view style="display: inline-block;margin-left:18rpx;color:#f33535;font-size:36rpx" bindtap="delTopic">x</view>
+		</view>
+
+
+		<view wx:for="{{data}}">
+			<!-- 文本框 -->
+			<view class="content" wx:if="{{item.type==1&&subType==1}}">
+				<view class="flex-row">
+					<view class="flex-grow-1">
+						<textarea wx:if="{{!show}}" style="{{is_sort?'width:200px;height:100rpx':''}}" auto-height="{{!is_sort}}" maxlength="1000" value="{{item.value}}" data-index="{{index}}" bindinput="inputContent" placeholder="请输入文本内容(1000字内)" placeholder-style="font-size:14px">
+        </textarea>
+					</view>
+					<view class="flex-grow-0" wx:if="{{!is_sort}}" data-index="{{index}}" bindtap="delText">
+						<image src='/components/images/close.png' style="width:40rpx;height:40rpx" mode='aspectFill'></image>
+					</view>
+					<view wx:if="{{is_sort}}" class="flex-grow-0" data-index="{{index}}">
+						<van-stepper value="{{ item.weigh }}" integer min="0" data-index="{{index}}" bind:change="changeSort" />
+					</view>
+				</view>
+			</view>
+
+			<!-- 图片框 -->
+			<view class="content" wx:if="{{item.type==2}}">
+				<view class="flex-row">
+					<view class="flex-grow-1">
+						<image src='{{item.value}}' style="{{is_sort?'width:300rpx;height:200rpx':'width:580rpx;'}}" mode="{{is_sort?'aspectFill':'widthFix'}}"></image>
+					</view>
+					<view class="flex-grow-0" wx:if="{{!is_sort}}" data-index="{{index}}" bindtap="delText">
+						<image src='/components/images/close.png' style="width:40rpx;height:40rpx" mode='aspectFill'></image>
+					</view>
+					<view wx:if="{{is_sort}}" class="flex-grow-0" data-index="{{index}}">
+						<van-stepper value="{{ item.weigh }}" integer min="0" data-index="{{index}}" bind:change="changeSort" />
+					</view>
+				</view>
+				<view class="flex-row aside" wx:if="{{item.is_aside==1&&(!is_sort)}}">
+					<textarea wx:if="{{!show}}" auto-height maxlength="500" placeholder="请输入旁白" placeholder-style="font-size:14px" data-index="{{index}}" bindinput="inputAside" maxlength="200" value="{{item.aside}}">
+      </textarea>
+				</view>
+				<view wx:if="{{!is_sort}}" class="add-aside {{item.is_aside==1?'del-aside':''}}" data-index="{{index}}" bindtap="changeAside">{{item.is_aside==0?'+添加旁白':'x删除旁白'}}</view>
+			</view>
+		</view>
+		<!-- 			   -->
+		<view class="content">
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">价格：</view>
+				<view class="flex-grow-1">
+					<input type="text" bindinput="inputJiaGe" placeholder-style="font-size:24rpx" placeholder="请填写价格，或者'面议'" class="InputBorder mr0_10 pd0_10" value="" />
+				</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">播放量：</view>
+				<view class="flex-grow-1">
+					<input type="number" bindinput="inputPlayNum" placeholder-style="font-size:24rpx" placeholder="请填写播放量" class="InputBorder mr0_10 pd0_10" value="" />
+				</view>
+			</view>
+
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">粉丝量：</view>
+				<view class="flex-grow-1">
+					<input type="number" bindinput="inputFandsNum" placeholder-style="font-size:24rpx" placeholder="请填写粉丝量" class="InputBorder mr0_10 pd0_10" value="" />
+				</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">账号类型：</view>
+				<view class="flex-grow-1">
+					<picker bindchange="isAccountType" value="{{AccountTypeIndex}}" range="{{AccountType}}">
+						<view class="picker SelectItemIconBtn {{AccountTypeIndex == 0 ? 'defaultStyle':''}}">
+							{{AccountType[AccountTypeIndex]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">是否实名：</view>
+				<view class="flex-grow-1">
+					<picker bindchange="isRealname" value="{{RealnameIndex}}" range="{{Realname}}">
+						<view class="picker SelectItemIconBtn {{RealnameIndex == 0 ? 'defaultStyle':''}}">
+							{{Realname[RealnameIndex]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">橱窗否：</view>
+				<view class="flex-grow-1">
+					<picker bindchange="ischuchuang" value="{{ChuchuangIndex}}" range="{{Chuchuang}}">
+						<view class="picker SelectItemIconBtn {{ChuchuangIndex == 0 ? 'defaultStyle':''}}">
+							{{Chuchuang[ChuchuangIndex]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 inputTit">粉丝属性：</view>
+				<view class="flex-grow-1" style="line-height:60rpx;">
+					<picker bindchange="bindPickerChange" value="{{GenderIndex}}" range="{{Gender}}">
+						<view class="picker SelectItemIconBtn {{GenderIndex == 0 ? 'defaultStyle':''}}">
+							{{Gender[GenderIndex]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+
+			<!-- <view class="hr10"></view>
+			<view class="flex-row">
+				<view class="flex-grow-0 flex-y-bottom inputTit">粉丝属性：</view>
+				<view class="flex-grow-1 flex-y-bottom" style="line-height:60rpx;">
+					<switch checked="{{switch1Checked}}" bindchange="switch1Change" color="#ff0000"/>
+				</view>
+			</view> -->
+		</view>
+		<!-- 			   -->
+		<!-- 视频框 -->
+		<view class="content" wx:if="{{video_url!=''}}">
+			<video src="{{video_url}}" controls show-center-play-btn="{{true}}" title="{{title}}"></video>
+		</view>
+		<view class="flex-row mun-box flex-y-center flex-x-center" wx:if="{{subType==1}}">
+			<view class="flex-col mun-row " bindtap="addText">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/font.png' mode='aspectFill'></image>插入文本
+				</view>
+			</view>
+			<view class="flex-col mun-row" bindtap="chooseImg">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/image.png' mode='aspectFill'></image>插入图片
+				</view>
+			</view>
+			<!-- <view class="flex-col mun-row" bindtap="switchSort">
+				<view class="flex-row flex-y-center">
+					<image src='/components/images/sort.png' mode='aspectFill'></image>
+					<view class="{{is_sort?'sort-buut':''}}">{{is_sort?'完成排序':'排序'}}</view>
+				</view>
+			</view> -->
+			<view class="flex-col mun-row " bindtap="addVideo">
+				<view class="flex-row flex-y-center">
+					<image src='/images/videotape.png' mode='aspectFill'></image>选择视频
+				</view>
+			</view>
+		</view>
+
+		<view class="flex-row mun-box flex-y-center flex-x-center" wx:if="{{subType==2}}">
+			<view class="flex-col mun-row " bindtap="addVideo">
+				<view class="flex-row flex-y-center">
+					<image src='/images/videotape.png' mode='aspectFill'></image>选择视频
+				</view>
+			</view>
+		</view>
+		<van-dialog use-slot title="红包帖设置" show="{{ show }}" bind:confirm="confResSet">
+			<van-cell-group>
+				<view class="flex-row flex-y-center" style="margin-top:24rpx;">
+					<view class="flex-col red-colo">是否开启</view>
+					<view class="flex-col">
+						<van-switch checked="{{ redSet.status }}" size="24px" bind:change="changeRedStatus" />
+					</view>
+				</view>
+				<van-field value="{{ redMoney }}" type="number" clearable label="红包金额" data-type="1" placeholder="请输入红包金额" bind:input="bindRedData" />
+
+				<van-field value="{{ redNumber }}" type="number" clearable label="红包个数" icon="question-o" data-type="2" bind:input="bindRedData" placeholder="请输入红包个数" border="{{ false }}" bind:click-icon="showRedNumMsg" />
+			</van-cell-group>
+		</van-dialog>
+		<van-toast id="van-toast" zIndex="9999" />
+	</view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="FixButton">
+		<button form-type="submit" bindtap="subBefore">
+			<view class="FixButton_fabiaoBtn">发表</view>
+		</button>
+	</view>
+</form>

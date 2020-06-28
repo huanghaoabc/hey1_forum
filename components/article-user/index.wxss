@@ -1,0 +1,62 @@
+/* components/article-user/index.wxss */
+@import "/components/common.wxss";
+
+.user-box{
+  height: 114rpx;
+  width: 100%;
+  border-radius: 30rpx;
+  background-color: #fff;
+  /* margin-bottom: 10rpx; */
+}
+
+.avatar{
+  margin-left: 24rpx;
+  
+}
+
+.avatar image{
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 100%;
+}
+
+.uesr-msg{
+  margin-left: 24rpx;
+  font-size: 28rpx;
+}
+
+.user-level{
+  font-size: 24rpx;
+  background-color: #29252C;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 90rpx;
+  margin-left: 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.sub-time{
+  color: #9C9A9A;
+  font-size: 26rpx;
+}
+
+.follow{
+  margin-right: 24rpx;
+  font-size: 28rpx;
+  background-color: #F33535;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+
+}
+
+.del-follow{
+  width: 140rpx;
+  color: #F33535;
+  background-color: #fcf1f1;
+}

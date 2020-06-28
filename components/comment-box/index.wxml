@@ -1,0 +1,42 @@
+<!--components/comment-box/index.wxml-->
+<!-- <form bindsubmit="formSubmit" report-submit>
+<view class='comment-box flex-row flex-y-center'>
+<button form-type="submit"  bindtap="input">
+  <view class='flex-grow-1 flex-y-center c-input'>
+    <view class='c-title'>说点什么...</view>
+  </view>
+  </button>
+  <view class='flex-grow-0 action-box' bindtap="commentIcod">
+    <image src='/components/images/comment.png' mode='aspectFill'></image>
+  </view>
+  <view class='a-title flex-grow-0'  bindtap="commentIcod">{{commentNumber}}</view>
+  <view class='flex-grow-0 action-box' bindtap="good">
+    <image src="/components/images/good{{goods==1?'-active':''}}.png" mode='aspectFill'></image>
+  </view>
+  <view class='a-title flex-grow-0'  bindtap="good" style="{{!showStore?'margin-right:24rpx':''}}">{{goodsNumber}}</view>
+  <view class='flex-grow-0 action-box' bindtap="store" wx:if="{{showStore}}">
+    <image src="/components/images/like{{stored==1?'-active':''}}.png" mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-0 action-box' style='margin-right:24rpx' bindtap="more" wx:if="{{showMore}}">
+    <image src='/components/images/more-l.png' mode='aspectFill'></image>
+  </view>
+  <view class='flex-grow-0 action-box' style='margin-right:24rpx;margin-left:0' bindtap="upShow" wx:if="{{showAdmin}}">
+    <image src='/components/images/admin.png' mode='aspectFill'></image>
+  </view>
+</view>
+<van-action-sheet
+  show="{{ showI }}"
+  actions="{{ actions }}"
+  cancel-text="取消"
+  bind:close="onClose"
+  bind:cancel="onClose"
+  bind:select="onSelect"
+/>
+</form> -->
+<view class="popBox flex-col" wx:if="{{showPop}}" bindtap="closePop">
+  <view class="flex-grow-1 flex-y-center flex-x-center">
+    <image src="{{randQrcoden}}" style="width:420rpx" mode="widthFix"></image>
+  </view>
+</view>
+<view class="fixblock"></view>
+<view class="fixButton" bindtap="showQrcoden">联系客户</view>

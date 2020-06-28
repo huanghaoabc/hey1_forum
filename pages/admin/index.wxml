@@ -1,0 +1,99 @@
+<!--pages/admin/index.wxml-->
+<common-nav title='管理员操作'></common-nav>
+<view class="content" style='margin-top:{{height}}rpx'>
+	<!-- ChanneTitle -->
+	<view class="flex-row borderBottom">
+		<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">发布</view>
+		<view class="flex-grow-1"></view>
+	</view>
+	<!-- ChanneTitle END -->
+	<view class="flex-row">
+		<view class="flex-grow-1 flex-col pd0_10">
+			<view class="flex-grow-1  flex-x-center" bindtap="addFn" data-subtype="21">
+				<image src="/images/douyin.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">添加抖音新动态</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10">
+			<view class="flex-grow-1  flex-x-center" bindtap="addFn" data-subtype="22">
+				<image src="/images/kuaishou.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">添加快手新动态</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10">
+			<view class="flex-grow-1  flex-x-center"  bindtap="addFn" data-subtype="23">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">添加最新玩法</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10">
+			<view class="flex-grow-1  flex-x-center" bindtap="addFn" data-subtype="24">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">添加掘金抖音</view>
+		</view>
+
+	</view>
+	<view class="hr10"></view>
+	<view class="hr10"></view>
+	<view class="flex-row">
+		<view class="flex-grow-0 flex-col pd0_10">
+			<view class="flex-grow-1  flex-x-center" bindtap="addFn" data-subtype="25">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">添加掘金快手</view>
+		</view>
+	</view>
+	<view class="hr10 bottomBorder"></view>
+	<view class="hr10"></view>
+
+</view>
+<view class="content">
+	<!-- ChanneTitle -->
+	<view class="flex-row borderBottom">
+		<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">审核</view>
+		<view class="flex-grow-1"></view>
+	</view>
+	<!-- ChanneTitle END -->
+  <view class="flex-row">
+		<view class="flex-grow-1 flex-col pd0_10" bindtap="shenheFn"  data-id="22">
+			<view class="flex-grow-1  flex-x-center">
+				<image src="/images/douyin.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">审核抖音文章</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10" bindtap="shenheFn"  data-id="23">
+			<view class="flex-grow-1  flex-x-center">
+				<image src="/images/kuaishou.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">审核快手文章</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10" bindtap="shenheFn"  data-id="24">
+			<view class="flex-grow-1  flex-x-center">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">审核发布商品文章</view>
+		</view>
+
+		<view class="flex-grow-1 flex-col pd0_10"  bindtap="shenheFn"  data-id="25">
+			<view class="flex-grow-1  flex-x-center">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">审核收号需求</view>
+		</view>
+		</view>
+		<view class="flex-row">
+		<view class="flex-grow-0 flex-col pd0_10" bindtap="shenheFn"  data-id="26">
+			<view class="flex-grow-1  flex-x-center">
+				<image src="/images/wanfenhao.png" mode="widthFix" style="width:60%"></image>
+			</view>
+			<view class="flex-grow-0  flex-x-center fs24">审核其他需求</view>
+		</view>
+
+	</view>
+</view>

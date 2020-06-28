@@ -1,0 +1,17 @@
+/* pages/report/index.wxss */
+@import "/components/common.wxss";
+.value-class {
+  flex: none !important;
+}
+
+.save-but{
+  height: 60rpx;
+  width: 160rpx;
+  border-radius: 30rpx;
+  background-color: #f33535;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}

@@ -1,0 +1,10 @@
+<!--components/home-nav/index.wxml-->
+<view class='flex-row flex-y-center nav-box' style='height: {{height*2 + 24}}px;background-color:#fff;'>
+  <!-- <view class='flex-grow-0  nav-calendar' bindtap="toJfen">
+    <image src='/components/images/calendar.png' mode='aspectFill'></image>
+  </view> -->
+  <view class='flex-grow-0 flex-y-center nav-search' bindtap="toSeach">
+    <image src='/components/images/search-b.png' mode='aspectFill'></image>
+    <view class='nav-key'>点击搜索关键字...</view>
+  </view>
+</view>

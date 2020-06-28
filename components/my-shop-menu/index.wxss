@@ -1,0 +1,62 @@
+/* components/my-shop-menu/index.wxss */
+@import "/components/common.wxss";
+
+.user-data{
+  width: 100%;
+  height: 148rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  background-color: #fff;
+  padding-bottom: 10rpx;
+}
+
+.user-data-row{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.icod image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-bottom: 10rpx;
+}
+
+.menu-title{
+  font-size: 20rpx;
+  color: #9C9A9A;
+  margin-left: 44rpx;
+}
+
+.shop{
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+.shop image{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 30rpx;
+}
+
+.shop-title{
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  margin-right: 24rpx;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shop-price{
+  font-size: 28rpx;
+  color: #F33535;
+  margin-left: 10rpx;
+}
+
+.shop-row{
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}

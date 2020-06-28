@@ -1,0 +1,27 @@
+/* pages/my/index.wxss */
+@import "/components/common.wxss";
+
+.copy-logo{
+  margin-top: 40rpx;
+}
+
+.copy-logo image{
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.copy-title{
+  font-size: 24rpx;
+  color: #9C9A9A;
+  padding-bottom: 24rpx;
+}
+.more image{
+  height: 30rpx;
+  width: 30rpx;
+}
+.line {padding:24rpx;}
+
+.icon image{
+  height:50rpx;
+  width:50rpx;
+}

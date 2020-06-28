@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "comment-box": "/components/comment-box/index",
+    "comment-input": "/components/comment-input/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index"
+  }
+}

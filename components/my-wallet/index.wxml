@@ -1,0 +1,28 @@
+<!--components/my-wallet/index.wxml-->
+<view class='flex-row wallet-data flex-y-center '>
+  <view class="flex-col flex-x-center wallet-icod">
+    <view class="flex-row flex-x-center">
+      <image src="/components/images/wallet.png" mode='aspectFill'></image>
+    </view>
+    <view class="flex-row flex-x-center wallet-title">我的钱包</view>
+  </view>
+  <view class="flex-col wallet-price " bindtap="toscore">
+    <view class="flex-row w-des flex-x-center">{{score}}</view>
+    <view class="flex-row w-title flex-y-center">
+      <view class="flex-col">
+        <image  src="/components/images/wallet-int.png" mode='aspectFill'></image>
+      </view>
+      <view class="flex-col">积分</view>
+    </view>
+  </view>
+
+  <view class="flex-col wallet-price " style="margin-left:114rpx" bindtap="tomoney">
+    <view class="flex-row w-des flex-x-center">{{money}}</view>
+    <view class="flex-row w-title flex-y-center">
+      <view class="flex-col">
+        <image  src="/components/images/wallet-bal.png" mode='aspectFill'></image>
+      </view>
+      <view class="flex-col">余额</view>
+    </view>
+  </view>
+</view>

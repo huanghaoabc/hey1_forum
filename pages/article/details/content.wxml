@@ -1,0 +1,133 @@
+<!--pages/article/details/index.wxml-->
+<!-- 导航 -->
+<common-nav title='商家' wx:if='{{!userShow}}'></common-nav>
+
+<!-- 用户头部 -->
+<!-- <user-nav  
+  wx:if='{{userShow}}' 
+  data="{{data.user}}"
+  followed="{{data.followed}}"
+  bind:click-follow="follow"
+  >
+</user-nav> -->
+
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+	<!-- <article-user data="{{data.user}}" ctime="{{data.createtime}}" followed="{{data.followed}}" bind:click-follow="follow">
+	</article-user>
+
+	文章内容 -->
+	<!-- <article-des 
+    data="{{data}}" 
+    bind:click-poster="poster"
+    /> -->
+		<view class="content">
+		<swiper autoplay="true" circular="true" indicator-color="#fff" style="height:700rpx">
+			<block wx:for="{{data.images}}" wx:key="banner" wx:if="{{item != 'https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0'}}">
+        <swiper-item>
+          <image src='{{item}}'mode="aspectFill" style="width:100%;height:100%; hwight:700rpx" />
+        </swiper-item> 
+			</block>
+		</swiper>
+		<view class="hr10"></view>
+			<view class="flex-row ">
+				<view class="flex-grow-1 flex-x-center">{{detailInfo.title}}</view>
+			</view>
+			<view class="hr10 bottomBorder"></view>
+
+			<view class="flex-col fs24 lh3">
+			<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:50%">
+						<view class="flex-grow-0  "></view>
+						<view class="flex-grow-1  ">{{!isNaN(detailInfo.jiage)? '价格：￥'+detailInfo.jiage:'面议'}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row" style="width:50%">
+						<view class="flex-grow-0  ">佣金率：</view>
+						<view class="flex-grow-1  ">{{ks.is_ratio}}</view>
+					</view>
+
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:50%">
+						<view class="flex-grow-0  ">券后价格：</view>
+						<view class="flex-grow-1  ">{{ks.coupon_count}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:50%">
+						<view class="flex-grow-0  ">佣金类型：</view>
+						<view class="flex-grow-1  ">{{ks.is_ratioType}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row" style="width:50%">
+						<view class="flex-grow-0  ">团长：</view>
+						<view class="flex-grow-1  ">{{ks.head_name}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:50%">
+						<view class="flex-grow-0  ">申请样品:</view>
+						<view class="flex-grow-1  ">{{ks.is_sample}}</view>
+					</view>
+
+				</view>
+				<!-- unit end -->
+			</view>
+
+			<view class="hr10"></view>
+			<block wx:for="{{ct}}">
+			<block wx:if="{{item.type ==1}}">
+			<!-- ChanneTitle -->
+				<view class="flex-row borderBottom">
+					<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">{{item.typename}}</view>
+					<view class="flex-grow-1"></view>
+				</view>
+				<!-- ChanneTitle END -->
+				<view class="hr10"></view>
+				<view class="flex-row fs30 pd0_10">
+					<view class="flex-grow-1"><view class="linkBox"><text style=" word-wrap: break-word; word-break: normal;">{{item.value}}</text></view></view>
+					<view class="flex-grow-0"><view class="copyButton" bindtap="CopyTxt" data-index="{{index}}">复制链接</view></view>
+				</view>
+				<view class="hr10"></view>
+			</block>
+			</block>
+    </view>
+	
+
+  
+	<view class="hr101"></view>
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="4"></display-window> -->
+
+	<!-- 评论列表 -->
+	<!-- <comment-list list="{{list}}"></comment-list> -->
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+	<!-- 操作框 -->
+	 <comment-box commentNumber="{{data.reply_count}}" goodsNumber="{{data.good_count}}" showAdmin="{{data.isAdmin}}" goods="{{data.goods}}" stored="{{data.stored}}" artid="{{data.id}}" bind:click-input="clickInput" bind:click-good="clickGood" bind:click-icod="clickInput" bind:click-store="clickStore" bind:click-more="more" /> 
+	<!-- 评论输入框 -->
+	<!-- <comment-input isShow="{{isShow}}" post-id="{{data.id}}" bind:click-put="putComment" /> -->
+
+	<!-- 分享框 -->
+	<share-box isShow="{{moreShow}}" />
+
+	<van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelect" />
+
+	<!-- <canvas style="width: 300px; height:600px;" canvas-id="mycanvas"/> -->
+
+	<!-- 红包按钮浮框 -->
+	<view class="red-box" bindtap="getRed" wx:if="{{data.red_status==1  && markCheck==1}}">
+		<view class="red-b-image">
+			<image src='/components/images/redbao.png' mode='aspectFill'></image>
+		</view>
+		<view class="red-b-time" wx:if="{{time>0}}">{{time}}s后领取</view>
+		<view class="red-b-time" wx:if="{{time==0}}">点击领取</view>
+	</view>
+
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "sign-in": "/components/sign-in/sign-in",
+    "van-icon": "/vant-weapp/dist/icon/index",
+    "van-progress": "/vant-weapp/dist/progress/index",
+    "van-dialog": "/vant-weapp/dist/dialog/index"
+  }
+}

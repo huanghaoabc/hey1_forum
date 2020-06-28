@@ -1,0 +1,35 @@
+/* components/title-box/index.wxss */
+@import "/components/common.wxss";
+
+.title-box{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #AAAAAA; */
+}
+
+.title{
+  height: 80rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.title image{
+  height: 48rpx;
+  width: 48rpx;
+}
+
+.title-line{
+  height: 32rpx;
+  width: 10rpx;
+  background-color: #F33535;
+  border-radius: 15rpx;
+}
+
+.title-font{
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  font-weight:bold;
+}

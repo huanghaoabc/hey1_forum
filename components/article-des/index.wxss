@@ -1,0 +1,83 @@
+/* components/article-des/index.wxss */
+@import "/components/common.wxss";
+
+.content{
+  width: 100%;
+  border-radius: 30rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.circle{
+  margin-left: 24rpx;
+  font-size: 24rpx;
+  color: #9C9A9A;
+  padding-top: 10rpx;
+}
+
+.circle-title{
+  color: #33425B;
+  font-size: 26rpx;
+}
+
+.content-title{
+  margin-left: 24rpx;
+  font-size: 32rpx;
+  /* font-weight: bold; */
+  margin:24rpx;
+}
+
+.content-title text{
+  color: #F33535
+}
+
+.content-des{
+  font-size: 30rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+.content-image{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  /* width: 100%; */
+  padding-bottom: 24rpx;
+}
+
+.content-image image{
+  width: 100%;
+  display:block;
+}
+
+.image-aside{
+  background-color: #33425B;
+  color: #fff;
+  padding: 24rpx;
+  font-size: 28rpx;
+}
+
+.sare{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 24rpx;
+  margin-top: 64rpx;
+  padding-bottom: 24rpx;
+}
+
+.sare image{
+  height: 60rpx;
+  width: 60rpx;
+  margin-left: 44rpx;
+}
+
+.rich-content{
+  margin: 24rpx;
+}
+.video-box{
+  width: 100%;
+}
+
+video{
+  width: 100%
+}

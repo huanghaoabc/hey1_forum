@@ -1,0 +1,196 @@
+<!--pages/article/details/index.wxml-->
+<!-- 导航 -->
+<common-nav title='详情页' ></common-nav>
+
+<!-- 用户头部 -->
+<!-- <user-nav  
+  wx:if='{{userShow}}' 
+  data="{{data.user}}"
+  followed="{{data.followed}}"
+  bind:click-follow="follow"
+  >
+</user-nav> -->
+
+<view class='home-page' style='margin-top:{{height+20}}rpx'>
+	<!-- <article-user data="{{data.user}}" ctime="{{data.createtime}}" followed="{{data.followed}}" bind:click-follow="follow">
+	</article-user>
+
+	文章内容 -->
+	<!-- <article-des 
+    data="{{data}}" 
+    bind:click-poster="poster"
+    /> -->
+	<!-- 标题 -->
+		<view class="content">
+			<view class="flex-row ">
+				<view class="flex-grow-1 flex-x-center">{{detailInfo.title}}</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex-row ">
+				<view class="flex-grow-1 flex-x-center">
+				<text class="jiageColor fs50 flex-row" wx:if="{{detailInfo.jiage > 0}}">
+					<text class="fs24" style="color:#333">价格：</text>￥{{detailInfo.jiage}}
+				</text>
+				<text class="jiageColor fs50" wx:else>
+					面议
+				</text>
+				</view>
+			</view>
+			</view>
+	<!-- 标题 END-->
+<!-- 账号详细-->
+			<view class="content">
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号详细</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="flex-col fs24 lh3">
+			<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:35%">
+						<view class="flex-grow-0  ">粉丝数量：</view>
+						<view class="flex-grow-1  ">{{detailInfo.fandsNum}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row" style="width:40%">
+						<view class="flex-grow-0  ">播放数量：</view>
+						<view class="flex-grow-1  ">{{detailInfo.playNum}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row" style="width:25%">
+						<view class="flex-grow-0  ">是否违规：</view>
+						<view class="flex-grow-1  ">{{detailInfo.violation == 1 ? '是':'否'}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row"  style="width:35%">
+						<view class="flex-grow-0  ">账号类型：</view>
+						<view class="flex-grow-1  ">{{detailInfo.AccountType}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">粉丝偏向：</view>
+						<view class="flex-grow-1  ">{{xingbie[detailInfo.Gender].name}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:25%">
+						<view class="flex-grow-0  ">是否实名：</view>
+						<view class="flex-grow-1  ">{{detailInfo.Realname == 2 ? '是':'否'}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+				<!-- unit -->
+				<view class="flex-grow-1 flex-row ">
+					<view class="flex-grow-1 flex-row" style="width:35%">
+						<view class="flex-grow-0  ">是否蓝V：</view>
+						<view class="flex-grow-1  ">{{detailInfo.isbluev == 2 ? '是':'否'}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:40%">
+						<view class="flex-grow-0  ">开通小店：</view>
+						<view class="flex-grow-1  ">{{detailInfo.openshop == 1 ? '是':'否'}}</view>
+					</view>
+					<view class="flex-grow-1 flex-row"  style="width:25%">
+						<view class="flex-grow-0  ">橱窗开通：</view>
+						<view class="flex-grow-1  ">{{detailInfo.Chuchuang == 2 ? '是':'否'}}</view>
+					</view>
+				</view>
+				<!-- unit end -->
+			</view>
+	
+	</view>
+
+	<!-- 账号详细 END-->
+			<view class="content">
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号数据图</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+			<block wx:for="{{data.images}}">
+				<block wx:if="{{item != 'https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0'}}">
+					<view class="TabImages {{index == imagesArrIndex ? 'curr':''}}" data-index="{{index}}" bindtap="tabImageFn">{{imagesArr[index]}}</view>
+				</block>
+			</block>
+			<view class="hr10"></view>
+			<view class="flex-row flex-x-center">
+				<block wx:for="{{data.images}}">
+					<block wx:if="{{item !='https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0'}}">
+						<image src="{{item}}" style="width:80%; margin:0 auto" mode="widthFix" wx:if="{{index == imagesArrIndex}}" bindtap="previewImg" data-index="{{index}}"></image>
+						</block>
+				</block>
+			</view>
+			</view>
+			<view class="content">
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">账号描述</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+			<view class="lh2 fs30 pd0_10">{{data.excerpt}}</view>
+			</view>
+			<view class="content">
+			
+			<!-- ChanneTitle -->
+			<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">交易流程</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			<view class="flex-row">
+				<view class="flex-grow-1">
+				<view class="hr10"></view>
+					<image src="http://jh.juhuchuanmei.cn/addons/hey1_forum/liucheng.jpg" mode="widthFix"></image>
+				</view>
+				
+			</view>
+			<!-- ChanneTitle END -->
+			<view class="hr10"></view>
+    </view>
+		<view style="background:#fff">
+<view class="ItemRow" >
+	<view class="flex-row borderBottom">
+				<view class="flex-grow-0 pd0_10 lh2 fs40 FontF00">相似账号</view>
+				<view class="flex-grow-1"></view>
+			</view>
+			
+</view>
+	<article-list list="{{list}}" />
+  </view>
+	<view class="hr101"></view>
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="4"></display-window> -->
+
+	<!-- 评论列表 -->
+	<!-- <comment-list list="{{list}}"></comment-list> -->
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+	<!-- 操作框 -->
+	<comment-box commentNumber="{{data.reply_count}}" goodsNumber="{{data.good_count}}" showAdmin="{{data.isAdmin}}" goods="{{data.goods}}" stored="{{data.stored}}" artid="{{data.id}}" bind:click-input="clickInput" bind:click-good="clickGood" bind:click-icod="clickInput" bind:click-store="clickStore" bind:click-more="more" />
+	<!-- 评论输入框 -->
+	<comment-input isShow="{{isShow}}" post-id="{{data.id}}" bind:click-put="putComment" />
+
+	<!-- 分享框 -->
+	<share-box isShow="{{moreShow}}" />
+
+	<van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelect" />
+
+	<!-- <canvas style="width: 300px; height:600px;" canvas-id="mycanvas"/> -->
+
+	<!-- 红包按钮浮框 -->
+	<view class="red-box" bindtap="getRed" wx:if="{{data.red_status==1  && markCheck==1}}">
+		<view class="red-b-image">
+			<image src='/components/images/redbao.png' mode='aspectFill'></image>
+		</view>
+		<view class="red-b-time" wx:if="{{time>0}}">{{time}}s后领取</view>
+		<view class="red-b-time" wx:if="{{time==0}}">点击领取</view>
+	</view>
+
+</view>

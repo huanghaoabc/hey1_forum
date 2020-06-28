@@ -1,0 +1,7 @@
+<!--pages/web-view/index.wxml-->
+<!-- 导航 -->
+<common-nav title='预览' />
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <web-view src="{{src}}"></web-view>
+</view>
+

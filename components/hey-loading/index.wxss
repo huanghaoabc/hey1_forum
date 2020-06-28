@@ -1,0 +1,9 @@
+/* components/hey-loading/index.wxss */
+@import "/components/common.wxss";
+
+.loading{
+  font-size: 26rpx;
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  color: #aaa;
+}

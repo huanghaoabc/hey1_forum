@@ -1,0 +1,36 @@
+/* pages/my-edit/index.wxss */
+@import "/components/common.wxss";
+
+.line{
+  background-color: #fff;
+  padding: 24rpx;
+  font-size: 28rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  border-radius: 30rpx;
+  margin-bottom: 14rpx;
+}
+
+.line image{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100%;
+}
+
+.save-but{
+  height: 60rpx;
+  width: 160rpx;
+  border-radius: 30rpx;
+  background-color: #f33535;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+
+.more image{
+  height: 30rpx;
+  width: 30rpx;
+}
+

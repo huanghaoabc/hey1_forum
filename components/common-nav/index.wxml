@@ -1,0 +1,24 @@
+<!--components/common-nav/index.wxml-->
+<view class='flex-row flex-y-center  nav-box' style='height: {{height*2 + 24}}px;background-color:{{bgcolor}}; background:#fd3f48'>
+  <view class='flex-grow-0  nav-return' wx:if="{{back}}" >
+    <image src="/components/images/return{{color=='#fff'?'-white':''}}.png" mode='aspectFill' bindtap='_back'></image>
+  </view>
+  <view class='flex-grow-0 down-line' style="color:{{color}}">{{ back ? '|' : "" }}</view>
+  <view class='flex-grow-0  nav-botton flex-col flex-y-center' bindtap='_home'>
+    <view class='flex-row'>
+      <image src="/components/images/home{{color=='#fff'?'-white':''}}.png" mode='aspectFill'></image>
+    </view>
+    <view class='flex-row' style='color:{{color}}'>主页</view>
+  </view>
+  <view  wx:if="{{share}}" class='flex-grow-0 down-line' style="color:{{color}}">|</view>
+  <button class="common-nav-button"  hover-class='none' open-type='share' wx:if="{{share}}">
+  <view class='flex-grow-0  nav-botton flex-col flex-y-center'>
+    <view class='flex-row'>
+      <image src="/components/images/share{{color=='#fff'?'-white':''}}.png" mode='aspectFill'></image>
+    </view>
+    <view class='flex-row' style='color:{{color}}'>分享</view>
+  </view>
+  </button>
+  <view class='page-title flex-grow-0' style="color:{{color}};{{statusBarHeight==44?'top:76rpx;':''}}">{{title}}</view>
+</view>
+<view wx:if="{{underfill}}" class='home-page' style='margin-top:{{height*2 + 24}}px'></view>

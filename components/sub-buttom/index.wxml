@@ -1,0 +1,13 @@
+<!--components/sub-buttom/index.wxml-->
+<!-- <form bindsubmit="formSubmit" report-submit>
+<button form-type="submit">
+<view class='mask-box' wx:if="{{isShow}}" bindtap="downShow"  catchtouchmove="ture"></view>
+<view class="sub-img" wx:if="{{isShow}}" data-type="1" bindtap="toSub">图文</view>
+<view class="sub-vod" wx:if="{{isShow}}"  data-type="2" bindtap="toSub">小视频</view>
+<view class="sub-bott">
+  <image  src='/components/images/sub-del.png' mode='aspectFill' wx:if="{{isShow}}" bindtap="downShow"></image>
+  <image  src='/components/images/sub.png' mode='aspectFill' wx:if="{{!isShow}}" bindtap="upShow"></image>
+  
+</view>
+</button>
+</form> -->

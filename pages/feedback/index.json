@@ -1,0 +1,11 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-checkbox": "/vant-weapp/dist/checkbox/index",
+    "van-checkbox-group": "/vant-weapp/dist/checkbox-group/index",
+    "van-cell": "/vant-weapp/dist/cell/index",
+    "van-cell-group": "/vant-weapp/dist/cell-group/index",
+    "van-field": "/vant-weapp/dist/field/index"
+  }
+}

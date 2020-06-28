@@ -1,0 +1,25 @@
+<!--pages/group-circle/index/index.wxml-->
+
+<!-- 导航 -->
+<common-nav title='圈子列表'></common-nav>
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <!-- 搜索/筛选栏目 -->
+  <list-header to-type="2" check="{{check}}" key-title="搜索一个圈子..." nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></list-header>
+
+  <!-- 广告橱窗 -->
+  <display-window position="6"></display-window>
+
+  <!-- 圈子项 -->
+  <circle-row list='{{list}}' check="{{check}}"></circle-row>
+
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+</view>

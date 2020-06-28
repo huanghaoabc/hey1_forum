@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index"
+  }
+}

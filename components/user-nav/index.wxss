@@ -1,0 +1,70 @@
+/* components/user-nav/index.wxss */
+
+@import "/components/common.wxss";
+
+.nav-box{
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+  top: 0;
+  border-bottom: 1rpx solid #ccc
+}
+
+.nav-return image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 40rpx;
+  margin-left: 24rpx;
+}
+
+
+.down-line{
+  margin-top: 28rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  font-size: 28rpx;
+  color: #000
+}
+
+.user-avatar image{
+  height: 60rpx;
+  width: 60rpx;
+  margin-top: 34rpx;
+  border-radius: 100%;
+}
+
+.user-name{
+  font-size: 32rpx;
+  margin-left: 24rpx;
+  margin-top: 30rpx;
+  width: 210rpx;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.follow{
+  margin-right: 24rpx;
+  font-size: 28rpx;
+  background-color: #F33535;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+
+}
+
+.del-follow{
+  color: #F33535;
+  background-color: #fcf1f1;
+  font-size: 24rpx;
+  width: 110rpx;
+
+}
+

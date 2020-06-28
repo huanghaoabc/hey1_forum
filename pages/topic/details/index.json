@@ -1,0 +1,16 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "topic-top": "/components/topic-top/index",
+    "topic-admin-list": "/components/topic-admin-list/index",
+    "classify-nav": "/components/classify-nav/index",
+    "display-window": "/components/display-window/index",
+    "article-list": "/components/article-list/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "nofind": "/components/nofind/index",
+    "sub-buttom": "/components/sub-buttom/index"
+  }
+}

@@ -1,0 +1,38 @@
+<!--pages/wallet/order/index.wxml-->
+<common-nav title='账单' share="{{false}}"></common-nav>
+<view class='home-page' style='margin-top:{{height}}rpx'>
+  <van-cell-group>
+    <van-cell wx:for="{{data}}" data-index="{{index}}" bind:click="orderDesc" title="{{item.channel}}" value="{{item.type==1?'+':'-'}}{{item.price}}" label="{{item.remarks}}"  />
+  </van-cell-group>
+</view>
+<van-dialog
+  use-slot
+  title="账单详情"
+  show="{{ show && orderDesc.type==2 }}"
+>
+  <van-cell-group>
+    <van-cell title="账单编号" value="{{orderDesc.order_no}}" />
+    <van-cell title="交易类型" value="支出" />
+    <van-cell title="提现方式" value="{{orderDesc.w_type==1?'微信零钱':'支付宝'}}" />
+    <van-cell wx:if="{{orderDesc.w_type==2}}" title="支付宝收款人" value="{{orderDesc.zhi_name}}" />
+    <van-cell wx:if="{{orderDesc.w_type==2}}" title="支付宝账号" value="{{orderDesc.zhi_acc}}" />
+    <van-cell title="提现金额" value="￥{{orderDesc.price}}" />
+    <van-cell title="手续费" value="{{orderDesc.charge}}%" />
+    <van-cell title="实际到账" value="￥{{orderDesc.true_money}}" />
+    <van-cell title="交易时间" value="{{orderDesc.createtime}}" />
+  </van-cell-group>
+</van-dialog>
+
+<van-dialog
+  use-slot
+  title="账单详情"
+  show="{{ show && orderDesc.type==1 }}"
+>
+  <van-cell-group>
+    <van-cell title="账单编号" value="{{orderDesc.order_no}}" />
+    <van-cell title="交易类型" value="收入" />
+    <van-cell title="收入金额" value="￥{{orderDesc.price}}" />
+    <van-cell title="交易说明" value="{{orderDesc.remarks}}" />
+    <van-cell title="交易时间" value="{{orderDesc.createtime}}" />
+  </van-cell-group>
+</van-dialog>

@@ -1,0 +1,6 @@
+/* pages/wallet/order/index.wxss */
+@import "/components/common.wxss";
+
+.van-cell__value{
+  color: #f33535;
+}

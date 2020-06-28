@@ -1,0 +1,14 @@
+<!--components/topic-top/index.wxml-->
+<div class="drag"></div>
+<view class='main-box'  style='padding-top: 176rpx;background-image: url({{data.bgimage}})'>
+  <view class='two-box flex-row'>
+    #{{data.title}}#
+  </view>
+  <view class='two-box flex-row'>
+    <view class='flex-grow-1 c-des'>{{data.excerpt}}</view>
+  </view>
+  <view class='number-box flex-row flex-x-right'>
+    <view class='number-des'>讨论<text>{{data.sub_count}}</text></view>
+     <view class='number-des'>阅读<text>{{data.view_count}}</text></view>
+  </view>
+</view>

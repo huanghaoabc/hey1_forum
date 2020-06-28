@@ -1,0 +1,5 @@
+<!--components/hey-loading/index.wxml-->
+<view class='flex-row flex-x-center flex-y-center loading'>
+  <van-loading size='28rpx'></van-loading>
+  <view style='margin-left:18rpx'>拼命加载中...</view>
+</view>

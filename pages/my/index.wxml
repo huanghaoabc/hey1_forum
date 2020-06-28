@@ -1,0 +1,100 @@
+<!--pages/my/index.wxml-->
+
+<!-- 个人中心导航 -->
+<my-nav></my-nav>
+
+<view class='home-page' style='margin-top:{{height}}rpx'>
+
+	<!-- 个人信息 -->
+	<my-user-msg user="{{user}}" bind:click-dynamic="dynamic" bind:signIn="signIn">
+	</my-user-msg>
+
+	<!-- <my-wallet wx:if="{{markCheck==1}}" money="{{user.user.money}}" score="{{user.user.score}}"/>  -->
+
+	<!-- 个人记录 -->
+	<!-- <my-record></my-record> -->
+	<view class="content">
+		<view class="flex-row flex-y-center bottomBorder line" bindtap="gotoMyHome" data-userid="{{user.user.id}}">
+			<view class="flex-grow-0 icon">
+			<image src="../../images/home.png" mode='aspectFill'></image>
+			<!-- <image src='/components/images/more-t.png' mode='aspectFill'></image> -->
+			</view>
+			<view class="flex-grow-1 title">我的主页</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+		<view class="flex-row flex-y-center bottomBorder line" bindtap="gotoMyShop" data-userid="{{user.user.id}}">
+			
+			<view class="flex-grow-1 title">我的出售</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+		<view class="flex-row flex-y-center bottomBorder line" bindtap="gotoMyShangpin" data-userid="{{user.user.id}}">
+			<view class="flex-grow-1 title">我的商品</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+		<view class="flex-row flex-y-center bottomBorder line" bindtap="gotoMyneed">
+			<view class="flex-grow-1 title">我的需求</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+		<view class="flex-row flex-y-center  line" bindtap="gotoMylishi">
+			<view class="flex-grow-1 title">历时浏览记录</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+		<view class="flex-row flex-y-center  line" bindtap="shenhe" >
+			<view class="flex-grow-1 title">管理员操作</view>
+			<view class="flex-grow-0 content">
+
+			</view>
+			<view class="flex-grow-0 more flex-y-center">
+				<image src='/components/images/more-t.png' mode='aspectFill'></image>
+			</view>
+		</view>
+
+	</view>
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="3"></display-window> -->
+
+	<!-- 服务菜单 -->
+	<!-- <server-menu notice-count="{{noticeCount}}"></server-menu> -->
+
+	<!-- 积分商城菜单 -->
+	<!-- <my-shop-menu data="{{product}}"/> -->
+
+	<!-- 版权标识 -->
+	<!-- <view class='flex-row flex-x-center copy-logo'>
+    <image src='{{copay.logo}}'  mode='aspectFill'></image>
+  </view> -->
+	<!-- <view class='flex-row flex-x-center copy-title'>{{copay.copay_name}}</view> -->
+</view>
+
+
+<sign-in show="{{signInShow}}" data="{{signData}}" bind:myevent="onMyEvent" />

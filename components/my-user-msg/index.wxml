@@ -1,0 +1,52 @@
+<!--components/my-user-msg/index.wxml-->
+<view class='user-box ' style="height:170rpx">
+  <view class='flex-row user-msg flex-y-center' wx:if="{{user != ''}}">
+    <view class='flex-grow-0 user-avatar ' bindtap="toEdit">
+      <image src='{{user.user.avatar}}'  mode='aspectFill'></image>
+    </view>
+    <view class='flex-grow-1 user-name flex-y-center' bindtap="toEdit">
+      <view class='flex-row'>{{user.user.nickname}}</view>
+      
+      <view class='flex-row flex-y-center vip' >
+        <!-- <view class="flex-col flex-y-center">
+          <image  src="/components/images/VIP.png" mode='aspectFill'></image>
+        </view> -->
+        <!-- <view class="flex-col user-level">LV{{user.user.level}}</view> -->
+      </view>
+    </view>
+    <!-- <view wx:if="{{!user.sign}}" class='flex-grow-0 circle-button' bindtap="_signIn">签到</view>
+    <view wx:if="{{user.sign}}" class='flex-grow-0 circle-button active'>已签到</view> -->
+    <view class='flex-grow-0 more flex-y-center' bindtap="toEdit">
+      <image  src="/components/images/more-w.png" mode='aspectFill'></image>
+    </view>
+  </view>
+
+  <view class='flex-row user-msg flex-y-center'  wx:if="{{user == ''}}">
+    <view class='flex-grow-0 user-avatar'>
+      <image src='/components/images/default-avatar.png'  mode='aspectFill'></image>
+    </view>
+    <view class='flex-grow-1 user-name'>
+      <view class='flex-row'>未登陆</view>
+    </view>
+    <view class='flex-grow-0 login-button' bindtap="login">点击登陆</view>
+  </view>
+<!-- 
+  <view class='flex-row user-data  flex-x-center'>
+    <view class='flex-col  user-data-row ' bindtap="toDynamic">
+      <view class='flex-row  b-number flex-x-center'>{{user==''?0:user.dynamic}}</view>
+      <view class='flex-row flex-x-center'>动态</view>
+    </view>
+    <view class='flex-col  user-data-row ' data-iden="0" bindtap="toFollow">
+      <view class='flex-row  b-number flex-x-center'>{{user==''?0:user.follow}}</view>
+      <view class='flex-row flex-x-center'>关注</view>
+    </view>
+    <view class='flex-col  user-data-row ' data-iden="1" bindtap="toFollow">
+      <view class='flex-row  b-number flex-x-center'>{{user==''?0:user.fans}}</view>
+      <view class='flex-row flex-x-center'>粉丝</view>
+    </view>
+    <view class='flex-col  user-data-row ' bindtap="toMyCir">
+      <view class='flex-row  b-number flex-x-center'>{{user==''?0:user.circles}}</view>
+      <view class='flex-row flex-x-center'>小圈</view>
+    </view>
+  </view> -->
+</view>

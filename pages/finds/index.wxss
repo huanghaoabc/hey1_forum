@@ -1,0 +1,14 @@
+/* pages/finds/index.wxss */
+@import "/components/common.wxss";
+
+.refresh{
+  padding: 24rpx;
+  font-size: 28rpx;
+  color: #b9b9b9;
+}
+
+.refresh image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 10rpx;
+}

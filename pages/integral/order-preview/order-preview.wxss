@@ -1,0 +1,25 @@
+/* pages/integral/order-preview/order-preview.wxss */
+.address-top-line{
+    /* position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+    height: 4rpx;
+    background: -webkit-repeating-linear-gradient(135deg, #ff6c6c 0, #ff6c6c 20%, transparent 0, transparent 25%, #1989fa 0, #1989fa 45%, transparent 0, transparent 50%);
+    background: repeating-linear-gradient(-45deg, #ff6c6c 0, #ff6c6c 20%, transparent 0, transparent 25%, #1989fa 0, #1989fa 45%, transparent 0, transparent 50%);
+    background-size: 80px;
+    content: '';
+}
+.product{
+  background-color: #fff;
+  margin-top: 24rpx;
+}
+.product-title{
+  padding: 24rpx;
+  font-size: 30rpx;
+  color: #17233d;
+  font-weight: 500;
+}
+.product-info{
+  padding: 0 24rpx;
+}

@@ -1,0 +1,32 @@
+<!--components/group-circle/index.wxml-->
+<form bindsubmit="formSubmit" report-submit>
+<title-box title='{{title}}'  url='/pages/group-circle/index/index'  wx:if="{{hostCircles.length>0}}">
+  <scroll-view scroll-x  class="scroll-header flex-row"> 
+    <view class="scroll-box" wx:for="{{hostCircles}}" data-id='{{item.id}}' bindtap='toCircle'>
+      <view class="flex-row">
+        <view class="flex-col c-title">{{item.title}}</view>
+        <view class="flex-col c-level" wx:if="{{item.limit_level > 0}}">LV{{item.limit_level}}专区</view>
+        <view class="flex-grow-1"></view>
+        <view class="flex-col c-number">{{item.join_count}}人</view>
+      </view>
+      <view class="flex-row c-img-des">
+        <view class="flex-col">
+          <image src='{{item.image}}' mode='aspectFill'></image>
+        </view>
+        <view class="flex-col">
+          <view class="c-des">{{item.excerpt}}</view>
+          <view class="flex-row">
+            <view class="flex-col user-avatar" wx:for="{{item.avatar}}" wx:for-item="iit">
+              <image src='{{iit}}' mode='aspectFill'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+     </view>
+  </scroll-view>
+</title-box>
+</form>
+
+
+
+

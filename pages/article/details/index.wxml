@@ -1,0 +1,131 @@
+<!--pages/article/details/index.wxml-->
+<!-- 导航 -->
+<common-nav title='帖子详情' wx:if='{{!userShow}}'></common-nav>
+
+<!-- 用户头部 -->
+<!-- <user-nav  
+  wx:if='{{userShow}}' 
+  data="{{data.user}}"
+  followed="{{data.followed}}"
+  bind:click-follow="follow"
+  >
+</user-nav> -->
+
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+	<article-user data="{{data.user}}" ctime="{{data.createtime}}" followed="{{data.followed}}" bind:click-follow="follow">
+	</article-user>
+
+	<!-- 文章内容 -->
+	<!-- <article-des 
+    data="{{data}}" 
+    bind:click-poster="poster"
+    /> -->
+	<view class="flex_row IndexItems" bindtap="clickTitle" data-id="{{item.id}}">
+		<view class="flex_grow_0 tc">
+			<image class="IndexHeader" src="{{data.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{data.user.nickname}}</text>
+		</view>
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center pd5_0"><text class="IndexItemTitle fs34 TextDian">{{data.title}}</text></view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">播放量：</test>{{data.playNum}}
+				</view>
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">橱窗否：</test>{{data.Chuchuang}}
+				</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">粉丝量：</test>{{data.fandsNum}}
+				</view>
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">实名否：</test>{{data.Realname}}
+				</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center pd5_0">
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">粉丝属性：</test>{{data.Gender}}
+				</view>
+				<view class="flex_grow_1 fs24">
+					<test class="TitleWidth">账号类型：</test>{{data.AccountType}}
+				</view>
+			</view>
+			<view class="hr10"></view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center">
+				<block wx:for="{{data.images}}" wx:if="{{data.images.lengtn !=1}}" wx:for-item="itemName" wx:for-index="idx">
+					<view class="flex_grow_1" wx:if="{{idx<=2}}">
+						<image class="ItemImages" src="{{itemName}}" width="20%" mode="widthFix"></image>
+					</view>
+				</block>
+				<block wx:if="{{data.video_url.length >=60}}">
+					<view class="flex_grow_1">
+						<video src="{{data.video_url}}" auto-pause-if-navigate controls show-center-play-btn="{{false}}" title="{{data.title}}"></video>
+					</view>
+				</block>
+			</view>
+      <view class="flex_grow_1 flex_row Font999 flex_y_center">
+<view class="flex_grow_1 flex_row pd10_20" style="background:#f0f0f0">
+			<view class="flex_grow_0   FontF00 fs40 "><view class="tc">{{data.jiage}}</view></view>
+      <view class="flex_grow_1"></view>
+			<view class="flex_grow_0 flex_row ListItemImage">
+			<view class="flex_grow_0  flex_y_center pd0_10">
+				<image class="IndexItemTipsImages" style="width:30rpx;" mode="widthFix" src="/images/pinglun.png"></image><text style="font-size:30rpx">{{data.reply_count}}</text>
+			</view>
+			<view class="flex_grow_0  flex_y_center pd0_10">
+				<image class="IndexItemTipsImages" style="width:30rpx;" mode="widthFix" src="/images/eye.png"></image><text style="font-size:30rpx">{{data.view_count}}</text>
+			</view>
+		</view>
+  </view>
+      </view>
+		</view>
+    
+
+    <!-- <view class="flex_grow_0 flex_col">
+			<view class="flex_grow_0 Font999 fs24 flex_x_center">{{data.createtime}}</view>
+			<view class="flex_grow_1 flex_y_center  FontF00 fs40 flex_x_center"><view class="tc">{{data.jiage}}</view></view>
+			<view class="flex_grow_0 flex_row ListItemImage">
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image><text style="font-size:20rpx">{{data.reply_count}}</text>
+			</view>
+			<view class="flex_grow_1  flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image><text style="font-size:20rpx">{{data.view_count}}</text>
+			</view>
+		</view>
+		</view> -->
+	</view>
+  
+	<view class="hr101"></view>
+	<!-- 广告橱窗 -->
+	<!-- <display-window position="4"></display-window> -->
+
+	<!-- 评论列表 -->
+	<comment-list list="{{list}}"></comment-list>
+
+	<!-- 加载动画 -->
+	<hey-loading wx:if='{{showLoading}}' />
+
+	<!-- 底线 -->
+	<hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+
+	<!-- 操作框 -->
+	<comment-box commentNumber="{{data.reply_count}}" goodsNumber="{{data.good_count}}" showAdmin="{{data.isAdmin}}" goods="{{data.goods}}" stored="{{data.stored}}" artid="{{data.id}}" bind:click-input="clickInput" bind:click-good="clickGood" bind:click-icod="clickInput" bind:click-store="clickStore" bind:click-more="more" />
+	<!-- 评论输入框 -->
+	<comment-input isShow="{{isShow}}" post-id="{{data.id}}" bind:click-put="putComment" />
+
+	<!-- 分享框 -->
+	<share-box isShow="{{moreShow}}" />
+
+	<van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelect" />
+
+	<!-- <canvas style="width: 300px; height:600px;" canvas-id="mycanvas"/> -->
+
+	<!-- 红包按钮浮框 -->
+	<view class="red-box" bindtap="getRed" wx:if="{{data.red_status==1  && markCheck==1}}">
+		<view class="red-b-image">
+			<image src='/components/images/redbao.png' mode='aspectFill'></image>
+		</view>
+		<view class="red-b-time" wx:if="{{time>0}}">{{time}}s后领取</view>
+		<view class="red-b-time" wx:if="{{time==0}}">点击领取</view>
+	</view>
+
+</view>

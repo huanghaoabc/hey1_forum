@@ -1,0 +1,103 @@
+/* components/my-user-msg/index.wxss */
+@import "/components/common.wxss";
+
+.user-box{
+  height: 300rpx;
+  width: 100%;
+  background-color: #f33535;
+  color: #fff;
+}
+
+.user-msg{
+  margin-top: 15rpx;
+  margin-left: 24rpx;
+}
+
+.user-avatar image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  margin-top: 24rpx;
+}
+
+.user-name{
+  font-size: 32rpx;
+  margin-left: 15rpx;
+}
+
+.more image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  margin-top: 14rpx;
+}
+
+.user-data{
+  font-size: 28rpx;
+  margin-top: 28rpx;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15rpx;
+  color: #333333;
+  padding-top: 10rpx;
+  padding-bottom: 28rpx;
+}
+
+.user-data-row{
+  margin-left: 60rpx;
+  margin-right:60rpx;
+}
+
+.b-number{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.login-button{
+  font-size: 24rpx;
+  background-color: #29252C;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-right: 24rpx;
+}
+.circle-button.active{
+  background-color: #c5c8ce;
+  color: #808695;
+}
+
+.circle-button{
+  height: 40rpx;
+  width: 104rpx;
+  background-color: #fff;
+  color: #F33535;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  border-radius: 50rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.user-level{
+  font-size: 24rpx;
+  background-color: #3b3641;
+  color: #fff;
+  border-radius: 20rpx;
+  border-top-left-radius: 0;
+  height: 40rpx;
+  width: 90rpx;
+  line-height: 40rpx;
+}
+
+.vip{
+  margin-top: 10rpx;
+}
+.vip image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 10rpx;
+}

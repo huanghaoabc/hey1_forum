@@ -1,0 +1,17 @@
+/* pages/finds/index.wxss */
+@import "/components/common.wxss";
+
+.refresh{
+  padding: 24rpx;
+  font-size: 28rpx;
+  color: #b9b9b9;
+}
+
+.refresh image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+.findTabBtns { font-size:32rpx; height:64rpx; line-height:64rpx; }
+.findTabBtns .tabItem {padding:0 40rpx}
+.findTabBtns .curr {border-bottom:2px solid #f00; font-size:40rpx; color:#f00}

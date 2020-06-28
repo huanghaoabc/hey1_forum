@@ -1,0 +1,73 @@
+/* pages/user-center/index.wxss */
+@import "/components/common.wxss";
+
+.user-main{
+  background-color: #fff;
+  border-radius: 30rpx;
+  padding: 24rpx;
+}
+
+.user-avatar image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  margin-right: 10rpx;
+}
+
+.user-msg{
+  font-size: 24rpx;
+}
+
+.level{
+  margin-top: 10rpx;
+  text-align: center;
+  height: 35rpx;
+  width: 80rpx;
+  background-color: #29252C;
+  color: #fff;
+  border-radius: 30rpx;
+  line-height: 35rpx;
+}
+
+.user-number{
+  font-size: 30rpx;
+  margin-right: 34rpx;
+}
+
+.number-des{
+  color: #9C9A9A
+}
+
+.bri-info{
+  font-size: 24rpx;
+  margin-top: 24rpx;
+}
+
+.follow-but{
+  height: 60rpx;
+  width: 312rpx;
+  color: #fff;
+  background-color: #F33535;
+  border-radius: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  font-size: 26rpx;
+}
+
+.unfollow{
+  color: #F33535;
+  background-color: #fcf1f1;
+}
+
+.jubao{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #9C9A9A;
+  margin-top: 20rpx;
+}
+
+.findTabBtns { font-size:28rpx; height:64rpx; line-height:64rpx; }
+.findTabBtns .tabItem {padding:0 20rpx}
+.findTabBtns .curr {border-bottom:2px solid #f00; font-size:32rpx; color:#f00}

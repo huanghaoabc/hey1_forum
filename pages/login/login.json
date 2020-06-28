@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "van-notify": "/vant-weapp/dist/notify/index"
+  }
+}

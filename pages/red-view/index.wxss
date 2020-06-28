@@ -1,0 +1,111 @@
+/* pages/red-view/index.wxss */
+@import "/components/common.wxss";
+
+.bg-image image{
+  width: 100%;
+  height: 923rpx;
+}
+
+.user-title{
+  position: absolute;
+  left: 230rpx;
+  top: 160rpx;
+  display: inline-flex
+}
+
+.user-title image{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 100%;
+}
+
+.user-name{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fae3b7;
+  margin-left: 10rpx;
+  margin-top: 16rpx;
+}
+
+.red-price{
+  position: absolute;
+  left: 220rpx;
+  top: 310rpx;
+  font-size: 100rpx;
+  font-weight: bold;
+  color: #fae3b7;
+  font-family: Times New Roman;
+}
+
+.red-dde{
+  position: absolute;
+  left: 220rpx;
+  top: 480rpx;
+  font-size: 28rpx;
+  color: #fae3b7;
+}
+
+button {
+  font-size: 28rpx;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  border-radius: 30rpx;
+  height: 100%;
+}
+
+button::after{
+border:none;
+}
+
+input{
+outline:none;
+border:none;
+list-style: none;
+}
+
+.but-sare{
+  /* border:1rpx solid red; */
+  height: 220rpx;
+  width: 300rpx;
+  position: absolute;
+  left: 230rpx;
+  top: 680rpx;
+}
+
+.red-tishi
+{
+  color: #b0b0b0;
+  font-size: 26rpx;
+  padding: 24rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #b0b0b0;
+ 
+}
+
+.users{
+  padding: 24rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+}
+
+.uss{
+  margin-left: 24rpx;
+}
+
+.users image{
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.us-time{
+  color: #b0b0b0;
+  border-bottom: 1rpx solid #b0b0b0;
+  padding-bottom: 23rpx;
+}
+
+.us-name{
+  font-size: 32rpx;
+}

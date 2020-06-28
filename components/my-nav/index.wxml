@@ -1,0 +1,7 @@
+<!--components/my-nav/index.wxml-->
+<view class='flex-row flex-y-center  nav-box' style='height: {{height*2 + 24}}px;background-color:#fff;'>
+  <!-- <view class='flex-grow-0  nav-return' wx:if="{{!share}}" bindtap="tomsg">
+    <image src="/components/images/news.png" mode='aspectFill' bindtap='_back'></image>
+  </view> -->
+  <view class='page-title flex-grow-0' style="color:{{color}};">个人中心</view>
+</view>

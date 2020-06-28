@@ -1,0 +1,15 @@
+<!--pages/chushou/chushou.wxml-->
+<common-nav title='出售' back="{{false}}"></common-nav>
+<view class="page">
+  <view class="chushouBox flex_col">
+    <view class="flex_grow_1 flex_y_center flex_col">
+      <view class="flex_grow_1"></view>
+      <view class="flex_grow_0 flex_row ">
+        <view class="flex_grow_1  chushouIconBox" bindtap="shouhao"><image class="chushouIcons" src="/images/wanfenhao.png" mode="widthFix"></image><view class="chushouIconsTxt">发布收号需求</view></view>
+        <view class="flex_grow_1  chushouIconBox" bindtap="qita" ><image class="chushouIcons" src="/images/fabu.png" mode="widthFix"></image><view class="chushouIconsTxt">发布其他需求</view></view>
+      </view>
+      <view class="flex_grow_1"></view>
+    </view>
+  </view>
+</view>
+

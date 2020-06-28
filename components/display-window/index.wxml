@@ -1,0 +1,20 @@
+<!--components/display-window/index.wxml-->
+<view class='flex-row flex-x-center dis-box' style='height:{{heiget}};background-color:{{bgColor}}' wx:if="{{images.length>0}}">
+  <view style='height:{{heiget}}' class='banner'>
+    <swiper
+      indicator-dots="true" 
+      circular 
+      autoplay 
+      interval="3000"
+      indicator-active-color="#F33535" 
+      style='height:{{heiget}}'
+    >
+      <block wx:for="{{images}}">
+        <swiper-item>
+          <image class='{{shape}}' style='height:{{heiget}}' src="{{item.image}}" mode="aspectFill" data-index="{{index}}"  bindtap="jumpPage"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+

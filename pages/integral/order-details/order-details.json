@@ -1,0 +1,12 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "common-nav": "/components/common-nav/index",
+    "van-steps": "/vant-weapp/dist/steps/index",
+    "van-cell": "/vant-weapp/dist/cell/index",
+    "van-cell-group": "/vant-weapp/dist/cell-group/index",
+    "van-transition": "/vant-weapp/dist/transition/index",
+    "van-dialog": "/vant-weapp/dist/dialog/index",
+    "van-toast": "/vant-weapp/dist/toast/index"
+  }
+}

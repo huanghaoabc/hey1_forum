@@ -1,0 +1,450 @@
+<!--components/article-list/index.wxml-->
+
+<!-- 多图或无图类型 -->
+<!-- <view wx:for='{{list}}'>
+<view class='list-box' wx:if='{{(item.images.length>1 || item.images.length==0) && item.sub_type==1}}' >
+  <view 
+    class="flex-row redbao flex-y-center"
+    data-id='{{item.id}}'
+    bind:tap="clickTitle" 
+    wx:if="{{item.red_status == 1 && markCheck==1}}">
+    <view class="flex-grow-0">
+      <image src='/components/images/redbao.png' mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-0 red-title">红包帖</view>
+    <view class="flex-grow-0 red-des">(剩余{{item.red_sur_number}}个红包未领)</view>
+  </view>
+  <view class='flex-row list-top' >
+    <view class='avatar-image flex-grow-0' data-id="{{item.user_id}}" bindtap="tocenter">
+      <image src='{{item.user.avatar}}' mode='aspectFill'></image>
+    </view>
+    <view class='user-msg flex-grow-1'>
+      <view class='user-name flex-row' data-id="{{item.user_id}}" bindtap="tocenter">{{item.user.nickname}}
+        <image 
+          wx:if="{{item.user.is_admin==1}}" 
+          style='height:40rpx;width:40rpx' 
+          src='/components/images/official.png'
+          mode='aspectFill'>
+        </image>
+      </view>
+      <view class='flex-row'>
+        <view class="flex-col user-level">LV{{item.user.level}}</view>
+        <view class="flex-col user-level roof-box" wx:if="{{item.roof==1}}">置顶</view>
+        <view class="flex-col user-level essence" wx:if="{{item.essence==1}}">精</view>
+      </view>
+    </view>
+    <view class='put-time flex-grow-0'>{{item.createtime}}</view>
+  </view>
+  <view class='list-content'>
+    <text 
+      class='title' 
+      style='color:#F33535 ;display:inline;'  
+      wx:if="{{item.topic_id!=0}}" 
+      data-id='{{item.topic_id}}'
+      bind:tap="clickTopic">#{{item.topic.title}}#</text>
+    <view class='title' style="display:inline;" data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.title}}</view>
+
+    <view class='image-list'>
+      <view class='image-row'  wx:for="{{item.images}}" wx:for-item='vvo' wx:for-index='imageindex'>
+      <image src='{{vvo}}' mode='aspectFill' data-index="{{index}}" data-imageindex="{{imageindex}}" bindtap="viewImages"></image>
+      </view>
+    </view>
+
+    <view class='flex-row expand'>
+      <view class='flex-grow-1' data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.view_count}}阅读</view>
+      <view class='flex-grow-0' data-id='{{item.id}}'
+      bind:tap="clickTitle">
+        <image src='/components/images/comment.png' mode='aspectFill'></image>
+      </view>
+      <view class='flex-grow-0 number'>{{item.reply}}</view>
+      <view 
+        class='flex-grow-0'
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood"
+      >
+        <image src="/components/images/good{{item.goods==1?'-active':''}}.png" mode='aspectFill'></image>
+      </view>
+      <view 
+        class='flex-grow-0 number' 
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood">
+        {{item.good_count}}
+      </view>
+
+      <view 
+        class='flex-grow-0 number' 
+        wx:if="{{item.circle_id!=0}}"
+        data-id='{{item.circle_id}}'
+        bind:tap="clickCircle">
+        | {{item.circle.title}}
+      </view>
+    </view>
+  </view>
+</view>
+
+!-- 单图类型 --
+<view class='list-box' wx:if="{{item.images.length==1&&item.sub_type==1}}">
+  <view 
+    class="flex-row redbao flex-y-center"
+    data-id='{{item.id}}'
+    bind:tap="clickTitle"
+    wx:if="{{item.red_status == 1 && markCheck==1}}">
+    <view class="flex-grow-0">
+      <image src='/components/images/redbao.png' mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-0 red-title">红包帖</view>
+    <view class="flex-grow-0 red-des">(剩余{{item.red_sur_number}}个红包未领)</view>
+  </view>
+  <view class='flex-row list-top'>
+    <view class='avatar-image flex-grow-0'   data-id="{{item.user_id}}" bindtap="tocenter">
+      <image src='{{item.user.avatar}}'  mode='aspectFill'></image>
+    </view>
+    <view class='user-msg flex-grow-1'>
+      <view class='user-name flex-row'   data-id="{{item.user_id}}" bindtap="tocenter">{{item.user.nickname}}
+        <image 
+          wx:if="{{item.user.is_admin==1}}" 
+          style='height:40rpx;width:40rpx' 
+          src='/components/images/official.png'
+          mode='aspectFill'>
+        </image>
+      </view>
+      <view class='flex-row'>
+        <view class="flex-col user-level">LV{{item.user.level}}</view>
+        <view class="flex-col user-level roof-box" wx:if="{{item.roof==1}}">置顶</view>
+        <view class="flex-col user-level essence" wx:if="{{item.essence==1}}">精</view>
+      </view>
+    </view>
+    <view class='put-time flex-grow-0'>{{item.createtime}}</view>
+  </view>
+  <view class='list-content'>
+    <text 
+      class='title' 
+      style='color:#F33535 ;display:inline;'  
+      wx:if="{{item.topic_id!=0}}" 
+      data-id='{{item.topic_id}}'
+      bind:tap="clickTopic">#{{item.topic.title}}#</text>
+    <view class='title' style="display:inline;" data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.title}}</view>
+
+    
+      <view class='big-image-row' data-id='{{item.id}}'
+    bind:tap="clickTitle">
+      <image src='{{item.images[0]}}' mode='aspectFill' data-src="{{item.images[0]}}" ></image>
+      </view>
+
+    <view class='flex-row expand'>
+      <view class='flex-grow-1' data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.view_count}}阅读</view>
+      <view class='flex-grow-0' data-id='{{item.id}}'
+      bind:tap="clickTitle">
+        <image src='/components/images/comment.png' mode='aspectFill'></image>
+      </view>
+      <view class='flex-grow-0 number'>{{item.reply}}</view>
+      <view 
+        class='flex-grow-0'
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood"
+      >
+        <image src="/components/images/good{{item.goods==1?'-active':''}}.png" mode='aspectFill'></image>
+      </view>
+      <view 
+        class='flex-grow-0 number' 
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood">
+        {{item.good_count}}
+      </view>
+      <view 
+        class='flex-grow-0 number' 
+        wx:if="{{item.circle_id!=0}}"
+        data-id='{{item.circle_id}}'
+        bind:tap="clickCircle">
+      | {{item.circle.title}}
+      </view>
+    </view>
+  </view>
+</view>
+
+!-- 视频类型 --
+<view class='list-box' wx:if="{{item.sub_type==2}}">
+  <view 
+    class="flex-row redbao flex-y-center"
+    wx:if="{{item.red_status == 1 && markCheck==1}}">
+    <view class="flex-grow-0">
+      <image src='/components/images/redbao.png' mode='aspectFill'></image>
+    </view>
+    <view class="flex-grow-0 red-title">红包帖</view>
+    <view class="flex-grow-0 red-des">(剩余{{item.red_sur_number}}个红包未领)</view>
+  </view>
+  <view class='flex-row list-top' >
+    <view class='avatar-image flex-grow-0' data-id="{{item.user_id}}" bindtap="tocenter">
+      <image src='{{item.user.avatar}}' mode='aspectFill'></image>
+    </view>
+    <view class='user-msg flex-grow-1'>
+      <view class='user-name flex-row' data-id="{{item.user_id}}" bindtap="tocenter">{{item.user.nickname}}
+        <image 
+          wx:if="{{item.user.is_admin==1}}" 
+          style='height:40rpx;width:40rpx' 
+          src='/components/images/official.png'
+          mode='aspectFill'>
+        </image>
+      </view>
+      <view class='flex-row'>
+        <view class="flex-col user-level">LV{{item.user.level}}</view>
+        <view class="flex-col user-level roof-box" wx:if="{{item.roof==1}}">置顶</view>
+        <view class="flex-col user-level essence" wx:if="{{item.essence==1}}">精</view>
+      </view>
+    </view>
+    <view class='put-time flex-grow-0'>{{item.createtime}}</view>
+  </view>
+  <view class='list-content'>
+    <text 
+      class='title' 
+      style='color:#F33535 ;display:inline;'  
+      wx:if="{{item.topic_id!=0}}" 
+      data-id='{{item.topic_id}}'
+      bind:tap="clickTopic">#{{item.topic.title}}#</text>
+    <view class='title' style="display:inline;" data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.title}}</view>
+
+    <view class="video-box flex-row flex-x-center">
+      <video src="{{item.video_url}}" auto-pause-if-navigate   controls  show-center-play-btn="{{false}}" title="{{item.title}}"></video>
+    </view>
+
+    <view class='flex-row expand'>
+      <view class='flex-grow-1' data-id='{{item.id}}'
+      bind:tap="clickTitle">{{item.view_count}}阅读</view>
+      <view class='flex-grow-0' data-id='{{item.id}}'
+      bind:tap="clickTitle">
+        <image src='/components/images/comment.png' mode='aspectFill'></image>
+      </view>
+      <view class='flex-grow-0 number'>{{item.reply}}</view>
+      <view 
+        class='flex-grow-0'
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood"
+      >
+        <image src="/components/images/good{{item.goods==1?'-active':''}}.png" mode='aspectFill'></image>
+      </view>
+      <view 
+        class='flex-grow-0 number' 
+        data-index='{{index}}'
+        data-id='{{item.id}}'
+        bind:tap="onClickGood">
+        {{item.good_count}}
+      </view>
+      <view 
+        class='flex-grow-0 number' 
+        wx:if="{{item.circle_id!=0}}"
+        data-id='{{item.circle_id}}'
+        bind:tap="clickCircle">
+      | {{item.circle.title}}
+      </view>
+    </view>
+  </view>
+</view>
+</view> -->
+<view wx:for='{{list}}' class="ItemRow">
+	<!-- unit start -->
+	<block wx:if="{{item.circle_id == 23 || item.circle_id==22}}">
+		<view class="flex_row IndexItems">
+			<view class="flex_grow_1 pd0_10 flex_col" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+				<view class="flex_grow_1 flex_y_center lh2 flex_row">
+					<view class="IndexItemTitle  TextDian flex_grow_0 line2" style="width:540rpx">{{item.title}}<text class="fs40 FontF00 pd0_10">{{!isNaN(item.jiage) && item.jiage != 0 ? '￥'+item.jiage:'面议'}}</text></view>
+				</view>
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex-grow-0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row " style="width:120rpx; display:block; ">
+							<test class="flex-grow-1">粉 丝 量：</test>
+						</view>
+						<view class="flex-grow-1">{{item.fandsNum}}</view>
+					</view>
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+							<test class="flex-grow-1">粉 丝 属 性：</test>
+						</view>
+						<view class="flex-grow-1">{{item.Gender%2 == 0 ? '男':'女'}}性</view>
+					</view>
+				</view>
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:120rpx; display:block;">
+							<test class="flex-grow-1">播 放 量：</test>
+						</view>
+						<view class="flex-grow-1">{{item.playNum}}</view>
+					</view>
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+							<test class="flex-grow-1">账 号 类 型：</test>
+						</view>
+						<view class="flex-grow-1">{{item.AccountType}}</view>
+					</view>
+				</view>
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:120rpx; display:block">
+							<test class="flex-grow-1">橱 <text class="FontFFF">橱</text> 窗：</test>
+							<test class="flex-grow-1"></test>
+						</view>
+						<view class="flex-grow-1">{{item.Chuchuang == 2 ? '是':'否'}}</view>
+					</view>
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block">
+							<test class="flex-grow-1">是 否 实 名：</test>
+						</view>
+						<view class="flex-grow-1">{{item.Realname == 2 ? '是':'否'}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="flex_grow_0   flex-col">
+				<view class="flex-grow-0 fs24 Font999 lh2" style="text-align:right">{{item.createtime}}</view>
+				<view class="flex-grow-1 FontF00 fs40 flex_y_center flex_row">
+					<block wx:for="{{item.images}}" wx:for-index="idx" wx:for-item="url">
+						<block wx:if="{{url != 'https://jh.juhuchuanmei.cn/addons/hey1_forum/core/public0'}}">
+							<image src="{{url}}" wx:if="{{idx <= 1}}" class="ListImageMin flex-grow-1" mode="widthFix"></image>
+						</block>
+					</block>
+				</view>
+			</view>
+		</view>
+
+		<navigator class="IndexItemTips flex_row" url="/pages/my/myindex/index?user_id={{item.user_id}}">
+			<view class="flex_grow_1 flex_row">
+				<view class="flex_grow_0">
+					<image src="{{item.user.avatar}}" class="IndexItemUserImg"></image>
+				</view>
+				<view class="flex_grow_1">{{item.user.nickname}}</view>
+			</view>
+			<view class="flex_grow_0 flex_row">
+				<view class="flex_grow_1 pd0_10 flex_y_center Font999">
+					<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+				</view>
+				<view class="flex_grow_1 pd0_10 flex_y_center Font999">
+					<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+				</view>
+			</view>
+		</navigator>
+		<view class="hr10"></view>
+	</block>
+	<block wx:if="{{item.circle_id==25}}">
+		<!--收号需求-->
+		<view class="flex_row IndexItems">
+			<view class="flex_grow_1 pd0_10 flex_col" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+				<view class="flex_grow_1 flex_y_center lh2 flex_row">
+					<view class="IndexItemTitle  TextDian flex_grow_0 line2" style="width:540rpx">{{item.title}}</view>
+				</view>
+        
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex-grow-0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row " style="width:120rpx; display:block; ">
+							<test class="flex-grow-1">粉 丝 量：</test>
+						</view>
+						<view class="flex-grow-1">{{item.fandsNum}}</view>
+					</view>
+
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+							<test class="flex-grow-1">粉 丝 属 性：</test>
+						</view>
+						<view class="flex-grow-1">{{item.Gender%2 == 0 ? '男':'女'}}性</view>
+					</view>
+
+				</view>
+
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:120rpx; display:block;">
+							<test class="flex-grow-1">播 放 量：</test>
+						</view>
+						<view class="flex-grow-1">{{item.playNum}}</view>
+					</view>
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+							<test class="flex-grow-1">账 号 类 型：</test>
+						</view>
+						<view class="flex-grow-1">{{item.dyorks ==1 ? '抖音':item.dyorks ==2 ? '快手':'通用' }}</view>
+					</view>
+				</view>
+				<view class="flex_grow_1 flex_row FontBlok lh2">
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:120rpx; display:block">
+							<test class="flex-grow-1">橱 <text class="FontFFF">橱</text> 窗：</test>
+							<test class="flex-grow-1"></test>
+						</view>
+						<view class="flex-grow-1">{{item.Chuchuang == 2 ? '是':'否'}}</view>
+					</view>
+					<view class="flex_grow_0 fs24 w50x flex-row">
+						<view class="flex-grow-0 flex-row" style="width:150rpx; display:block">
+							<test class="flex-grow-1">是 否 蓝 V：</test>
+						</view>
+						<view class="flex-grow-1">{{item.isbluev == 2 ? '是':'否'}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="flex_grow_0   flex-col">
+				<view class="flex-grow-0 fs24 Font999 lh2" style="text-align:right">{{item.createtime}}</view>
+				<view class="flex-grow-1 FontF00 fs40 flex_y_center flex_row">
+					{{item.need_count}}个
+				</view>
+			</view>
+		</view>
+
+		<navigator class="IndexItemTips flex_row" url="/pages/my/myindex/index?user_id={{item.user_id}}">
+			<view class="flex_grow_1 flex_row">
+				<view class="flex_grow_0">
+					<image src="{{item.user.avatar}}" class="IndexItemUserImg"></image>
+				</view>
+				<view class="flex_grow_1">{{item.user.nickname}}</view>
+			</view>
+			<view class="flex_grow_0 flex_row">
+				<view class="flex_grow_1 pd0_10 flex_y_center Font999">
+					<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+				</view>
+				<view class="flex_grow_1 pd0_10 flex_y_center Font999">
+					<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+				</view>
+			</view>
+		</navigator>
+		<view class="hr10"></view>
+	</block>
+	<!-- unit End -->
+  <block wx:if="{{item.circle_id == 24}}"> <!---商家--->
+    <view class="flex_col businessBox" data-id="{{item.id}}" bindtap="gotoarticle">
+    <view class="flex_grow_1 flex_row">
+      <view class="flex_grow_0 businessImgBox">
+        <image src="{{item.images[0]}}" mode="widthFix"></image>
+        <view class="headBox"> <image src="{{item.user.avatar}}" mode="widthFix"></image><text class="TextDian ">{{item.user.nickname}}</text></view>
+      </view>
+      <view class="flex_grow_1 flex_col " style="margin-right:20rpx;">
+        <view class="flex_grow_1  fs30 line1 h80" style="font-weight:bold">{{item.title}}</view>
+        
+        <view class="flex_grow_1">
+        <block wx:for="{{item.content}}" wx:for-item="tag">
+          <view class="tag" wx:if="{{tag.typename =='产品链接' && tag.value !=''}}">链接</view>
+          <view class="tag" wx:if="{{tag.typename =='定向链接' && tag.value !=''}}">定向</view>
+          <view class="tag" wx:if="{{tag.typename =='素材链接' && tag.value !=''}}">素材</view>
+        </block>
+        </view>
+        <view class="flex_grow_1">
+          <view class="quan" wx:if="{{item.douyininfo.play_count !=''}}">券￥{{item.jiage - item.couponPrice}}</view>
+        </view>
+        <view class="flex_grow_1"><text class="fs24 Font999" >券后价：</text><text class="fs40 FontF00 pd0_10">￥{{item.couponPrice}}</text><text class="fs24 Font999" style="text-decoration:line-through;">{{item.jiage}}</text></view>
+      </view>
+      <view class="flex_grow_0 businessImgBoxRight flex_col">
+        <view class="flex_grow_0 Font999 fs20">销量：{{item.salesVolume}}</view>
+        <view class="flex_grow_1 flex_x_center flex_col">
+          <view class="flex_grow_0 flex_x_center fs50 FontF00" style="font-weight:bold">{{item.commissionRate}}%</view>
+          <view class="flex_grow_0 flex_x_center fs24 Font999">佣金{{item.commissionType}}</view>
+        </view>
+        <view class="flex_grow_0 Font999 fs20 lh2">{{item.createtime}}</view>
+      </view>
+    </view>
+  </view>
+  </block>
+</view>

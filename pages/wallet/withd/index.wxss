@@ -1,0 +1,58 @@
+/* pages/wallet/withd/index.wxss */
+@import "/components/common.wxss";
+page{
+  background-color: #ededed
+}
+.withd-box{
+  width: 680rpx;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10rpx;
+}
+
+.w-type{
+  /* width: 100%; */
+  background-color: #fbfbfb;
+  font-size: 32rpx;
+  padding-left: 24rpx;
+  padding-top: 24rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.w-t-image image{
+  height: 90rpx;
+  width: 210rpx;
+  margin-left: 16rpx;
+  margin-bottom: 10rpx;
+
+}
+
+
+.p-b-price{
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.c-shenyu{
+  margin-left: 24rpx;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #888888
+}
+
+.tixian-button{
+  height: 80rpx;
+  width: 400rpx;
+  background-color: #f33535;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin-top: 34rpx;
+  margin-bottom: 34rpx;
+
+}

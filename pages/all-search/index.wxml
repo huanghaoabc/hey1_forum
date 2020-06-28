@@ -1,0 +1,60 @@
+<!--pages/all-search/index.wxml-->
+<!-- 导航 -->
+<common-nav title='搜索'></common-nav>
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+  <van-search
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    show-action
+    bind:search="search"
+    bind:cancel="onCancel"
+    bind:change="inputValue"
+    shape="round"
+    focus
+    bind:cancel="back"
+  />
+  <!-- <view class="flex-row sea-type flex-x-center flex-y-center">
+    <view class="flex-col sea-row {{key==1?'action':''}}" data-key="1" bindtap="checkNav">帖子</view>
+    <view class="flex-col sea-row {{key==2?'action':''}}" data-key="2" bindtap="checkNav">圈子</view>
+    <view class="flex-col sea-row {{key==3?'action':''}}" data-key="3" bindtap="checkNav">话题</view>
+    <view class="flex-col sea-row {{key==4?'action':''}}" data-key="4" bindtap="checkNav">用户</view>
+    <view class="flex-col sea-row {{key==5?'action':''}}" data-key="5" bindtap="checkNav">商品</view>
+  </view> -->
+
+  <view class="host" wx:if="{{!isSearch}}">
+    <view class="flex-row flex-y-center">
+      <view class="flex-col">
+        <image  src='/components/images/host.png' mode='aspectFill'></image>
+      </view>
+      <view class="flex-col">热门搜索</view>
+    </view>
+    <view class="host-box">
+      <view class="host-row" wx:for="{{hostKey}}" data-value="{{item}}" bindtap="checkKey">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="flex-row history flex-y-center"  wx:if="{{!isSearch&&history.length>0}}">
+    <view class="flex-grow-1 his-title">搜索记录</view>
+    <view class="flex-grow-0 his-del" bindtap="emptyHis">清空</view>
+  </view>
+  <view class="his-box"  wx:if="{{!isSearch}}">
+      <view class="his-row" wx:for="{{history}}" data-value="{{item}}" bindtap="checkKey">{{item}}</view>
+  </view>
+  <view class="result-box flex-row" wx:for="{{list}}" data-title="{{item.title}}" data-id="{{item.id}}" bindtap="toDes">
+    <view class="flex-col" wx:if="{{item.image != ''}}">
+      <image src='{{item.image}}' mode='aspectFill'></image>
+    </view>
+    <view class="flex-col">
+      <view class="flex-row res-title">{{item.title}}</view>
+      <view class="flex-row res-des">{{item.des}}</view>
+    </view>
+  </view>
+  <!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading && checkSea}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading && checkSea}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0 && checkSea}}'></hey-empty>
+</view>

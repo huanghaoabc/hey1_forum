@@ -1,0 +1,110 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/group-circle/index/index",
+    "pages/group-circle/details/index",
+    "pages/group-circle/into-rule/index",
+    "pages/group-circle/into-table/index",
+    "pages/topic/index/index",
+    "pages/topic/details/index",
+    "pages/article/details/index",
+    "pages/article/details/kuaishou",
+    "pages/article/details/douyin",
+    "pages/article/details/shangjia",
+    "pages/article/details/content",
+    "pages/group-circle/details/shangjia",
+    "pages/group-circle/details/shouhao",
+    "pages/article/details/shouhao",
+    "pages/group-circle/details/catalog",
+    "pages/my/index",
+    "pages/my/mission/index",
+    "pages/my/myindex/index",
+    "pages/my/myindex/myshop",
+    "pages/my/myindex/myshangpin",
+    "pages/my/myindex/myneed",
+    "pages/common/rich-text",
+    "pages/release/release",
+    "pages/release/sell",
+    "pages/release/douyin",
+    "pages/release/fabu",
+    "pages/release/need",
+    "pages/release/otherneed",
+    "pages/search-class/search-class",
+    "pages/admin/index",
+    "pages/admin/add",
+    "pages/admin/shenhe",
+    "pages/admin/shenheNeed",
+    "pages/admin/shenheNeedo",
+    "pages/admin/shenheshop",
+    "pages/admin/list",
+    "pages/admin/sell",
+    "pages/user-center/index",
+    "pages/user-colle/index",
+    "pages/follow/index",
+    "pages/my-circles/index",
+    "pages/my-edit/index",
+    "pages/integral/index/index",
+    "pages/integral/details/details",
+    "pages/integral/order-preview/order-preview",
+    "pages/integral/order/order",
+    "pages/integral/order-details/order-details",
+    "pages/article/comment/index",
+    "pages/report/index",
+    "pages/web-view/index",
+    "pages/finds/index",
+    "pages/finds/find",
+    "pages/notice/index",
+    "pages/all-search/index",
+    "pages/feedback/index",
+    "pages/wallet/index",
+    "pages/wallet/withd/index",
+    "pages/wallet/order/index",
+    "pages/red-view/index",
+    "pages/limit-msg/index",
+    "pages/chushou/chushou",
+    "pages/chushou2/chushou"
+  ],
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#666666",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home1.png",
+        "selectedIconPath": "/images/home_hover.png"
+      },
+      {
+        "pagePath": "pages/chushou/chushou",
+        "text": "出售",
+        "iconPath": "/images/shop1.png",
+        "selectedIconPath": "/images/shop_hover.png"
+      },
+      {
+        "pagePath": "pages/finds/find",
+        "text": "发现",
+        "iconPath": "/images/faxian.png",
+        "selectedIconPath": "/images/faxian_hover.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/images/user.png",
+        "selectedIconPath": "/images/user_hover.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "van-tabbar": "/vant-weapp/dist/tabbar/index",
+    "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,38 @@
+<!--components/article-list/index.wxml-->
+
+<!-- 多图或无图类型 -->
+<view wx:for='{{list}}'>
+	<!-- unit start -->
+	<view class="flex_row IndexItems">
+		<view class="flex_grow_0 tc">
+			<image class="IndexHeader" src="{{item.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{item.user.nickname}}</text><text class="IndexHeaderTime Font999 fs24">{{item.createtime}}</text>
+		</view>
+		<view class="flex_grow_1 pd0_10 flex_col">
+			<view class="flex_grow_1 flex_y_center"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center">
+				<view class="flex_grow_1 fs20">播放量：{{item.playNum}}</view>
+				<view class="flex_grow_1 fs20">粉丝属性：{{item.Gender}}</view>
+				<view class="flex_grow_1 fs20">橱窗否：{{item.Chuchuang}}</view>
+			</view>
+			<view class="flex_grow_1 flex_row Font999 flex_y_center">
+				<view class="flex_grow_1 fs20">粉丝量：{{item.fandsNum}}</view>
+				<view class="flex_grow_1 fs20">账号类型：{{item.AccountType}}</view>
+				<view class="flex_grow_1 fs20">实名否：{{item.Realname}}</view>
+			</view>
+		</view>
+		<view class="flex_grow_0 flex_y_center FontF00 fs40">{{item.jiage}}</view>
+	</view>
+	<view class="IndexItemTips flex_row">
+		<view class="flex_grow_1">快手</view>
+		<view class="flex_grow_0 flex_row">
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
+			</view>
+			<view class="flex_grow_1 pd0_10 flex_y_center">
+				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
+			</view>
+		</view>
+	</view>
+	<view class="hr101"></view>
+	<!-- unit End -->
+</view>

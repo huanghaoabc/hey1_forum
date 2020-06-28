@@ -1,0 +1,85 @@
+/* pages/integral/order/order.wxss */
+@import "/components/common.wxss";
+.list{
+  margin-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+.goods-box{
+  width: 95%;
+  background: #fff;
+  border-radius: 15rpx;
+  margin: 0 auto;
+  margin-bottom: 24rpx;
+  color: #17233d;
+}
+.goods-shop{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  height: 100rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #e8eaec;
+  margin-bottom: 24rpx;
+}
+.goods-shop image{
+  height: 40rpx;
+  width: 40rpx;
+}
+.shop-name{
+  /* margin-top: 18rpx; */
+  margin-left: 20rpx;
+}
+.order-status{
+  color: #f33535;
+  font-size: 28rpx;
+}
+.goods-des-box{
+  margin: 0rpx 24rpx;
+}
+.goods-des-box image{
+  height: 180rpx;
+  width: 180rpx;
+  border-radius: 15rpx;
+}
+.goods-des-title{
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.goods-des-title.money{
+  text-decoration: line-through;
+}
+.goods-des-des{
+  font-size: 22rpx;
+  color: #ccc;
+  margin-left: 10rpx;
+}
+.goods-statis{
+  margin-right: 24rpx;
+  padding-bottom: 24rpx;
+}
+.goods-statis-price{
+  font-size: 32rpx;
+  color: #f33535;
+  font-weight: 600rpx;
+}
+.order-no{
+  font-size: 30rpx;
+  font-weight: 600rpx;
+}
+.order-des-act{
+  padding:24rpx;
+  border-top: 1rpx solid #e8eaec;
+}
+.order-des-button{
+  font-size: 26rpx;
+  border: 1rpx solid #f33535;
+  text-align: center;
+  color: #f33535;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+  padding: 10rpx 30rpx;
+}
+.empty-list{
+  font-size: 32rpx;
+  padding: 100rpx 0;
+  color: #c5c8ce;
+}

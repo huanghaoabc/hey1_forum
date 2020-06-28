@@ -1,0 +1,35 @@
+<!--pages/finds/index.wxml-->
+<common-nav title='发现' back="{{false}}"></common-nav>
+<view class='home-page' style='margin-top:{{height+10}}rpx'>
+   <!-- 广告橱窗 -->
+  <display-window position="2"></display-window>
+
+    <!-- 圈子 -->
+  <group-circle host-circles='{{hostCircles}}' title="最近逛的圈"></group-circle>
+
+  <title-box title='我加入的圈' url='/pages/my-circles/index'  wx:if="{{hostCircles.length>0}}">
+    <!-- 圈子项 -->
+    <circle-row list='{{cirList}}' check="{{check}}"></circle-row>
+  </title-box >
+
+  <!-- 菜单 -->
+<classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
+<!-- 文章列表 -->
+  <article-list list="{{list}}">
+  </article-list>
+
+  <!-- 换一批 -->
+  <!-- <view class="flex-row flex-x-center refresh" bindtap="randomArt">
+    <image src="/images/refresh.png" mode='aspectFill'></image>
+    换一批
+  </view> -->
+
+<!-- 没有内容 -->
+   <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind>
+
+  <!-- 加载动画 -->
+  <hey-loading wx:if='{{showLoading}}'/>
+
+  <!-- 底线 -->
+  <hey-empty wx:if='{{isEmpty && list.length > 0}}'></hey-empty>
+</view>
