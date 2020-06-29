@@ -45,7 +45,6 @@
 		</view>
 	</view>
 	<view class="hr10"></view>
-
 	<!-- <view class="officialAccountView">  <official-account bindload="officialAccountLoadFuc" binderror="officialAccountErrorFuc"></official-account>  </view> -->
 	<!-- 首页圈子 -->
 	<!-- <group-circle host-circles='{{hostCircles}}'></group-circle> -->

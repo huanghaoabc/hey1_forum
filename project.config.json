@@ -5,7 +5,7 @@
 	},
 	"setting": {
 		"urlCheck": true,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
@@ -23,7 +23,8 @@
 			"outputPath": ""
 		},
 		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.2",
@@ -365,6 +366,12 @@
 					"name": "发布抖音",
 					"pathName": "pages/release/sell",
 					"query": "subtype=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/myindex/index",
+					"pathName": "pages/my/myindex/index",
 					"scene": null
 				}
 			]

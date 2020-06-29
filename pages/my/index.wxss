@@ -22,6 +22,19 @@
 .line {padding:24rpx;}
 
 .icon image{
-  height:50rpx;
-  width:50rpx;
+  height:40rpx;
+  width:40rpx;
+}
+
+.myindexCon{
+  /* border: 1px solid yellow; */
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  position: relative;
+  margin-top: -30rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+.myindexCon .title{
+  margin-left: 20rpx;
 }

@@ -6,6 +6,7 @@
   width: 100%;
   background-color: #f33535;
   color: #fff;
+  line-height: 300rpx;
 }
 
 .user-msg{
@@ -17,7 +18,7 @@
   height: 120rpx;
   width: 120rpx;
   border-radius: 100%;
-  margin-top: 24rpx;
+  /* margin-top: 24rpx; */
 }
 
 .user-name{
@@ -65,7 +66,7 @@
   line-height: 50rpx;
   margin-right: 24rpx;
 }
-.circle-button.active{
+.circle-button .active{
   background-color: #c5c8ce;
   color: #808695;
 }

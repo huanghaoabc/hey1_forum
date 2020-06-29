@@ -103,6 +103,7 @@ page{
   padding: 24rpx;
   border-radius: 15rpx;
 }
+
 .linkBox {padding:5rpx 10rpx; border:1px solid #eee; margin:0 10rpx 0 0; border-radius:10rpx; line-height: 1.5; width:420rpx;}
 .copyButton {line-height:1.5; padding:12rpx 20rpx; border-radius:10rpx; color:#fff; background:#f33535;}
 .FixButton {width:100%; height: 100rpx; position:fixed; left:0; bottom:0; z-index:9999}

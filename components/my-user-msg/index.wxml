@@ -1,7 +1,8 @@
 <!--components/my-user-msg/index.wxml-->
-<view class='user-box ' style="height:170rpx">
+<view class='user-box' style="border:1px solid red">
+
   <view class='flex-row user-msg flex-y-center' wx:if="{{user != ''}}">
-    <view class='flex-grow-0 user-avatar ' bindtap="toEdit">
+    <view class='flex-grow-0 user-avatar flex-y-center' bindtap="toEdit">
       <image src='{{user.user.avatar}}'  mode='aspectFill'></image>
     </view>
     <view class='flex-grow-1 user-name flex-y-center' bindtap="toEdit">
@@ -14,6 +15,7 @@
         <!-- <view class="flex-col user-level">LV{{user.user.level}}</view> -->
       </view>
     </view>
+    
     <!-- <view wx:if="{{!user.sign}}" class='flex-grow-0 circle-button' bindtap="_signIn">签到</view>
     <view wx:if="{{user.sign}}" class='flex-grow-0 circle-button active'>已签到</view> -->
     <view class='flex-grow-0 more flex-y-center' bindtap="toEdit">
@@ -49,4 +51,5 @@
       <view class='flex-row flex-x-center'>小圈</view>
     </view>
   </view> -->
+
 </view>

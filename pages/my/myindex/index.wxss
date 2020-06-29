@@ -67,6 +67,31 @@
   color: #9C9A9A;
   margin-top: 20rpx;
 }
+.connectInfo{
+  width:100%;
+  background-color: #fdc4c7;
+  padding: 50rpx 0;
+}
+.noInfo{
+  width:70%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 0;
+}
+.noInfo .title{
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.sel-tab{
+  width:100%;
+  background-color: #fff;
+}
 
 .findTabBtns { font-size:28rpx; height:64rpx; line-height:64rpx; }
 .findTabBtns .tabItem {padding:0 20rpx}

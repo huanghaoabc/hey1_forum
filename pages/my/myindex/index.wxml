@@ -1,18 +1,27 @@
 <!--pages/user-center/index.wxml-->
 <!-- 导航 -->
 <common-nav title='{{user.user.nickname}}'></common-nav>
-<view class='home-page' style='margin-top:{{height}}rpx'>
+<view class='home-page' style='margin-top:{{height+20}}rpx'>
 	<view class="user-main borderBottom">
 		<view class="flex-col ">
-      <view class="flex-grow-1 flex-x-center user-avatar">
-        <image src='{{user.user.avatar}}' mode='aspectFill' style="margin:0;"></image>
+      <view class="flex-grow-1 flex-center flex-row ">
+				<view class="flex-grow-0 " style="width:200rpx;"></view>
+				<view class="flex-grow-1 user-avatar" style="width:200rpx;text-align:center;">
+					<image class="flex-grow-0" src='{{user.user.avatar}}' mode='aspectFill' style="margin:0;"></image>
+				</view>
+        <view class="flex-grow-0" style="width:200rpx;text-align:center;">
+					<image class="flex-grow-0" src='../../../images/newpost.png' mode='widthFix' style="margin:0;width:130rpx"></image>
+				</view>
+				
       </view>
+			
+		
       <view class="flex-grow-1 flex-y-center flex-row">
-        <view class="flex-grow-0" style="width:200rpx; text-align:center">12132</view>
+        <view class="flex-grow-0" style="width:200rpx; text-align:center;font-size:24rpx;">12132人访问过主页</view>
         <text class="fs30 flex-grow-1 line1" style="text-align:center;">{{user.user.nickname}}</text>
-        <view class="flex-grow-0 " style="width:200rpx; text-align:right" >
-          <!-- <view class="follow-but unfollow" style="width:150rpx; margin:0; display:inline-block">已关注</view> -->
-        
+        <view class="flex-grow-0 " style="width:200rpx; text-align:center;" >
+          
+					 <view style="width:170rpx; margin:0; display:inline-block;font-size:24rpx;">生成专属海报</view> 
         </view>
       </view>
 			<!--<view class=" user-avatar ">
@@ -50,12 +59,37 @@
 			<view class="flex-grow-0 follow-but unfollow" wx:if="{{user.followed==1}}" bindtap="followed">已关注</view>
 			<view class="flex-grow-0 jubao" bindtap="toJubao">举报</view>
 		</view> -->
+		<view style="height:20rpx;"></view>
+		<view style="font-weight:700">联系方式</view>
+		<view class="flex-row">
+			<view class="flex-grow-1 bri-info">联系对方时备注巨湖会员，通过率会更高哦</view>
+			
+			<view class="flex-grow-0 jubao" bindtap="toJubao">投诉举报</view>
+		</view>
+		<view>
+
+		</view>
 	</view>
+
 	<!-- <classify-nav nav-title='{{navTitle}}' bind:click-nav='onClickNav' check-index='{{checkIndex}}'></classify-nav>
-	<article-list list="{{list}}" /> -->
+	<article-list list="{{list}}" />  -->
 	<!-- 没有内容 -->
-	<!-- <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind> -->
-<view class="">
+	 <!-- <nofind wx:if='{{list.length <= 0 && !showLoading}}'></nofind> -->
+	 <view class="connectInfo">
+		<view class="noInfo">
+			<view class="title">温馨提示</view>
+			<view>
+				该会员信息已被隐藏
+			</view>
+			<view>
+				您可以通过添加对接人来获取联系方式
+			</view>
+			<button style="font-size:24rpx;" size="mini">
+				确认添加对接人
+			</button>
+		</view>
+	 </view>
+<view class="sel-tab">
   <view class="findTabBtns flex-row">
 			<view class="flex-grow-1"></view>
 				<view class="flex-grow-0 flex-x-center tabItem {{myindexTab == 0 ? 'curr':''}}" bindtap="TabFn" data-index="0">发布的信息({{totalNum}}条)</view>
