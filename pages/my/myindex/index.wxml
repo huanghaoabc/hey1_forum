@@ -91,10 +91,12 @@
 	 </view>
 <view class="sel-tab">
   <view class="findTabBtns flex-row">
-			<view class="flex-grow-1"></view>
-				<view class="flex-grow-0 flex-x-center tabItem {{myindexTab == 0 ? 'curr':''}}" bindtap="TabFn" data-index="0">发布的信息({{totalNum}}条)</view>
-        <view class="flex-grow-0 flex-x-center tabItem {{myindexTab == 1 ? 'curr':''}}" bindtap="TabFn" data-index="1">我的需求({{needtotalNum}}条)</view>
-			<view class="flex-grow-1 "></view>
+			<!-- <view class="flex-grow-1"></view> -->
+				<view class="flex-grow-1 flex-x-center tabItem {{myindexTab == 0 ? 'curr':''}}" bindtap="TabFn" data-index="0">发布的信息({{totalNum}}条)
+					<view ></view>
+				</view>
+        <view class="flex-grow-1 flex-x-center tabItem {{myindexTab == 1 ? 'curr':''}}" bindtap="TabFn" data-index="1">我的需求({{needtotalNum}}条)</view>
+			<!-- <view class="flex-grow-1 "></view> -->
 		</view>
     <view class="hr10"></view>
     
@@ -102,35 +104,75 @@
 <block wx:if="{{myindexTab == 0}}">
 <view wx:for='{{list}}'>
 	<!-- unit start -->
-	<view class="flex_row IndexItems" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
-		<view class="flex_grow_0 tc">
-			<image class="IndexHeader" src="{{item.user.avatar}}"></image><text class="IndexHeaderName fs30 lh">{{item.user.nickname}}</text><text class="IndexHeaderTime Font999 fs30">{{item.createtime}}</text>
-		</view>
-		<view class="flex_grow_1 pd0_10 flex_col">
-			<view class="flex_grow_1 flex_y_center"><text class="IndexItemTitle fs34 TextDian">{{item.title}}</text></view>
-			<view class="flex_grow_1 flex_row Font999 ">
-
-				<view class="flex_grow_0 fs24 w50x"><test class="TitleWidth">播放量：</test>{{item.playNum}}</view>
-				<view class="flex_grow_1 fs24 w50x"><test  class="TitleWidth">橱窗否：</test>{{item.Chuchuang}}</view>
+	<block wx:if="{{item.circle_id == 23 || item.circle_id==22}}">
+	<view class="myIndexItems">
+	<view class="flex_row ">
+		<view class="flex_grow_1 pd0_10 flex_col" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
+			<view class="flex_grow_1 flex_y_center lh2 flex_row">
+				<view class="IndexItemTitle  TextDian flex_grow_0 line2" style="width:540rpx">{{item.title}}<text class="fs30 FontF00 pd0_10">{{!isNaN(item.jiage) && item.jiage != '' ? '￥'+item.jiage:'面议'}}</text></view>
+			</view>
+			<view class="flex_grow_1 flex_row FontBlok lh2" style="width:85%;">
+				<view class="flex-grow-0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row " style="width:120rpx; display:block; ">
+						<test class="flex-grow-1">粉 丝 量：</test>
+					</view>
+					<view class="flex-grow-1">{{item.fandsNum}}</view>
+				</view>
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+						<test class="flex-grow-1">账 号 类 型：</test>
+					</view>
+					<view class="flex-grow-1">{{item.AccountType}}</view>
+				</view>
+			</view>
+			<view class="flex_grow_1 flex_row FontBlok lh2" style="width:85%;">
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:120rpx; display:block;">
+						<test class="flex-grow-1">播 放 量：</test>
+					</view>
+					<view class="flex-grow-1">{{item.playNum}}</view>
+				</view>
 				
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block;">
+						<test class="flex-grow-1">粉 丝 属 性：</test>
+					</view>
+					<view class="flex-grow-1">{{item.Gender%2 == 0 ? '男':'女'}}性</view>
+				</view>
 			</view>
-			<view class="flex_grow_1 flex_row Font999 ">
-
-				<view class="flex_grow_0 fs24 w50x"><test  class="TitleWidth">粉丝量：</test>{{item.fandsNum}}</view>
-				<view class="flex_grow_1 fs24 w50x"><test class="TitleWidth">实名否：</test>{{item.Realname}}</view>
-
-			</view>
-			<view class="flex_grow_1 flex_row Font999 ">
-
-				<view class="flex_grow_0 fs24 w50x"><test class="TitleWidth">粉丝属性：</test>{{item.Gender}}</view>
-				<view class="flex_grow_1 fs24 w50x"><test class="TitleWidth">账号类型：</test>{{item.AccountType}}</view>
-
+			<view class="flex_grow_1 flex_row FontBlok lh2" style="width:85%;">
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:120rpx; display:block">
+						<test class="flex-grow-1">橱 <text class="FontFFF">橱</text> 窗：</test>
+						<test class="flex-grow-1"></test>
+					</view>
+					<view class="flex-grow-1">{{item.Chuchuang == 2 ? '是':'否'}}</view>
+				</view>
+				<view class="flex_grow_0 fs24 w50x flex-row">
+					<view class="flex-grow-0 flex-row" style="width:150rpx; display:block">
+						<test class="flex-grow-1">是 否 实 名：</test>
+					</view>
+					<view class="flex-grow-1">{{item.Realname == 2 ? '是':'否'}}</view>
+				</view>
 			</view>
 		</view>
-		<view class="flex_grow_0 flex_y_center FontF00 fs40">{{!isNaN(item.jiage) && item.jiage != '' ? '￥'+item.jiage:'面议'}}</view>
+		<view class="flex_grow_1   flex-col">
+			<view class="flex-grow-0 fs24 Font999 lh2" style="text-align:right">{{item.createtime}}</view>
+			<view class="flex-grow-1 FontF00 fs40 flex_y_center" style="padding:20rpx;">
+			
+				<image src='{{image1==""?"../../../images/newpost.png":image1}}' mode="widthFix" style="margin:0;width:100rpx;" data-index="{{1}}" bindtap="chooseImg"></image>
+				<image src='{{image2==""?"../../../images/newpost.png":image2}}' mode="widthFix" style="margin:0;width:100rpx;" data-index="{{2}}" bindtap="chooseImg"></image>
+			
+			</view>
+		</view>
 	</view>
-	<view class="IndexItemTips flex_row">
-		<view class="flex_grow_1">{{item.circle.title}}</view>
+	<navigator class="IndexItemTips flex_row" url="/pages/my/myindex/index?user_id={{item.user_id}}">
+		<view class="flex_grow_1 flex_row">
+			<!-- <view class="flex_grow_0">
+				<image src="{{item.user.avatar}}" class="IndexItemUserImg"></image>
+			</view>
+			<view class="flex_grow_1">{{item.user.nickname}}</view> -->
+		</view>
 		<view class="flex_grow_0 flex_row">
 			<view class="flex_grow_1 pd0_10 flex_y_center">
 				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
@@ -139,25 +181,39 @@
 				<image class="IndexItemTipsImages" mode="widthFix" src="/images/eye.png"></image>{{item.view_count}}
 			</view>
 		</view>
+	</navigator>
 	</view>
-	<view class="hr101"></view>
+	<view class="hr10"></view>
+	</block>
+	
 	<!-- unit End -->
 </view>
 </block>
-
-
 <block wx:if="{{myindexTab == 1}}">
+<view class="myIndexItems">
 	<view class="flex-col">
 <block wx:for="{{need}}">
 		<view class="flex_grow_1 flex_row IndexItems" >
+		
 			<view class="flex_grow_1 flex-col">
+			
 				<view class=" lh2 line1 flex_grow_1">{{item.title}}</view>
-				<view class="flex_grow_1 fs30"><text style="font-weight:bold;">需求：</text>{{item.douyininfo.need_type}} <text class=""pd0_10></text> 数量：{{item.need_count}}</view>
+				
+				<view class="flex_grow_1 fs30"><text style="font-weight:bold;">需求：</text>{{item.douyininfo.need_type}} <text style="display:inline-block;width:20rpx;"></text><text class=""pd0_10></text> 数量：{{item.need_count}}</view>
 			</view>
-			<view class="flex_grow_0 fs30 flex_y_center FontF00">{{item.status == 0 ? '已完成':'进行中'}}</view>
+			<view class="flex_grow_1   flex-col" style="text-align:right">
+			<view class="flex-grow-0 fs24 Font999 lh2" >{{item.createtime}}</view>
+			
+			<view class="flex-grow-1 FontF00 fs40 flex_y_center" style="padding:20rpx;">
+				<view class="flex-grow-1"></view>
+				<view class="flex_grow_0 fs30 flex_y_center FontF00">{{item.status == 0 ? '已完成':'进行中'}}</view>
+			</view>
+		</view>
+			
 		</view>
 		<view class="IndexItemTips flex_grow_1 flex_row">
-		<view class="flex_grow_1">{{item.createtime}}</view>
+		<!-- <view class="flex_grow_1">{{item.createtime}}</view> -->
+		<view class="flex_grow_1"></view>
 		<view class="flex_grow_0 flex_row">
 			<view class="flex_grow_1 pd0_10 flex_y_center">
 				<image class="IndexItemTipsImages" mode="widthFix" src="/images/pinglun.png"></image>{{item.reply_count}}
@@ -168,6 +224,7 @@
 		</view>
 	</view>
 </block>
+	</view>
 	</view>
 </block>
 	<!-- 加载动画 -->

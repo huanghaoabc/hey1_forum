@@ -1,10 +1,14 @@
 // pages/user-center/index.js
+import {
+  HTTP
+} from "../../../utils/http.js";
 import { userModel } from "../../../models/user.js"
 import { articlesModel } from "../../../models/articles.js"
 import { followModel } from "../../../models/follow.js"
 const follow = new followModel()
 const articles = new articlesModel()
 const user = new userModel()
+const http = new HTTP()
 const app = getApp()
 var pageNum = 1
 const pageSize = 6
@@ -28,6 +32,44 @@ Page({
     need: [],
     myindexTab:0,
     tabType:'myrelease',
+    image1:'',
+    image2:''
+  },
+  chooseImg: function(e){
+    var page = this
+    var index = e.target.dataset.index;
+    console.log("eee",index);
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        
+        if(index == 1){
+          page.setData({
+            image1:res.tempFilePaths[0]
+          })
+          http.uploadFile({
+            filePath: page.data.image1
+          }).then(res => {
+            console.log("res==>",res);
+          })
+        }
+        else{
+          page.setData({
+            image2:res.tempFilePaths[0]
+          })
+          http.uploadFile({
+            filePath: page.data.image2
+          }).then(res => {
+            console.log("res==>",res);
+          })
+        }
+        
+        
+      }
+    })
   },
 
   /**

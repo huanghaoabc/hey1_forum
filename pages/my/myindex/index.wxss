@@ -93,6 +93,15 @@
   background-color: #fff;
 }
 
+.myIndexItems{
+  width:95%;
+  /* border:1px solid red; */
+  border-radius: 20rpx;
+  margin: 20rpx auto;
+  background-color: #fff;
+  padding: 10rpx;
+}
+
 .findTabBtns { font-size:28rpx; height:64rpx; line-height:64rpx; }
-.findTabBtns .tabItem {padding:0 20rpx}
-.findTabBtns .curr {border-bottom:2px solid #f00; font-size:32rpx; color:#f00}
+.findTabBtns .tabItem {padding:0 20rpx;width:50%;}
+.findTabBtns .curr {border-bottom:2px solid #f00; font-size:32rpx; color:#f00;}

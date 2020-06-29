@@ -250,10 +250,10 @@
   </view>
 </view>
 </view> -->
-<view wx:for='{{list}}' class="ItemRow">
-	<!-- unit start -->
+
+<view wx:for='{{list}}' >
 	<block wx:if="{{item.circle_id == 23 || item.circle_id==22}}">
-		<view class="flex_row IndexItems">
+		<!--<view class="flex_row IndexItems">
 			<view class="flex_grow_1 pd0_10 flex_col" bindtap="clickTitle" data-id="{{item.id}}" data-subtype="{{item.sub_type}}">
 				<view class="flex_grow_1 flex_y_center lh2 flex_row">
 					<view class="IndexItemTitle  TextDian flex_grow_0 line2" style="width:540rpx">{{item.title}}<text class="fs40 FontF00 pd0_10">{{!isNaN(item.jiage) && item.jiage != 0 ? '￥'+item.jiage:'面议'}}</text></view>
@@ -330,6 +330,9 @@
 				</view>
 			</view>
 		</navigator>
+    -->
+
+
 		<view class="hr10"></view>
 	</block>
 	<block wx:if="{{item.circle_id==25}}">
